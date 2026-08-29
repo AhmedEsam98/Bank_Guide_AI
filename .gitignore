@@ -1,0 +1,25 @@
+# Environment variables & secrets
+.env
+*.env
+
+# Python & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Chroma vector database and cached data
+vectorstore/chroma_db/
+vectorstore/ocr_cache/
+*.json.cache
+
+# Streamlit temporary / cache
+.streamlit/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
