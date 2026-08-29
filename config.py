@@ -80,4 +80,8 @@ DEFAULT_CHUNK_OVERLAP = 150
 # ---------------------------------------------------------------------------
 DEFAULT_TOP_K = 5
 DEFAULT_SEARCH_TYPE = "mmr"  # "similarity" | "mmr"
+RETRIEVAL_MODES = ["hybrid", "semantic", "keyword"]
+DEFAULT_RETRIEVAL_MODE = "hybrid"
+DEFAULT_SEMANTIC_WEIGHT = 0.5
+DEFAULT_BM25_WEIGHT = 0.5
 COLLECTION_NAME = "bank_manuals"

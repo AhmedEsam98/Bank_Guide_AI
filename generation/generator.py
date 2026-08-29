@@ -26,7 +26,13 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 
-from config import DEFAULT_GROQ_MODEL, GROQ_API_KEY
+from config import (
+    DEFAULT_BM25_WEIGHT,
+    DEFAULT_GROQ_MODEL,
+    DEFAULT_RETRIEVAL_MODE,
+    DEFAULT_SEMANTIC_WEIGHT,
+    GROQ_API_KEY,
+)
 from retrieval.retriever import retrieve
 
 SYSTEM_PROMPT = """You are a precise assistant answering questions about internal bank \
@@ -96,8 +102,11 @@ def answer_question(
     question: str,
     model_name: str = DEFAULT_GROQ_MODEL,
     top_k: int = 5,
+    retrieval_mode: str = DEFAULT_RETRIEVAL_MODE,
     search_type: str = "mmr",
     source_filter: str | None = None,
+    semantic_weight: float = DEFAULT_SEMANTIC_WEIGHT,
+    bm25_weight: float = DEFAULT_BM25_WEIGHT,
     temperature: float = 0.1,
 ) -> Tuple[str, List[Document]]:
     """Full RAG call: retrieve relevant chunks, then generate a grounded
@@ -109,7 +118,13 @@ def answer_question(
     max_chars = 4500 if "allam" not in model_name.lower() else 3000
 
     retrieved_docs = retrieve(
-        question, top_k=effective_top_k, search_type=search_type, source_filter=source_filter
+        question,
+        mode=retrieval_mode,
+        top_k=effective_top_k,
+        search_type=search_type,
+        source_filter=source_filter,
+        semantic_weight=semantic_weight,
+        bm25_weight=bm25_weight,
     )
 
     llm = get_llm(model_name=model_name, temperature=temperature)

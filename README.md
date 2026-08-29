@@ -7,9 +7,10 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![Groq](https://img.shields.io/badge/Groq-Fast%20LLM-F55036?style=for-the-badge&logo=groq&logoColor=white)](https://groq.com)
 [![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Store-orange?style=for-the-badge)](https://trychroma.com)
+[![BM25](https://img.shields.io/badge/BM25-Hybrid%20Search-blue?style=for-the-badge)](https://github.com/dorianbrown/rank_bm25)
 [![CUDA](https://img.shields.io/badge/NVIDIA-CUDA%20Accelerated-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-zone)
 
-**An enterprise-grade, GPU-accelerated Retrieval-Augmented Generation (RAG) system tailored for internal banking Standard Operating Procedures (SOPs), manuals, and regulatory compliance documents in Arabic and English.**
+**An enterprise-grade, GPU-accelerated Retrieval-Augmented Generation (RAG) system with Hybrid Search (Dense + BM25) tailored for internal banking Standard Operating Procedures (SOPs), manuals, and regulatory compliance documents in Arabic and English.**
 
 </div>
 
@@ -37,10 +38,16 @@ flowchart TD
         Embed --> Chroma["💾 ChromaDB Vector Store"]
     end
 
-    subgraph Retrieval ["2. Retrieval & Generation"]
-        Query["💬 User Query (Arabic / English)"] --> Search["Vector Search\n(MMR / Cosine Similarity)"]
-        Chroma -.-> Search
-        Search --> Context["Top-K Grounded Context Chunks"]
+    subgraph Retrieval ["2. Hybrid Retrieval Engine (Dense + Sparse)"]
+        Query["💬 User Query (Arabic / English)"] --> Dense["🧠 Dense Vector Search\n(Chroma + BGE-M3 / MMR)"]
+        Query --> Sparse["🔍 Sparse Keyword Search\n(BM25 Lexical Matching)"]
+        Chroma -.-> Dense
+        Dense --> Fusion["🔀 Reciprocal Rank Fusion (RRF)\nWeighted Score = w₁·RRF(Dense) + w₂·RRF(BM25)"]
+        Sparse --> Fusion
+        Fusion --> Context["Top-K Grounded Context Chunks"]
+    end
+
+    subgraph Generation ["3. Grounded Generation"]
         Context --> LLM["Groq LLM Engine\n(Qwen 3.8 27B / ALLaM 7B / GPT-OSS)"]
         Query --> LLM
         LLM --> Response["✅ Grounded Answer + Source Citations (Document & Page)"]
@@ -53,6 +60,11 @@ flowchart TD
 
 - **⚡ GPU Acceleration (`CUDA`)**: Embeds hundreds of PDF pages in seconds using `BAAI/bge-m3` on NVIDIA GPUs with memory-safe batching.
 - **🔍 OCR-Aware Extraction**: Automatically extracts native text layers with PyMuPDF and falls back to bilingual Tesseract OCR (`ara+eng`) for scanned pages or rasterized tables.
+- **🔀 Hybrid Search & RRF Fusion**:
+  - **Hybrid Mode (Default)**: Combines dense semantic vector search with sparse BM25 keyword matching via weighted **Reciprocal Rank Fusion (RRF)**.
+  - **Semantic Mode**: Dense vector search with **MMR (Maximal Marginal Relevance)** or cosine similarity to reduce boilerplate repetition.
+  - **Keyword Mode**: Lexical BM25 matching optimized for banking codes, form numbers, article references, and exact terms.
+  - **Tunable Dense / Sparse Ratio**: Interactive slider in UI to balance semantic understanding vs. exact keyword precision.
 - **🧩 5 Interchangeable Chunking Strategies**:
   - `recursive_character`: Universal balanced default.
   - `arabic_paragraph`: Preserves Arabic numbered steps (`-1`, `-2`...).
@@ -60,8 +72,8 @@ flowchart TD
   - `character`: Fixed-size sliding window.
   - `token_based`: Matches token budgeting constraints.
 - **🌐 Cross-Lingual & Grounded Answers**: Seamlessly translates Arabic procedure manuals to English answers (and vice versa) with zero hallucinations.
-- **📚 Verified Source Attribution**: Displays exact document names, page numbers, extraction methods, and text snippets used for every response.
-- **🖥️ Interactive Streamlit Interface**: Real-time LLM selection, chunking configuration, retrieval parameter tuning (top-k, MMR vs. Similarity), and chat history.
+- **📚 Verified Source Attribution**: Displays exact document names, page numbers, extraction methods, retrieval mode used, and text snippets for every response.
+- **🖥️ Interactive Streamlit Interface**: Real-time LLM selection, chunking configuration, retrieval mode & parameter tuning (Hybrid / Semantic / Keyword, top-k, MMR vs. Similarity), and chat history.
 
 ---
 
@@ -69,9 +81,9 @@ flowchart TD
 
 ```
 Bank_Guide_AI/
-├── config.py                 # Central configurations (paths, models, devices, thresholds)
-├── app.py                    # Streamlit web application & UI
-├── requirements.txt          # Python dependencies
+├── config.py                 # Central configurations (paths, models, retrieval modes, weights)
+├── app.py                    # Streamlit web application & interactive UI
+├── requirements.txt          # Python dependencies (including rank-bm25)
 ├── .env.example              # Sample environment configuration
 ├── data/
 │   └── pdfs/                 # Source banking PDF manuals
@@ -85,7 +97,7 @@ Bank_Guide_AI/
 │   └── ingest.py             # CLI and orchestrator for end-to-end ingestion
 ├── retrieval/
 │   ├── vectorstore.py        # Vectorstore manager & batch writer
-│   └── retriever.py          # Similarity and MMR search wrappers
+│   └── retriever.py          # HybridEnsembleRetriever (RRF), BM25, and Semantic search
 └── generation/
     └── generator.py          # Groq chat completions + prompt formatting
 ```
@@ -134,7 +146,7 @@ streamlit run app.py
 
 ## 💻 CLI Ingestion (Headless)
 
-You can also run ingestion directly from the command line:
+You can run ingestion directly from the command line:
 
 ```bash
 python -m ingestion.ingest --strategy recursive_character --chunk-size 1000 --chunk-overlap 150
@@ -158,6 +170,8 @@ python -m ingestion.ingest --strategy recursive_character --chunk-size 1000 --ch
 - **Framework**: LangChain Core / LangChain Community / LangChain Groq / LangChain Chroma
 - **Embeddings**: `BAAI/bge-m3` via HuggingFace / Sentence-Transformers (CUDA Accelerated)
 - **Vector Store**: ChromaDB
+- **Lexical / Sparse Search**: BM25 (`rank-bm25` / `BM25Retriever`)
+- **Hybrid Fusion**: Custom Reciprocal Rank Fusion (`HybridEnsembleRetriever` with tunable weights)
 - **LLM Provider**: Groq Cloud API (`qwen/qwen3.8-27b`, `allam-2-7b`, `openai/gpt-oss-120b`)
 - **PDF & OCR**: PyMuPDF (`fitz`), Pillow, PyTesseract
 - **UI Frontend**: Streamlit

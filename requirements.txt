@@ -12,3 +12,4 @@ streamlit==1.40.1
 python-dotenv==1.0.1
 tiktoken==0.8.0
 unstructured==0.16.5
+rank-bm25==0.2.2
