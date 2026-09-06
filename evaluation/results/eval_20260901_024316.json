@@ -1,0 +1,244 @@
+{
+  "model": "gemini-2.0-flash",
+  "timestamp": "2026-09-01 02:43:16",
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What is Retrieval-Augmented Generation (RAG)?",
+      "focus": "Simple/general knowledge question.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q2",
+      "question": "What are the main limitations of RAG?",
+      "focus": "Document-grounded factual question.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q3",
+      "question": "Why is it bad?",
+      "focus": "Ambiguous/conversational query.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q4",
+      "question": "What are the challenges and failure modes of RAG?",
+      "focus": "Good candidate for Multi-Query.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q5",
+      "question": "Compare RAG and fine-tuning, explain their advantages and disadvantages, and state when each should be used.",
+      "focus": "Complex multi-part question; good for Decomposition.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q6",
+      "question": "How does RAG reduce hallucination?",
+      "focus": "Good candidate for HyDE.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q7",
+      "question": "Find documents about RAG published after 2024.",
+      "focus": "Good candidate for Self-Query.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q8",
+      "question": "What is reranking and why is it useful in RAG?",
+      "focus": "Retrieval/re-ranking knowledge question.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q9",
+      "question": "Which approach should be used for a simple question versus a complex multi-part question?",
+      "focus": "Routing decision question.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q10",
+      "question": "ما هي إجراءات التعامل مع البريد السري في وحدة البريد والملفات المركزية؟",
+      "focus": "CRAG/retrieval-correction test; corpus-specific question.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    }
+  ],
+  "summary": {
+    "route_distribution": {
+      "error": 10
+    },
+    "total_basic_cost_usd": 0,
+    "total_advanced_cost_usd": 0,
+    "avg_eval_scores": {}
+  }
+}

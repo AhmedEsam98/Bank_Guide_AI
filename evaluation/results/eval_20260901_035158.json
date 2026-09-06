@@ -1,0 +1,604 @@
+{
+  "model": "qwen/qwen3.8-27b",
+  "timestamp": "2026-09-01 03:51:58",
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What is Retrieval-Augmented Generation (RAG)?",
+      "focus": "Simple/general knowledge question.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information about Retrieval-Augmented Generation (RAG). The manuals cover internal bank procedures for Assets/Warehouse Operations, Central Mail & Files, and Central Alarm systems, but they do not define or explain the concept of RAG.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 10,
+            "content": "الارع ناسه، وار ساله ا   ندير– \n.املطبعة واملستودعات لالاالع عليه \n1-\n مدير– املطبعة واملستودعات املنفذ \n  اسددتال  التعميم والتمرق ننه وفي حال عد  وجود نطالعات يتم عرضدده عل  نائب رئي– \n ندير الشددؤوو اإلدارية واللندسددية السددتيااء\n.نوافرته \n2-\n مسؤول  ول– املوجودات وعمليات املستودعات املنفذ \n.استال  املوافرة عل  التعميم وارساله ا   نركز السياسات واإلجراءات الستيمال عملية اصدار التعميم \n3-\n نعد اصدار التعميم ل كافة الاروع ونراكز العمل \n) والاروع ايخارجية \n:يتم اجراء نا يلي \n-\n \n.الطلب ن  ايةلا"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 20,
+            "content": "1\n \n رقم النسخة \n دليل إجراءات وحدة االنذار املركزي \n اسم االجراء \n \n08/2024\n \n تاريخ اإلصدار \n02/2026\n \n تاريخ آخر مراجعة\n \nInternal Use                                                                                                                                                                                                              20/20 إعداد / \n دائرة تطوير وهندسة العمليات \n \n:املالحق \n ملحق رقم1 \n : االوقات املعيارية ملراجعة ال Logs\n \n :و حسب البنود الواردة و التي تخص كل نظام  ضمن اا"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 69,
+              "cost_usd": 4.14e-05,
+              "latency_s": 17.4762,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 69,
+          "total_cost_usd": 4.14e-05,
+          "total_latency_s": 17.4762
+        },
+        "latency": 17.48
+      },
+      "advanced_rag": {
+        "answer": "**Retrieval-Augmented Generation (RAG)** is a hybrid AI architecture that combines the strengths of **retrieval-based systems** and **generative models** (like Large Language Models, or LLMs).\n\n### How It Works:\n1.  **Retrieval**: When a user asks a question, the system first searches a designated external knowledge base (such as a company’s internal documents, databases, or the web) to find the most relevant pieces of information.\n2.  **Augmentation**: These retrieved documents or data snippets are added to the user’s original prompt as context.\n3.  **Generation**: The LLM uses this enriched context to generate a more accurate, up-to-date, and grounded response.\n\n### Key Benefits:\n-   **Reduced Hallucinations**: By grounding answers in factual, retrieved data, RAG significantly reduces the likelihood of the AI making up information.\n-   **Up-to-Date Knowledge**: Unlike static LLMs trained on fixed datasets, RAG can access the latest information without requiring retraining.\n-   **Domain-Specific Accuracy**: It allows LLMs to answer questions about specialized or private data (e.g., internal company policies) that they were not originally trained on.\n-   **Transparency**: Users can often see the sources cited for the generated answer, increasing trust and verifiability.\n\n### Common Use Cases:\n-   Customer support chatbots that answer questions based on product manuals.\n-   Enterprise search tools that summarize internal documents.\n-   Legal or medical assistants that cite specific regulations or studies.\n\nIn essence, RAG enables AI systems to \"look up\" information before \"speaking,\" making them more reliable and useful for real-world applications.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for a general definition of a technical concept (RAG) which is common knowledge and does not require searching internal bank procedure manuals.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 429,
+              "output_tokens": 54,
+              "cost_usd": 9.675e-05,
+              "latency_s": 0.514,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 67,
+              "output_tokens": 364,
+              "cost_usd": 0.00022845,
+              "latency_s": 1.1084,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 496,
+          "total_output_tokens": 418,
+          "total_cost_usd": 0.0003252,
+          "total_latency_s": 1.6224
+        },
+        "latency": 1.66
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so the criterion is failed entirely."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "The evaluation criterion requires assessing whether the answer is grounded in the provided context. The provided context is explicitly '(no context)'. Therefore, no claims in the answer can be supported by the context. While the answer contains factually correct information about RAG, it is entirely ungrounded relative to the empty context provided, failing the specific criterion of being supported by the context."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer provides a comprehensive and accurate definition of RAG, clearly explaining the mechanism (Retrieval, Augmentation, Generation), key benefits, and use cases. It directly and fully addresses the user's question without any irrelevant content."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer provides a comprehensive and accurate definition of Retrieval-Augmented Generation (RAG). It correctly explains the three-step process (Retrieval, Augmentation, Generation), highlights key benefits such as reduced hallucinations and access to up-to-date knowledge, and lists relevant use cases. The explanation is clear, well-structured, and factually correct."
+        }
+      }
+    },
+    {
+      "id": "Q2",
+      "question": "What are the main limitations of RAG?",
+      "focus": "Document-grounded factual question.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information regarding the main limitations of RAG (Retrieval-Augmented Generation). The documents cover internal bank procedures for Assets/Warehouse Operations, Central Alarm, and Central Mail & Files.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 29,
+            "content": "نطبعة البن \n /ح   إ \n5-\n \n القيود في حالة\nالصرف من \n  املخزون \n نارات لواز  وقرااسية– \n ايةلة املعنية او حسب توج هات الدائرة املالية \n/ح  ن \n نخزوو لواز  وقرااسية \n /ح   إ \n6-\n \n القيود في حالة\nرديات \n   الصرف \n نخزوو لواز  وقرااسية \n/ح  ن \n نارات لواز  وقرااسية– \n ايةلة املعنية \n /ح   إ"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n....\n \n27\n \nمرفق القيود \n املحاسبية \n................................\n................................\n................................\n................................\n..............\n \n28"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 61,
+              "cost_usd": 3.66e-05,
+              "latency_s": 0.8986,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 61,
+          "total_cost_usd": 3.66e-05,
+          "total_latency_s": 0.8986
+        },
+        "latency": 0.9
+      },
+      "advanced_rag": {
+        "answer": "Retrieval-Augmented Generation (RAG) is a powerful technique for grounding Large Language Models (LLMs) in external knowledge, but it has several inherent limitations:\n\n1. **Retrieval Quality Dependency**: RAG is only as good as the retrieval step. If the retriever fails to find the most relevant documents (due to poor query formulation, semantic mismatch, or noisy data), the generated answer will be incorrect or irrelevant.\n2. **Context Window Limitations**: LLMs have a finite context window. If the retrieved documents are too long or numerous, they may exceed the model’s capacity, leading to truncation or loss of critical information.\n3. **Lack of Deep Reasoning**: RAG primarily provides factual grounding but does not inherently enhance the model’s ability to perform complex multi-step reasoning, logical inference, or synthesis across disparate pieces of information.\n4. **Data Freshness and Consistency**: If the underlying knowledge base is not regularly updated, RAG can provide outdated information. Additionally, inconsistencies within the source documents can lead to contradictory answers.\n5. **Latency and Cost**: The two-step process (retrieval + generation) increases latency compared to direct generation. It also requires maintaining and indexing large vector databases, which adds infrastructure and computational costs.\n6. **Hallucination Persistence**: While RAG reduces hallucinations by grounding responses in retrieved text, it does not eliminate them. The LLM may still misinterpret or incorrectly synthesize the retrieved information.\n7. **Query Ambiguity**: Vague or ambiguous user queries can lead to poor retrieval results, as the system may struggle to identify the correct intent or relevant documents.\n\nTo mitigate these limitations, techniques such as hybrid search (combining keyword and semantic search), reranking, query rewriting, and iterative retrieval are often employed.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for general knowledge about the limitations of Retrieval-Augmented Generation (RAG), which is a standard AI concept and does not require specific information from internal bank procedure manuals.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 427,
+              "output_tokens": 62,
+              "cost_usd": 0.00010125,
+              "latency_s": 0.4979,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 65,
+              "output_tokens": 376,
+              "cost_usd": 0.00023535,
+              "latency_s": 1.1797,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 492,
+          "total_output_tokens": 438,
+          "total_cost_usd": 0.0003366,
+          "total_latency_s": 1.6776
+        },
+        "latency": 1.72
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so the criterion is failed entirely."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "The evaluation criterion requires assessing whether the answer is grounded in the provided context. The provided context is explicitly '(no context)'. Therefore, none of the claims in the answer are supported by the context. While the information in the answer is factually correct in the real world, it is entirely ungrounded relative to the empty context provided, resulting in a failure of the specific grounding criterion."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer provides a comprehensive and accurate list of the main limitations of RAG, covering retrieval quality, context windows, reasoning capabilities, data freshness, cost/latency, hallucinations, and query ambiguity. It is well-structured, directly addresses the user's question, and includes a brief note on mitigation strategies, making it an excellent response."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer provides a comprehensive and accurate list of the main limitations of RAG, including retrieval quality, context window constraints, reasoning gaps, data freshness, latency/cost, and persistent hallucinations. It is well-structured and factually correct."
+        }
+      }
+    },
+    {
+      "id": "Q3",
+      "question": "Why is it bad?",
+      "focus": "Ambiguous/conversational query.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information explaining why a specific situation is \"bad.\"\n\nThe available text consists of:\n*   Table of contents and section headers for the **Central Alarm Tasks And Procedures Manual** (e.g., \"General Rules and Regulations,\" \"Procedures for issuing/stopping cards,\" \"Approval requirements for different departments\").\n*   Table of contents entries for the **Central Mail and Files Unit Procedures Manual** (e.g., \"Storage and destruction of files,\" \"Handling missing/damaged/lost mail\").\n*   A snippet of a procedure regarding the execution of a decision by an \"Administrative Officer\" and \"Administrative Employee\" (Chunk 3).\n\nNone of these excerpts describe negative outcomes, risks, or reasons why a particular action or state is considered \"bad.\" Therefore, the manuals do not cover this question in the provided context.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n................................\n  ...26\n \n17\n. \n :اݍحﻔﻆ واﻻﺗﻼف ﳌﻠﻔﺎت اﻟ؄فﻳﺪ اﳌﺮﻛﺰي واﳌﻠﻔﺎت\n \n................................\n................................\n................................\n................................\n....................\n 28\n \n18\n. \n :اﻟﺘﻌﺎﻣﻞ ﻣﻊ ﺣﺎﻻت اﻟﻨﻘﺺ/ﺗﻠﻒ/ﺿﻴﺎع اﻟ؄فﻳﺪ اﳌﺮﺳﻞ/اﳌﺴﺘﻠﻢ ﻣﻦ ﻣﺮاﻛﺰ اﻟﻌﻤﻞ\n \n................................\n................................\n......"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 6,
+            "content": ":وحدة اينذار املركزي \n الجهة الطالبة وطبيعة الطلب املوافقة املطلوبة من طرف الجهة الطالبة \n املوافقة الداخلية من جهة دائرة\n الشؤون اإلدارية والهندسية \n الفروع وما يتعلع  ها مدير املنطقة \n املعني \n مدير م اعد– \n االنذار املركزي \n الصرافات الخارجية وما يتعلع  ها \n مدير– مركز عمليات الفروع \n مدير م اعد– \n االنذار املركزي \nوحدة النقد الرئي ية / عمان \n مدير– مركز عمليات الفروع \n مدير م اعد– \n االنذار املركزي \nالبات مركز جودة الخدمات \n وتع ين االعمال مدير \n أول– مركز \n جودة الخدمات وتع ين\n االعمال \n مد"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 1,
+            "content": "اعداد: دائرة تطوير وهندسة العمليات                                                                                                                                                                                                                                                   \n    \n                                                  \n      \n \n \n \n \n \n \n \n \n \n دليل إجراءات وحدة االنذار املركزي"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 217,
+              "cost_usd": 0.0001302,
+              "latency_s": 11.3845,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 217,
+          "total_cost_usd": 0.0001302,
+          "total_latency_s": 11.3845
+        },
+        "latency": 11.38
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199988, Requested 239. Please try again in 1m38.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199988, Requested 239. Please try again in 1m38.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q4",
+      "question": "What are the challenges and failure modes of RAG?",
+      "focus": "Good candidate for Multi-Query.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199986, Requested 3277. Please try again in 23m29.616s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199986, Requested 515. Please try again in 3m36.432s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199986, Requested 515. Please try again in 3m36.432s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q5",
+      "question": "Compare RAG and fine-tuning, explain their advantages and disadvantages, and state when each should be used.",
+      "focus": "Complex multi-part question; good for Decomposition.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199984, Requested 1840. Please try again in 13m7.968s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199984, Requested 493. Please try again in 3m26.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199984, Requested 493. Please try again in 3m26.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q6",
+      "question": "How does RAG reduce hallucination?",
+      "focus": "Good candidate for HyDE.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199982, Requested 2100. Please try again in 14m59.424s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199982, Requested 604. Please try again in 4m13.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199982, Requested 604. Please try again in 4m13.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q7",
+      "question": "Find documents about RAG published after 2024.",
+      "focus": "Good candidate for Self-Query.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199980, Requested 1792. Please try again in 12m45.504s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199980, Requested 609. Please try again in 4m14.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199980, Requested 609. Please try again in 4m14.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q8",
+      "question": "What is reranking and why is it useful in RAG?",
+      "focus": "Retrieval/re-ranking knowledge question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199978, Requested 2120. Please try again in 15m6.335999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199977, Requested 609. Please try again in 4m13.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199977, Requested 609. Please try again in 4m13.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q9",
+      "question": "Which approach should be used for a simple question versus a complex multi-part question?",
+      "focus": "Routing decision question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199976, Requested 2990. Please try again in 21m21.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199975, Requested 612. Please try again in 4m13.584s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199975, Requested 612. Please try again in 4m13.584s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q10",
+      "question": "ظ…ط§ ظ‡ظٹ ط¥ط¬ط±ط§ط،ط§طھ ط§ظ„طھط¹ط§ظ…ظ„ ظ…ط¹ ط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط³ط±ظٹ ظپظٹ ظˆط­ط¯ط© ط§ظ„ط¨ط±ظٹط¯ ظˆط§ظ„ظ…ظ„ظپط§طھ ط§ظ„ظ…ط±ظƒط²ظٹط©طں",
+      "focus": "CRAG/retrieval-correction test; corpus-specific question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199974, Requested 1772. Please try again in 12m34.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199973, Requested 720. Please try again in 4m59.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199973, Requested 720. Please try again in 4m59.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    }
+  ],
+  "summary": {
+    "route_distribution": {
+      "simple": 2,
+      "error": 8
+    },
+    "total_basic_cost_usd": 0.000208,
+    "total_advanced_cost_usd": 0.000662,
+    "avg_eval_scores": {
+      "context_relevance": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 5.0,
+      "correctness": 5.0
+    }
+  }
+}

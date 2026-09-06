@@ -81,13 +81,13 @@ def get_all_documents_from_vectorstore(source_filter: str | None = None) -> List
     """
     vectordb = load_vectorstore()
     try:
-        data = vectordb.get(include=["documents", "metadatas"])
+        data = vectordb._collection.get(include=["documents", "metadatas"])
         raw_docs = data.get("documents") or []
         metadatas = data.get("metadatas") or []
         
         docs: List[Document] = []
         for text, meta in zip(raw_docs, metadatas):
-            if not text:
+            if not text or not text.strip():
                 continue
             meta_dict = meta if isinstance(meta, dict) else {}
             if source_filter and meta_dict.get("source") != source_filter:
@@ -122,8 +122,8 @@ def get_bm25_retriever(
     """Build a BM25 sparse keyword retriever from documents stored in Chroma."""
     docs = get_all_documents_from_vectorstore(source_filter=source_filter)
     if not docs:
-        logger.warning("No documents available to build BM25 retriever.")
-        docs = [Document(page_content="", metadata={"source": "empty"})]
+        logger.warning("No documents available to build BM25 retriever. Using fallback.")
+        docs = [Document(page_content="دليل إجراءات البنك والمستندات", metadata={"source": "fallback"})]
     
     bm25 = BM25Retriever.from_documents(docs)
     bm25.k = top_k

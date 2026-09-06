@@ -23,6 +23,18 @@ project_root = Path(__file__).resolve().parent.parent
 if str(project_root) not in sys.path:
     sys.path.insert(0, str(project_root))
 
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+if hasattr(sys.stderr, "reconfigure"):
+    try:
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 from langchain_core.documents import Document
 
 from config import (
@@ -30,8 +42,9 @@ from config import (
     DEFAULT_CHUNK_OVERLAP,
     DEFAULT_CHUNK_SIZE,
     DEFAULT_CHUNK_STRATEGY,
+    DOCLING_DO_OCR,
 )
-from ingestion.ocr_loader import load_all_pdfs
+from ingestion.docling_loader import load_all_pdfs
 from ingestion.chunking import chunk_documents
 from retrieval.vectorstore import build_vectorstore
 
@@ -46,12 +59,13 @@ def run_ingestion(
     chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
     use_cache: bool = True,
     reset_collection: bool = True,
+    do_ocr: bool = DOCLING_DO_OCR,
 ) -> dict:
     """Run the full ingestion pipeline and return a small summary dict
     (used by the Streamlit UI to show progress/results)."""
 
-    logger.info("Step 1/3 - Loading & OCR-extracting PDFs from %s", pdf_dir)
-    raw_docs: List[Document] = load_all_pdfs(pdf_dir, use_cache=use_cache)
+    logger.info("Step 1/3 - Loading & extracting PDFs from %s (engine: Docling, do_ocr=%s)", pdf_dir, do_ocr)
+    raw_docs: List[Document] = load_all_pdfs(pdf_dir, use_cache=use_cache, do_ocr=do_ocr)
     logger.info("Loaded %d page-documents", len(raw_docs))
 
     if not raw_docs:
@@ -73,6 +87,8 @@ def run_ingestion(
         "strategy": strategy,
         "chunk_size": chunk_size,
         "chunk_overlap": chunk_overlap,
+        "do_ocr": do_ocr,
+        "loader": "Docling",
         "sources": sorted({d.metadata.get("source", "unknown") for d in raw_docs}),
     }
 
@@ -84,16 +100,20 @@ def _parse_args():
     parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE)
     parser.add_argument("--chunk-overlap", type=int, default=DEFAULT_CHUNK_OVERLAP)
     parser.add_argument("--no-cache", action="store_true", help="Disable OCR cache reuse")
+    parser.add_argument("--no-ocr", action="store_true", help="Disable OCR (faster, digital text only)")
+    parser.add_argument("--do-ocr", action="store_true", help="Enable OCR for scanned pages")
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = _parse_args()
+    do_ocr_val = False if args.no_ocr else (True if args.do_ocr else DOCLING_DO_OCR)
     summary = run_ingestion(
         pdf_dir=args.pdf_dir,
         strategy=args.strategy,
         chunk_size=args.chunk_size,
         chunk_overlap=args.chunk_overlap,
         use_cache=not args.no_cache,
+        do_ocr=do_ocr_val,
     )
     print(summary)

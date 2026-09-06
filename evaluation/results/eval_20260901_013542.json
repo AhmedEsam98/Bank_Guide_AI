@@ -1,0 +1,244 @@
+{
+  "model": "qwen/qwen3.8-27b",
+  "timestamp": "2026-09-01 01:35:42",
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What is Retrieval-Augmented Generation (RAG)?",
+      "focus": "Simple/general knowledge question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199500, Requested 3399. Please try again in 20m52.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199500, Requested 1456. Please try again in 6m52.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199500, Requested 1456. Please try again in 6m52.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q2",
+      "question": "What are the main limitations of RAG?",
+      "focus": "Document-grounded factual question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199498, Requested 1502. Please try again in 7m12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199498, Requested 1454. Please try again in 6m51.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199498, Requested 1454. Please try again in 6m51.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q3",
+      "question": "Why is it bad?",
+      "focus": "Ambiguous/conversational query.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199682, Requested 2892. Please try again in 18m31.967999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199681, Requested 1862. Please try again in 11m6.576s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199681, Requested 1862. Please try again in 11m6.576s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q4",
+      "question": "What are the challenges and failure modes of RAG?",
+      "focus": "Good candidate for Multi-Query.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199680, Requested 3291. Please try again in 21m23.472s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199679, Requested 1456. Please try again in 8m10.32s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199679, Requested 1456. Please try again in 8m10.32s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q5",
+      "question": "Compare RAG and fine-tuning, explain their advantages and disadvantages, and state when each should be used.",
+      "focus": "Complex multi-part question; good for Decomposition.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199678, Requested 2689. Please try again in 17m2.544s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199678, Requested 1467. Please try again in 8m14.64s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199678, Requested 1467. Please try again in 8m14.64s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q6",
+      "question": "How does RAG reduce hallucination?",
+      "focus": "Good candidate for HyDE.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199676, Requested 3486. Please try again in 22m45.984s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199676, Requested 1453. Please try again in 8m7.728s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199676, Requested 1453. Please try again in 8m7.728s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q7",
+      "question": "Find documents about RAG published after 2024.",
+      "focus": "Good candidate for Self-Query.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199674, Requested 1714. Please try again in 9m59.616s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199674, Requested 1458. Please try again in 8m9.024s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199674, Requested 1458. Please try again in 8m9.024s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q8",
+      "question": "What is reranking and why is it useful in RAG?",
+      "focus": "Retrieval/re-ranking knowledge question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199672, Requested 2167. Please try again in 13m14.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199672, Requested 1870. Please try again in 11m6.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199672, Requested 1870. Please try again in 11m6.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q9",
+      "question": "Which approach should be used for a simple question versus a complex multi-part question?",
+      "focus": "Routing decision question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199670, Requested 3037. Please try again in 19m29.424s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199669, Requested 1461. Please try again in 8m8.159999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199669, Requested 1461. Please try again in 8m8.159999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q10",
+      "question": "ما هي إجراءات التعامل مع البريد السري في وحدة البريد والملفات المركزية؟",
+      "focus": "CRAG/retrieval-correction test; corpus-specific question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199668, Requested 5030. Please try again in 33m49.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199667, Requested 1872. Please try again in 11m4.848s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kmjztteqeks8p1ney2wdpn9j` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199667, Requested 1872. Please try again in 11m4.848s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    }
+  ],
+  "summary": {
+    "route_distribution": {
+      "error": 10
+    },
+    "total_basic_cost_usd": 0,
+    "total_advanced_cost_usd": 0,
+    "avg_eval_scores": {}
+  }
+}

@@ -1,0 +1,1623 @@
+{
+  "model": "qwen/qwen3.8-27b",
+  "timestamp": "2026-08-31 21:37:43",
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What is Retrieval-Augmented Generation (RAG)?",
+      "focus": "Simple/general knowledge question.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information about Retrieval-Augmented Generation (RAG). The manuals cover internal bank procedures for Assets/Warehouse Operations, Central Mail & Files, and Central Alarm systems, but they do not define or explain the concept of RAG.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 10
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 20
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 69,
+              "cost_usd": 1.242e-05,
+              "latency_s": 31.123,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 69,
+          "total_cost_usd": 1.242e-05,
+          "total_latency_s": 31.123
+        },
+        "latency": 31.12
+      },
+      "advanced_rag": {
+        "answer": "**Retrieval-Augmented Generation (RAG)** is a technique used in artificial intelligence, specifically for Large Language Models (LLMs), that enhances the model's ability to generate accurate and up-to-date responses by combining it with an external knowledge source.\n\n### How It Works:\n1.  **Retrieval**: When a user asks a question, the system first searches a designated database or corpus of documents (such as company manuals, technical docs, or web pages) to find the most relevant information.\n2.  **Augmentation**: The retrieved information is added to the user’s original prompt as context.\n3.  **Generation**: The LLM uses this combined context (original question + retrieved facts) to generate a more accurate, grounded, and relevant answer.\n\n### Key Benefits:\n- **Reduced Hallucinations**: By grounding responses in factual, retrieved data, RAG helps minimize the likelihood of the model making up information.\n- **Up-to-Date Knowledge**: Unlike static LLMs trained on fixed datasets, RAG can access the latest information without requiring retraining.\n- **Domain-Specific Accuracy**: It allows LLMs to answer questions about specialized or private data (e.g., internal bank procedures) that they were not originally trained on.\n\n### Example:\nIf you ask, \"What is the procedure for filing a dispute with our bank?\" a standard LLM might give a generic answer. A RAG system would first retrieve the specific section from your bank’s internal manual and then generate an answer based strictly on that document.\n\n*(Note: If your question pertains to specific bank procedures, I would need to search the relevant manuals for a precise answer.)*",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for a general definition of a technical concept (RAG) which is common knowledge and does not require searching internal bank procedure manuals.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 429,
+              "output_tokens": 54,
+              "cost_usd": 8.694e-05,
+              "latency_s": 0.5101,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 67,
+              "output_tokens": 351,
+              "cost_usd": 7.524e-05,
+              "latency_s": 1.3052,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 496,
+          "total_output_tokens": 405,
+          "total_cost_usd": 0.00016218,
+          "total_latency_s": 1.8153
+        },
+        "latency": 1.85
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q2",
+      "question": "What are the main limitations of RAG?",
+      "focus": "Document-grounded factual question.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information regarding the main limitations of RAG (Retrieval-Augmented Generation). The documents cover internal bank procedures for Assets/Warehouse Operations, Central Alarm, and Central Mail & Files.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 61,
+              "cost_usd": 1.098e-05,
+              "latency_s": 0.6907,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 61,
+          "total_cost_usd": 1.098e-05,
+          "total_latency_s": 0.6907
+        },
+        "latency": 0.69
+      },
+      "advanced_rag": {
+        "answer": "Retrieval-Augmented Generation (RAG) is a powerful technique for grounding Large Language Models (LLMs) in external knowledge, but it has several inherent limitations:\n\n1. **Retrieval Quality Dependency**: RAG is only as good as the retrieved documents. If the retrieval system fails to find the most relevant chunks (due to poor indexing, ambiguous queries, or semantic gaps), the LLM will generate incorrect or irrelevant answers.\n2. **Context Window Constraints**: LLMs have limited context windows. If the retrieved documents are too long or numerous, they may be truncated, causing the model to miss critical information.\n3. **Fragmentation of Information**: Relevant information may be scattered across multiple documents or chunks. RAG systems often struggle to synthesize information that requires cross-referencing multiple retrieved passages coherently.\n4. **Lack of Reasoning Over Retrieved Data**: RAG primarily provides factual grounding but does not inherently enhance the LLM’s ability to perform complex multi-step reasoning, logical deduction, or mathematical calculations based on the retrieved data.\n5. **Stale or Inconsistent Data**: If the underlying knowledge base is not updated regularly, RAG can propagate outdated or contradictory information.\n6. **Query Ambiguity**: Vague or poorly phrased user queries can lead to irrelevant retrievals, as the retrieval model may misinterpret the intent.\n7. **Latency and Cost**: The two-step process (retrieval + generation) increases latency compared to direct LLM inference. Additionally, maintaining and updating large vector databases can be costly.\n8. **Hallucination Persistence**: While RAG reduces hallucinations by grounding responses in retrieved text, it does not eliminate them entirely. The LLM may still hallucinate if it misinterprets the retrieved context or if the context is insufficient.\n\nTo mitigate these limitations, advanced techniques such as hybrid search (combining keyword and semantic search), reranking, iterative retrieval, and fine-tuning the retrieval model are often employed.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for general knowledge about the limitations of Retrieval-Augmented Generation (RAG), which is a standard AI concept and does not require specific information from internal bank procedure manuals.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 427,
+              "output_tokens": 62,
+              "cost_usd": 8.802e-05,
+              "latency_s": 0.5266,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 65,
+              "output_tokens": 413,
+              "cost_usd": 8.604e-05,
+              "latency_s": 1.1888,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 492,
+          "total_output_tokens": 475,
+          "total_cost_usd": 0.00017406,
+          "total_latency_s": 1.7154
+        },
+        "latency": 1.75
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q3",
+      "question": "Why is it bad?",
+      "focus": "Ambiguous/conversational query.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information explaining why a specific situation is \"bad.\"\n\nThe available text consists of:\n1.  **Table of Contents** for the *Central Alarm Tasks And Procedures Manual* (listing sections on rules, procedures for card/fingerprint access, and system operations).\n2.  **Table of Contents** for the *Central Mail and Files Unit Procedures Manual* (listing sections on archiving/destroying files and handling missing/damaged mail).\n3.  **Procedural Steps** regarding the execution of a decision by an Administrative Officer and filing a copy (from the Mail/Files manual).\n4.  **Approval Matrix** for the Central Alarm Unit, detailing which internal approvals are required for different requesters (Branches, External ATMs, Cash Unit, Service Quality Center, Internal Audit, Employees, etc.).\n\nNone of these excerpts describe negative outcomes, risks, or reasons why a specific action or state is considered \"bad.\" If you are referring to a specific procedure or rule mentioned in the manuals (e.g., unauthorized access, lost files), please specify the context, as the current snippets only list the *requirements* and *steps*, not the consequences or rationale for them.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 6
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 1
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 302,
+              "cost_usd": 5.436e-05,
+              "latency_s": 1.1802,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 302,
+          "total_cost_usd": 5.436e-05,
+          "total_latency_s": 1.1802
+        },
+        "latency": 1.18
+      },
+      "advanced_rag": {
+        "answer": "It is difficult to answer why \"it\" is bad because you haven't specified what \"it\" refers to. Could you please provide more context or clarify what you are asking about?",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question is vague and lacks context, but it does not reference any specific bank manual content or require retrieval from internal documents. It is likely a conversational follow-up or general inquiry that cannot be answered via RAG without more context.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 423,
+              "output_tokens": 64,
+              "cost_usd": 8.766e-05,
+              "latency_s": 0.559,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 61,
+              "output_tokens": 38,
+              "cost_usd": 1.782e-05,
+              "latency_s": 0.4807,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 484,
+          "total_output_tokens": 102,
+          "total_cost_usd": 0.00010548,
+          "total_latency_s": 1.0397
+        },
+        "latency": 1.08
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q4",
+      "question": "What are the challenges and failure modes of RAG?",
+      "focus": "Good candidate for Multi-Query.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information regarding the challenges and failure modes of RAG (Retrieval-Augmented Generation). The documents provided are internal bank procedure manuals for \"Central Mail & Files,\" \"Central Alarm,\" and \"Assets/Warehouse Operations.\"\n\nTherefore, I cannot answer this question using the provided context.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 5
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 86,
+              "cost_usd": 1.548e-05,
+              "latency_s": 16.2338,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 86,
+          "total_cost_usd": 1.548e-05,
+          "total_latency_s": 16.2338
+        },
+        "latency": 16.23
+      },
+      "advanced_rag": {
+        "answer": "Retrieval-Augmented Generation (RAG) is a powerful technique for grounding Large Language Models (LLMs) in external knowledge, but it is not without significant challenges and failure modes. These issues generally stem from the two main components of the pipeline: **Retrieval** (finding the right information) and **Generation** (using that information to answer).\n\nHere are the key challenges and failure modes:\n\n### 1. Retrieval Failures\nThese occur when the system fails to find the relevant documents or chunks needed to answer the query.\n\n*   **Irrelevant or Noisy Retrieval:** The retriever may pull in documents that are semantically similar but factually irrelevant or misleading. This can lead the LLM to generate incorrect answers based on bad context.\n*   **Missed Relevant Information:** The most critical piece of information might not be retrieved due to:\n    *   **Semantic Gap:** The user’s query uses different terminology than the source documents (e.g., \"car\" vs. \"automobile\").\n    *   **Chunking Issues:** If the relevant information is split across multiple chunks or buried in a large chunk with irrelevant text, the retriever may miss it.\n    *   **Indexing Errors:** Poor vector embeddings or keyword indexing can cause relevant documents to rank low.\n*   **Outdated Information:** If the knowledge base is not updated, the RAG system may retrieve stale data, leading to incorrect answers even if the retrieval is technically \"correct\" based on the current index.\n\n### 2. Generation Failures\nThese occur when the LLM fails to properly use the retrieved context.\n\n*   **Context Ignorance:** The LLM may ignore the retrieved context and rely on its pre-trained parametric knowledge, which could be outdated or incorrect. This is especially common if the model is not fine-tuned or prompted to prioritize the provided context.\n*   **Hallucination Despite Context:** Even with correct context, the LLM may generate facts not present in the retrieved documents, blending retrieved information with its internal knowledge in a way that creates falsehoods.\n*   **Inability to Synthesize:** The LLM may struggle to combine information from multiple retrieved chunks into a coherent, accurate answer, leading to fragmented or contradictory responses.\n*   **Over-Reliance on Context:** The LLM may become overly literal, failing to apply common sense or general knowledge when the context is ambiguous or incomplete.\n\n### 3. Data and Preprocessing Challenges\n*   **Poor Chunking Strategy:** How documents are split into chunks significantly impacts performance. Chunks that are too small may lack context; chunks that are too large may dilute relevance and exceed token limits.\n*   **Data Quality:** \"Garbage in, garbage out.\" If the source documents are poorly structured, contain errors, or are ambiguous, the RAG system will propagate these issues.\n*   **Lack of Metadata:** Without proper metadata (e.g., date, author, source type), the system cannot effectively filter or prioritize results, leading to less accurate retrieval.\n\n### 4. Evaluation and Monitoring Challenges\n*   **Difficulty in Evaluation:** It is hard to automatically evaluate RAG systems because:\n    *   Retrieval quality and generation quality are separate but interdependent.\n    *   There is often no single \"ground truth\" answer for open-ended questions.\n    *   Metrics like BLEU or ROUGE are not well-suited for evaluating factual accuracy in generated text.\n*   **Lack of Transparency:** It can be difficult to debug why a RAG system failed. Was it the retriever that missed the document, or the generator that misinterpreted it? This requires detailed logging and tracing.\n\n### 5. Scalability and Cost\n*   **Latency:** RAG adds retrieval steps (vector search, reranking) to the LLM inference, increasing response time.\n*   **Cost:** Maintaining a large vector database, updating embeddings, and running multiple LLM calls (for reranking or self-correction) can be expensive.\n*   **Token Limitations:** Retrieved context consumes tokens, which can limit the amount of information the LLM can process or the length of the answer it can generate.\n\n### Mitigation Strategies\n*   **Hybrid Search:** Combine vector search with keyword search (e.g., BM25) to improve recall.\n*   **Reranking:** Use a cross-encoder or LLM to rerank retrieved chunks for better precision.\n*   **Query Rewriting/Expansion:** Use an LLM to rewrite or expand the user’s query to improve retrieval.\n*   **Better Chunking:** Use semantic chunking or hierarchical chunking to preserve context.\n*   **Prompt Engineering:** Explicitly instruct the LLM to base its answer only on the provided context and to state if the answer is not found.\n*   **Feedback Loops:** Implement human-in-the-loop feedback to continuously improve the system.\n\nIn summary, RAG is a complex system where failures can occur at multiple stages. Successful implementation requires careful attention to data preprocessing, retrieval strategy, prompt design, and continuous evaluation.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for general knowledge about the technology (RAG) itself, not specific internal bank procedures or policies.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 429,
+              "output_tokens": 48,
+              "cost_usd": 8.586e-05,
+              "latency_s": 2.606,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 67,
+              "output_tokens": 1069,
+              "cost_usd": 0.00020448,
+              "latency_s": 2.5225,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 496,
+          "total_output_tokens": 1117,
+          "total_cost_usd": 0.00029034,
+          "total_latency_s": 5.1285
+        },
+        "latency": 5.19
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q5",
+      "question": "Compare RAG and fine-tuning, explain their advantages and disadvantages, and state when each should be used.",
+      "focus": "Complex multi-part question; good for Decomposition.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information regarding RAG (Retrieval-Augmented Generation) or fine-tuning. The manuals cover procedures for the Central Alarm, Central Mail & Files, and Assets/Warehouse Operations.\n\nTherefore, I cannot answer this question using the provided source documents.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 7
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 13
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 1
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 75,
+              "cost_usd": 1.35e-05,
+              "latency_s": 14.1181,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 75,
+          "total_cost_usd": 1.35e-05,
+          "total_latency_s": 14.1181
+        },
+        "latency": 14.12
+      },
+      "advanced_rag": {
+        "answer": "Retrieval-Augmented Generation (RAG) and fine-tuning are two distinct techniques used to enhance the capabilities of Large Language Models (LLMs). While both aim to improve model performance, they operate on fundamentally different principles.\n\n### 1. Core Differences\n\n| Feature | RAG (Retrieval-Augmented Generation) | Fine-Tuning |\n| :--- | :--- | :--- |\n| **Mechanism** | Retrieves relevant external documents at inference time and appends them to the prompt. | Updates the model’s internal weights using a specific dataset. |\n| **Knowledge Source** | External, dynamic knowledge base (e.g., vector DB). | Internalized knowledge baked into the model weights. |\n| **Update Frequency** | Real-time; update the database without retraining. | Requires retraining; slower to update. |\n| **Cost** | Lower upfront cost; higher inference cost (retrieval + longer context). | Higher upfront cost (training compute); lower inference cost. |\n| **Hallucination** | Reduced (grounded in retrieved facts). | Can persist if training data is noisy or insufficient. |\n\n---\n\n### 2. Advantages and Disadvantages\n\n#### **RAG (Retrieval-Augmented Generation)**\n\n**Advantages:**\n- **Up-to-date Knowledge:** Can access the latest information without retraining the model.\n- **Traceability & Citations:** Outputs can be linked to specific source documents, improving trust and verifiability.\n- **Lower Training Cost:** No need for expensive GPU clusters to retrain the model.\n- **Modularity:** Knowledge base can be swapped or updated independently of the LLM.\n- **Reduced Hallucination:** Grounds responses in factual, retrieved data.\n\n**Disadvantages:**\n- **Retrieval Quality Dependency:** If the retrieval system fails to find relevant documents, the LLM may still hallucinate or give poor answers.\n- **Latency:** Adds overhead due to vector search and context assembly.\n- **Context Window Limits:** Limited by the LLM’s maximum context length; too many retrieved chunks can degrade performance.\n- **Complexity:** Requires building and maintaining a robust retrieval pipeline (chunking, embedding, vector DB, reranking).\n\n#### **Fine-Tuning**\n\n**Advantages:**\n- **Style & Format Control:** Excellent for teaching the model specific output formats, tones, or domain-specific jargon.\n- **Efficiency:** Once trained, the model can generate responses without needing external retrieval, reducing inference latency.\n- **Deep Domain Integration:** Internalizes complex patterns and relationships that may be hard to capture via simple retrieval.\n- **No Context Bloat:** Does not require stuffing large amounts of text into the prompt.\n\n**Disadvantages:**\n- **High Cost & Time:** Requires significant computational resources and time to train.\n- **Static Knowledge:** The model’s knowledge is frozen at the time of training; updating it requires retraining.\n- **Catastrophic Forgetting:** May lose general capabilities if not carefully managed.\n- **Data Requirements:** Needs high-quality, labeled datasets, which can be expensive to create.\n- **Less Transparent:** Harder to trace why the model gave a specific answer (no direct citation to source data).\n\n---\n\n### 3. When to Use Each\n\n#### **Use RAG When:**\n- **Knowledge is frequently updated** (e.g., news, stock prices, product catalogs).\n- **You need citations or traceability** (e.g., legal, medical, or enterprise compliance).\n- **You have a large, unstructured corpus** of documents that you want to query.\n- **You want to avoid retraining costs** and need a quick solution.\n- **The task is fact-based** and relies on specific, verifiable information.\n\n#### **Use Fine-Tuning When:**\n- **You need to control the model’s style, tone, or format** (e.g., generating code in a specific framework, writing in a brand voice).\n- **The domain requires deep, nuanced understanding** that cannot be easily captured by retrieving snippets (e.g., complex reasoning in specialized scientific fields).\n- **You want to reduce inference latency** by eliminating the retrieval step.\n- **You have a small, high-quality dataset** that teaches the model a specific behavior or pattern.\n- **You need to adapt the model to a new task** where the base model’s general knowledge is insufficient or misaligned.\n\n### **Hybrid Approach**\nIn many production systems, **both are used together**:\n- **Fine-tune** the model to understand domain-specific language, follow instructions, and output in the correct format.\n- **Use RAG** to provide up-to-date, factual context for each query.\n\nThis combination leverages the strengths of both: the model’s refined behavior (from fine-tuning) and its access to current, verifiable information (from RAG).",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for a general technical comparison between RAG and fine-tuning, which is standard AI knowledge and does not require specific internal bank procedure manuals.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 440,
+              "output_tokens": 53,
+              "cost_usd": 8.874e-05,
+              "latency_s": 2.66,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 78,
+              "output_tokens": 1039,
+              "cost_usd": 0.00020106,
+              "latency_s": 4.6249,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 518,
+          "total_output_tokens": 1092,
+          "total_cost_usd": 0.0002898,
+          "total_latency_s": 7.2849
+        },
+        "latency": 7.35
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q6",
+      "question": "How does RAG reduce hallucination?",
+      "focus": "Good candidate for HyDE.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain information about RAG (Retrieval-Augmented Generation) or how it reduces hallucination. The documents strictly cover internal bank procedures for Central Alarm, Central Mail & Files, and Assets/Warehouse Operations.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 7
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 64,
+              "cost_usd": 1.152e-05,
+              "latency_s": 24.4405,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 64,
+          "total_cost_usd": 1.152e-05,
+          "total_latency_s": 24.4405
+        },
+        "latency": 24.44
+      },
+      "advanced_rag": {
+        "answer": "RAG (Retrieval-Augmented Generation) reduces hallucination by grounding the Large Language Model's (LLM) responses in specific, external, and verified data sources rather than relying solely on its internal parametric memory.\n\nHere’s how it works:\n\n1.  **Retrieval of Relevant Context**: Before generating an answer, the system retrieves relevant documents or data chunks from a trusted knowledge base (e.g., company manuals, databases, or web sources) that are semantically similar to the user’s query.\n2.  **Contextual Grounding**: The retrieved information is injected into the prompt as context. The LLM is then instructed to answer the question *based on this provided context*.\n3.  **Reduced Reliance on Parametric Memory**: By having fresh, specific facts in the prompt, the model is less likely to \"make up\" information from its training data, which may be outdated, incomplete, or incorrect.\n4.  **Verifiability**: Since the answer is derived from cited sources, it becomes easier to verify the accuracy of the response against the original documents.\n\nIn essence, RAG shifts the burden of factual accuracy from the model’s internal weights to an external, up-to-date, and auditable knowledge base, significantly lowering the chance of fabricated or incorrect information.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for a general explanation of how RAG technology works to reduce hallucinations, which is a standard concept in AI and does not require specific internal bank manual data.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 426,
+              "output_tokens": 60,
+              "cost_usd": 8.748e-05,
+              "latency_s": 3.6545,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 64,
+              "output_tokens": 270,
+              "cost_usd": 6.012e-05,
+              "latency_s": 0.942,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 490,
+          "total_output_tokens": 330,
+          "total_cost_usd": 0.0001476,
+          "total_latency_s": 4.5965
+        },
+        "latency": 4.65
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q7",
+      "question": "Find documents about RAG published after 2024.",
+      "focus": "Good candidate for Self-Query.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain any documents or information about \"RAG\" (Retrieval-Augmented Generation) published after 2024.\n\nThe available documents are internal bank procedure manuals:\n1.  **Central Alarm Tasks And Procedures Manual.pdf** (Version 08/2024, Last Reviewed 02/2026)\n2.  **Central Mail and Files Unit Procedures Manual.pdf**\n3.  **Assets and wearhouse operation Tasks and Procedures Manual.pdf** (Version 02/2026, Last Reviewed 02/2026)\n\nThese manuals cover topics such as alarm system logs, mail/file handling, and asset/warehouse operations, but they do not discuss RAG technology.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 20
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 6
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 2
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 153,
+              "cost_usd": 2.754e-05,
+              "latency_s": 14.905,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 153,
+          "total_cost_usd": 2.754e-05,
+          "total_latency_s": 14.905
+        },
+        "latency": 14.9
+      },
+      "advanced_rag": {
+        "answer": "The provided context chunks do not contain any information about documents regarding RAG (Retrieval-Augmented Generation) published after 2024. The available documents are internal bank procedure manuals for:\n\n1.  **Assets and Warehouse Operations** (Source: *Assets and wearhouse operation Tasks and Procedures Manual.pdf*)\n2.  **Central Mail and Files** (Source: *Central Mail and Files Unit Procedures Manual.pdf*)\n3.  **Central Alarm** (Source: *Central Alarm Tasks And Procedures Manual.pdf*)\n\nThese manuals cover internal procedures such as card issuance, file management, alarm response protocols, and system maintenance reporting, but they do not discuss external academic or technical publications on RAG.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 7
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 19
+          }
+        ],
+        "num_docs": 5,
+        "route": "advanced_rag",
+        "techniques": [
+          "self_query"
+        ],
+        "reason": "The query contains a specific metadata constraint (publication date after 2024) which requires filtering the search results based on document attributes rather than just semantic similarity.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 431,
+              "output_tokens": 64,
+              "cost_usd": 8.91e-05,
+              "latency_s": 3.6726,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 236,
+              "output_tokens": 13,
+              "cost_usd": 4.482e-05,
+              "latency_s": 1.5869,
+              "executed": true
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 1749,
+              "output_tokens": 146,
+              "cost_usd": 0.0003411,
+              "latency_s": 13.156,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 2416,
+          "total_output_tokens": 223,
+          "total_cost_usd": 0.00047502,
+          "total_latency_s": 18.4155
+        },
+        "latency": 18.67
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q8",
+      "question": "What is reranking and why is it useful in RAG?",
+      "focus": "Retrieval/re-ranking knowledge question.",
+      "basic_rag": {
+        "answer": "The provided context chunks do not contain any information regarding \"reranking\" or its utility in Retrieval-Augmented Generation (RAG). The documents strictly cover internal bank procedures for Central Alarm, Central Mail & Files, and Assets/Warehouse Operations.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 5
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 66,
+              "cost_usd": 1.188e-05,
+              "latency_s": 17.1867,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 66,
+          "total_cost_usd": 1.188e-05,
+          "total_latency_s": 17.1867
+        },
+        "latency": 17.19
+      },
+      "advanced_rag": {
+        "answer": "**Reranking** is a post-retrieval step in a Retrieval-Augmented Generation (RAG) pipeline where a specialized model evaluates and reorders the documents or chunks retrieved by the initial search engine based on their relevance to the specific user query.\n\n### How It Works\n1.  **Initial Retrieval (Coarse Ranking):** A fast vector database or search engine retrieves a large set of potentially relevant documents (e.g., top 50) based on semantic similarity (e.g., using embeddings).\n2.  **Reranking (Fine Ranking):** A cross-encoder or similar reranking model takes the **query** and each **retrieved document** as a pair and computes a precise relevance score.\n3.  **Selection:** The documents are sorted by this new score, and only the top few (e.g., top 3–5) are passed to the Large Language Model (LLM) for generation.\n\n### Why It Is Useful in RAG\n\n1.  **Improved Precision:**\n    *   Initial retrieval methods (like vector search) are fast but can be imprecise, often returning documents that are semantically similar but not directly answering the question.\n    *   Reranking models understand the *interaction* between the query and the document, filtering out irrelevant or only tangentially related content.\n\n2.  **Better Context for the LLM:**\n    *   LLMs have limited context windows. By ensuring the top-k documents are highly relevant, you maximize the utility of the available context, reducing noise and hallucinations.\n\n3.  **Cost and Latency Optimization:**\n    *   While reranking adds a small computational step, it is much cheaper and faster than having the LLM process a large number of low-quality documents. It allows you to retrieve more candidates initially (improving recall) without overwhelming the LLM.\n\n4.  **Handling Ambiguity:**\n    *   Rerankers are better at disambiguating queries. For example, if a query is \"Apple,\" a vector search might return documents about both the fruit and the company. A reranker can better judge which documents are actually relevant based on the full query context.\n\nIn summary, reranking acts as a \"quality filter\" between retrieval and generation, significantly boosting the accuracy and reliability of RAG systems.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for a general definition and explanation of a RAG concept (reranking), which is general knowledge and does not require searching internal bank procedure manuals.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 431,
+              "output_tokens": 57,
+              "cost_usd": 8.784e-05,
+              "latency_s": 2.6277,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 69,
+              "output_tokens": 489,
+              "cost_usd": 0.00010044,
+              "latency_s": 1.5536,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 500,
+          "total_output_tokens": 546,
+          "total_cost_usd": 0.00018828,
+          "total_latency_s": 4.1813
+        },
+        "latency": 4.22
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q9",
+      "question": "Which approach should be used for a simple question versus a complex multi-part question?",
+      "focus": "Routing decision question.",
+      "basic_rag": {
+        "answer": "Based on the provided context chunks, there is **no information** regarding which approach should be used for simple versus complex multi-part questions.\n\nThe provided documents cover:\n*   **Central Mail and Files Unit Procedures Manual:** Procedures for handling damage claims with transport companies (Chunk 1, 2).\n*   **Central Alarm Tasks And Procedures Manual:** Procedures for handling alarm incidents and reporting to branch managers (Chunk 3), and a table of contents for access control procedures (Chunk 4).\n*   **Assets and Warehouse Operation Tasks and Procedures Manual:** A list of job titles/roles (Chunk 5).\n\nNone of these sections contain guidelines on question-answering strategies or communication protocols for simple vs. complex inquiries.",
+        "docs": [
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 5
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 189,
+              "cost_usd": 3.402e-05,
+              "latency_s": 21.6882,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 189,
+          "total_cost_usd": 3.402e-05,
+          "total_latency_s": 21.6882
+        },
+        "latency": 21.69
+      },
+      "advanced_rag": {
+        "answer": "For a **simple question**, you should use a **direct and concise** approach. Provide the answer immediately without unnecessary elaboration, ensuring clarity and brevity.\n\nFor a **complex multi-part question**, you should use a **structured and step-by-step** approach. Break the question down into its individual components, address each part systematically, and provide a clear, organized response that covers all aspects of the query.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "The question asks for a general explanation of the routing logic itself, which is general knowledge about the system's design and does not require retrieving specific content from the bank procedure manuals.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 434,
+              "output_tokens": 52,
+              "cost_usd": 8.748e-05,
+              "latency_s": 8.0301,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 72,
+              "output_tokens": 84,
+              "cost_usd": 2.808e-05,
+              "latency_s": 1.6236,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 506,
+          "total_output_tokens": 136,
+          "total_cost_usd": 0.00011556,
+          "total_latency_s": 9.6537
+        },
+        "latency": 9.7
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q10",
+      "question": "ما هي إجراءات التعامل مع البريد السري في وحدة البريد والملفات المركزية؟",
+      "focus": "CRAG/retrieval-correction test; corpus-specific question.",
+      "basic_rag": {
+        "answer": "بناءً على المعلومات الواردة في المستندات المقدمة، **لا يوجد أي ذكر أو إجراء مخصص للتعامل مع \"البريد السري\"** في دليل إجراءات وحدة البريد والملفات المركزية.\n\nالمستندات المتوفرة تغطي إجراءات محددة مثل:\n*   حفظ ملفات القروض الشخصية والسيارات والسكنية (المصدر: Central Mail and Files Unit Procedures Manual.pdf، الصفحة 19).\n*   إجراءات التعامل مع المراسلات الصادرة والواردة من البنك المركزي وجمعية البنوك (المصدر: Central Mail and Files Unit Procedures Manual.pdf، الصفحة 8).\n\nلذلك، لا يمكن تقديم إجراءات للبريد السري لأنها غير مذكورة في النصوص المرجعية المقدمة.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 8
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 19
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 16
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 8
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 11
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 0,
+              "output_tokens": 139,
+              "cost_usd": 2.502e-05,
+              "latency_s": 27.4725,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 139,
+          "total_cost_usd": 2.502e-05,
+          "total_latency_s": 27.4725
+        },
+        "latency": 27.47
+      },
+      "advanced_rag": {
+        "answer": "بناءً على المعلومات الواردة في النصوص المرفقة (التي تغطي صفحات 5، 6، 11، 26، و29 من دليل إجراءات وحدة البريد المركزي والملفات)، **لا يوجد أي ذكر أو إجراء مخصص للتعامل مع \"البريد السري\"**.\n\nتغطي النصوص المرفقة الإجراءات التالية فقط:\n1. استلام البريد المرحّل من البريد الأردني ومطابقته مع الكشف (صفحة 11).\n2. قبول الطلبات على نظام BPM ومعالجة الملاحظات (صفحة 5).\n3. رفض الطلبات غير الفعالة وإعادة البريد غير المثبت (صفحة 5).\n4. تغليف كشوفات العملاء والفواتير وفرزها وإرسالها للفرع أو شركة البريد (صفحة 26).\n5. تنفيذ القرارات الإدارية وحفظ نسخ منها (صفحة 29).\n\nلذلك، لا يمكن تقديم إجراءات للبريد السري لأنها غير مذكورة في الدليل المقدم.",
+        "docs": [
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 6
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 11
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 26
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 5
+          }
+        ],
+        "num_docs": 5,
+        "route": "advanced_rag",
+        "techniques": [
+          "self_query",
+          "reranking"
+        ],
+        "reason": "The question asks for specific procedures regarding 'secret mail' within a specific department ('Central Mail and Files Unit'). This requires precise retrieval of a specific section within a manual, likely involving metadata constraints (department/unit) and high precision to distinguish 'secret' mail from regular mail.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 433,
+              "output_tokens": 97,
+              "cost_usd": 9.54e-05,
+              "latency_s": 4.237,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 238,
+              "output_tokens": 29,
+              "cost_usd": 4.806e-05,
+              "latency_s": 2.8377,
+              "executed": true
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "qwen/qwen3.8-27b",
+              "input_tokens": 5018,
+              "output_tokens": 215,
+              "cost_usd": 0.00094194,
+              "latency_s": 1.3935,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 5689,
+          "total_output_tokens": 341,
+          "total_cost_usd": 0.0010854,
+          "total_latency_s": 8.4682
+        },
+        "latency": 42.53
+      },
+      "evaluation": {}
+    }
+  ],
+  "summary": {
+    "route_distribution": {
+      "simple": 8,
+      "advanced_rag": 2
+    },
+    "total_basic_cost_usd": 0.000217,
+    "total_advanced_cost_usd": 0.003034,
+    "avg_eval_scores": {}
+  }
+}

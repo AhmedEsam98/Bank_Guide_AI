@@ -1,0 +1,1283 @@
+{
+  "model": "gemini-3.6-flash",
+  "timestamp": "2026-09-01 03:14:52",
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What is Retrieval-Augmented Generation (RAG)?",
+      "focus": "Simple/general knowledge question.",
+      "basic_rag": {
+        "answer": "The provided manuals do not contain information about Retrieval-Augmented Generation (RAG). The available documents only cover bank procedures for Assets/Warehouse Operations, Central Mail & Files, and Central Alarm systems.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 10,
+            "content": "الارع ناسه، وار ساله ا   ندير– \n.املطبعة واملستودعات لالاالع عليه \n1-\n مدير– املطبعة واملستودعات املنفذ \n  اسددتال  التعميم والتمرق ننه وفي حال عد  وجود نطالعات يتم عرضدده عل  نائب رئي– \n ندير الشددؤوو اإلدارية واللندسددية السددتيااء\n.نوافرته \n2-\n مسؤول  ول– املوجودات وعمليات املستودعات املنفذ \n.استال  املوافرة عل  التعميم وارساله ا   نركز السياسات واإلجراءات الستيمال عملية اصدار التعميم \n3-\n نعد اصدار التعميم ل كافة الاروع ونراكز العمل \n) والاروع ايخارجية \n:يتم اجراء نا يلي \n-\n \n.الطلب ن  ايةلا"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 20,
+            "content": "1\n \n رقم النسخة \n دليل إجراءات وحدة االنذار املركزي \n اسم االجراء \n \n08/2024\n \n تاريخ اإلصدار \n02/2026\n \n تاريخ آخر مراجعة\n \nInternal Use                                                                                                                                                                                                              20/20 إعداد / \n دائرة تطوير وهندسة العمليات \n \n:املالحق \n ملحق رقم1 \n : االوقات املعيارية ملراجعة ال Logs\n \n :و حسب البنود الواردة و التي تخص كل نظام  ضمن اا"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 0,
+              "output_tokens": 56,
+              "cost_usd": 0.00021,
+              "latency_s": 21.5112,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 56,
+          "total_cost_usd": 0.00021,
+          "total_latency_s": 21.5112
+        },
+        "latency": 21.51
+      },
+      "advanced_rag": {
+        "answer": [
+          {
+            "type": "text",
+            "text": "The provided bank procedure manuals do not contain information about Retrieval-Augmented Generation (RAG).",
+            "extras": {
+              "signature": "EvMFCvAFARFNMg+Vu2kBGihdvkAtbyPYwYkPL2G2dNPEyGgbbOHEU6OITbpu78GNpEVwaJ3/cZMvwAU9PjegrU9vBqQ0FNmbN9mZYUt4S+W9yHkWCHOl5bPDbWjCe+V2mZHIh1kRC4KL/+5dl8kRM/6MKIhZtpx068vleOFj/w8eWS5HWjvrn/zjc3PdctF67YoO7rUkmmVadp7jvA+Qmjitvy1nruNUoFrSXTEBx8oVtt5515UxctmtScrHBbBXiWLK11VT1oPwLMuxpds3piePFJLZV4p/tY6ZmW8xq+d3ScPZ5QdpiqqVXNnOnZ1985eV1bTq+R+BqieL9X/vqr3RTbGL6AAUlO7qd1i1kdo7QtgHwjs9gKMDGZT32s/SXY2Khn3smUdkS1Wf/9TVXluVrE5L4pi2xZszP2Hfhg1UI3GP7Ww3uZYvs6jkNIM52v2SA2egyxyNqVgGwhYn/zlqgODnCt8MExiQb16AdwQkRjLi1/D/+hH7x2LvRynIFDP56lyIquj+W15rymjXRLm9lviQVuUm0ND8RiNogYGxhpQsxvwdny+bbC02ZWetMM/nU1aoQR5GlkJYd9f1YuYuPr3rExunAkg3zIrqmkHoNOOs52aENEDUf4xKY0BlXBOPEkr4lKDiYf3r/QorVXZuQlGco1s0P0moDF1OzOPqoEBhypDx/H4s+iIdA9bn4FGRtb/Yc6cdFzxbB8B1/dO8Id4bbIHOc7RajY9ba4zQICKsc0QrZA7e/omFzVL89UOo1gBqI4NQsmC5ggh0rdMTFmYkx34bdoeREwM72UCyp6kRb4Gcb10M0/K6K/wIFkPb/TgSrMsQXdg0Qgd6kwnIW6iaJxed56B/cqbR7V2kY+jsmy5uTBV79jQPfjOuKLcpWgD1SQK/3WLkFXvtk0IhKkawl2hkn0BZXTIXcURAUqIKAT4LR4EHhdl5kdgdUezgYyZIAox0XuHvrq+KZ+gf3ZWsNtoSMMKSbwFQ5lUXRJgCN5U="
+            }
+          }
+        ],
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 10,
+            "content": "الارع ناسه، وار ساله ا   ندير– \n.املطبعة واملستودعات لالاالع عليه \n1-\n مدير– املطبعة واملستودعات املنفذ \n  اسددتال  التعميم والتمرق ننه وفي حال عد  وجود نطالعات يتم عرضدده عل  نائب رئي– \n ندير الشددؤوو اإلدارية واللندسددية السددتيااء\n.نوافرته \n2-\n مسؤول  ول– املوجودات وعمليات املستودعات املنفذ \n.استال  املوافرة عل  التعميم وارساله ا   نركز السياسات واإلجراءات الستيمال عملية اصدار التعميم \n3-\n نعد اصدار التعميم ل كافة الاروع ونراكز العمل \n) والاروع ايخارجية \n:يتم اجراء نا يلي \n-\n \n.الطلب ن  ايةلا"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 20,
+            "content": "1\n \n رقم النسخة \n دليل إجراءات وحدة االنذار املركزي \n اسم االجراء \n \n08/2024\n \n تاريخ اإلصدار \n02/2026\n \n تاريخ آخر مراجعة\n \nInternal Use                                                                                                                                                                                                              20/20 إعداد / \n دائرة تطوير وهندسة العمليات \n \n:املالحق \n ملحق رقم1 \n : االوقات املعيارية ملراجعة ال Logs\n \n :و حسب البنود الواردة و التي تخص كل نظام  ضمن اا"
+          }
+        ],
+        "num_docs": 5,
+        "route": "basic_rag",
+        "techniques": [],
+        "reason": "parse_fallback",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 414,
+              "output_tokens": 118,
+              "cost_usd": 0.000753,
+              "latency_s": 2.1428,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 2038,
+              "output_tokens": 156,
+              "cost_usd": 0.0021135,
+              "latency_s": 1.9577,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 2452,
+          "total_output_tokens": 274,
+          "total_cost_usd": 0.0028665,
+          "total_latency_s": 4.1005
+        },
+        "latency": 4.43
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q2",
+      "question": "What are the main limitations of RAG?",
+      "focus": "Document-grounded factual question.",
+      "basic_rag": {
+        "answer": "The provided internal bank manuals (Central Mail & Files, Central Alarm, and Assets/Warehouse Operations) do not contain information about RAG (Retrieval-Augmented Generation) or its limitations.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 29,
+            "content": "نطبعة البن \n /ح   إ \n5-\n \n القيود في حالة\nالصرف من \n  املخزون \n نارات لواز  وقرااسية– \n ايةلة املعنية او حسب توج هات الدائرة املالية \n/ح  ن \n نخزوو لواز  وقرااسية \n /ح   إ \n6-\n \n القيود في حالة\nرديات \n   الصرف \n نخزوو لواز  وقرااسية \n/ح  ن \n نارات لواز  وقرااسية– \n ايةلة املعنية \n /ح   إ"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n....\n \n27\n \nمرفق القيود \n املحاسبية \n................................\n................................\n................................\n................................\n..............\n \n28"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 0,
+              "output_tokens": 48,
+              "cost_usd": 0.00018,
+              "latency_s": 3.4957,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 48,
+          "total_cost_usd": 0.00018,
+          "total_latency_s": 3.4957
+        },
+        "latency": 3.5
+      },
+      "advanced_rag": {
+        "answer": [
+          {
+            "type": "text",
+            "text": "The provided manuals do not cover information about RAG (Retrieval-Augmented Generation) or its limitations. The context only contains procedures related to internal bank operations (Assets/Warehouse Operations, Central Alarm, and Central Mail & Files).",
+            "extras": {
+              "signature": "EsUGCsIGARFNMg89uuauebYm1QnE0YF6niVFzUjqTez51QWWa3KzvgkYcpi+48I5a2iDzby6FywKSRYyMnsPMPGN0GfSIPqSWhc1WGyQkvpBVbzMCzDoUb6Rl4sdUyLUZsDXwP0bgsCWmUG8LRMh9JFonYj5JfwhGgKqK3fqoD8HIxOPCCRA4hdksEIN+PfQzG6kNaVvk3X1jE+IRnPqTAfoDCXT8xOSb2ArjwHIl/MFYnjncLW4xk4B8OjueSOT59q6t5elpI3jZd4BGlF7Gl2TC5jJ5gAVNv87brJfiI/49gUolZzqzoTbzCbptQEvZigAgUU4ZGR90KV/lfQ7naDnm27SgWDeWx4tsh2+XXtqdBRWGL2xnAyEzGJ8sclBMY3dfGBRVQniKl4KE7RUHLCPXMnLH1+IQmFLeIySQgSoqO1l3BV+QbTtLogg2pqrW0at5InTwhhTQixhs34VkVcVamDzmT8VfocNkHovrSyPNcmOzoA1Q5VevA56+tEmlje3St0+geZ6v83K6h2uIPICmfhAthZ0WD+FvxfLwt1ChcrCVKaBXLVtGHH+Ki0NKaPtxk+Ig/LDKJjDUgwtg82yiFNeRsmSnkR2NUXxMQCZcQpie0ItyQEzybsFYGXkAcD3bWahm8iwSrrYkCRNAqamPusTYucDSaOJjYUyFiIj/gVGkxR0+4u9OSY45qo7tkR0eTGxsA3rBL3Ug4bgNPeN1z+OFOVvHdffsYsMkF3IYUTaNpehri6t/MhkqikznDkvNY6ppKHizF2dFUMZXkMTv02G7bgQt9eWMmpWHK1fRRFRC0+GyvplpTArIVesf3xE8Ov666uYzTxyhJtNbK9Ke0Wx6DHgUiizUDHHZqOTRs9ad2bJXWWhwBJYPiTQ+BJB8JojJmSawjlNvDvoJGiO90twM4t0puRKkZTVw16a54AhyjnXA0TnL7Z5S/iYl0k8Qo0Nv//G+XVcrH5B9+pMOrEePGHJXIiWDwWCBXvjO+otU7iyffn2wb/4Bg1EiQNpcF7Tlrlsxp4p8XOILET0xnn92KWXz0V+gKNvQZ6lUE+Tb4ILJ3vQFkjOyjQKTPIWVpkQOi/V1VIJ1+msJhq/njB/YtU4"
+            }
+          }
+        ],
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 29,
+            "content": "نطبعة البن \n /ح   إ \n5-\n \n القيود في حالة\nالصرف من \n  املخزون \n نارات لواز  وقرااسية– \n ايةلة املعنية او حسب توج هات الدائرة املالية \n/ح  ن \n نخزوو لواز  وقرااسية \n /ح   إ \n6-\n \n القيود في حالة\nرديات \n   الصرف \n نخزوو لواز  وقرااسية \n/ح  ن \n نارات لواز  وقرااسية– \n ايةلة املعنية \n /ح   إ"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n....\n \n27\n \nمرفق القيود \n املحاسبية \n................................\n................................\n................................\n................................\n..............\n \n28"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          }
+        ],
+        "num_docs": 5,
+        "route": "basic_rag",
+        "techniques": [],
+        "reason": "parse_fallback",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 412,
+              "output_tokens": 103,
+              "cost_usd": 0.00069525,
+              "latency_s": 1.7046,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 1398,
+              "output_tokens": 203,
+              "cost_usd": 0.00180975,
+              "latency_s": 1.8696,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 1810,
+          "total_output_tokens": 306,
+          "total_cost_usd": 0.002505,
+          "total_latency_s": 3.5742
+        },
+        "latency": 3.91
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q3",
+      "question": "Why is it bad?",
+      "focus": "Ambiguous/conversational query.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.6-flash\\nPlease retry in 26.907341785s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '26s'}]}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": [
+          {
+            "type": "text",
+            "text": "The provided manual excerpts do not contain any information explaining why something is \"bad\" or discussing negative evaluations, as the question lacks specific context and the manuals only detail operational procedures and approval matrices.",
+            "extras": {
+              "signature": "Es8JCswJARFNMg/gv3Ya6nngQ5uwmUWB7TsHhi6DqXxmkPzUqJW42TRV9jcO1G5Dj7byJiGDN33+RJtjsXZzeFvsCQJZoLk9vAnAYMcnG1JnjC7MGKF1rWsEP8YQnSUNSA3ioNOFRQWxlUrLOxxk7myc2ETMPVcJFj7kLEn4R114yGE5dXUQOVoEsRGP7V46k94b73OOd7diXiQ41J82Fa8wRqsM9mYaVRCFobCQIGjh5LeGCCF3/ZBztDJydO/CNlGVKMUQeeR+qAa+dLwoESSmK9SIk5ypjgnAu9XvvN1qqHrAKcLLtwBzQ4x3tulMkFb8Rm8Ks0Bsc92SrjvyusLqVcKxkZJl+gfNHad+NzXalqWbbVRCgR96P6aBGqpXz2qyr9PPxogKukNfTyqy0LTEWqqIJG8mmTqwWpSlgEBZtqAeemCogQvCTRPksU6FUoeZBoQZEIwi+vtHErtXnhwGe0ddX2cURzlsjLBGK00mD+Ls9eais3MZlKwZdNv9pzOb537gcpzQG1VEJqEhlzozMYN2Ch6xtMmsgl5m2PjzoLxrmWh2mMJrCz+Qpc0KyTMQRna5WedSWKuS1bivoRBtOpA6bH9a5Bdf8QsHe//+rJarKiZwPrXDSk8wdxjLBai/JaAbl8crbsFuKt8uBvh4NAdEkPk3woRhb0YODew561/mkJGSHse48ffbS0ArFagUQskNx2p2JXeFjYXdmC5k6oELtqiu3sjG7v7kSWF33vLFuoYTbv6sO3+39eoN8fLqClp0IagzlxIRN1J/WC/bH79yCW6adk3QzxYyigcs6f3ErvuWw5Kf/J00suXON/p3dgk8WSsAt2bDv/VGbrTB3bpQI5T00+iiqbmnMIz19qX8z8ODIaL890TL2gVF4FxvB2VJPRJUSubLQ/lnqzgio8A+Fvv0A3e4Sx6oTYNrvdvCXEVEPrW/8FE1JMGMbbo98HsA5e08IlyyDLTg4TMoCYXkdYozY1HCe6RxsBttLAhuqgMsTAbTo38oaf+ArF4CjwxR7WzV83jGpxfnS0tivJKTMzZu4TGCBNAw5FStBQpBLeKIRo3ignY/gqVu6xdeTmyp24YWMRy1fHBnEQr9rdVpfSecc/rGrXUFbzjYjDJ+jZIeJDYYmBTdm5vSwWWxRpzFNxU+D1xLgHXcUJa12o4rQo1+EPDBumLvaaUJHfF4UHD5AHrW+A3EOazHXMwGFw81lrBLrwZiq3BST1YqR9XpslCWDAUMVUowGyWff9y3MpStq2J1oHs4Fbq3doy8dnMIlwQPbOrxvnqaBrmjKY+ENuz87WF1VpKyxA+GUVjrRdu1R9BxmeSF0ys1+uewmQEwvFnZ8nphM/W5PHQu7/wA3tdeQ/qGxsKw5w5Yjx0gpQSPnHnErRAriBN+s+I2o3TIlpB4bLBvAeVcaKBWlGdwNDahWWMXj3OZg9dwrs5XmVNHDO0/lvMJHWEHRtYN32ggX+f1qZ9a4XJsOe8QM82ZVUhe7VXAf2vgosmLcizt6mpYHLlWL7U3vKgMQGGpUDHDSbmODKz2yJwT2f2b/PBg574dQPWzvuZIhSeQVyywhZ6iCfJfOm0hTJNTgzXxUQVyi2G1DK5ZDPE0Qsi+EXUgd9SXV+fmn/1axe2eMA=="
+            }
+          }
+        ],
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n................................\n  ...26\n \n17\n. \n :اݍحﻔﻆ واﻻﺗﻼف ﳌﻠﻔﺎت اﻟ؄فﻳﺪ اﳌﺮﻛﺰي واﳌﻠﻔﺎت\n \n................................\n................................\n................................\n................................\n....................\n 28\n \n18\n. \n :اﻟﺘﻌﺎﻣﻞ ﻣﻊ ﺣﺎﻻت اﻟﻨﻘﺺ/ﺗﻠﻒ/ﺿﻴﺎع اﻟ؄فﻳﺪ اﳌﺮﺳﻞ/اﳌﺴﺘﻠﻢ ﻣﻦ ﻣﺮاﻛﺰ اﻟﻌﻤﻞ\n \n................................\n................................\n......"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 6,
+            "content": ":وحدة اينذار املركزي \n الجهة الطالبة وطبيعة الطلب املوافقة املطلوبة من طرف الجهة الطالبة \n املوافقة الداخلية من جهة دائرة\n الشؤون اإلدارية والهندسية \n الفروع وما يتعلع  ها مدير املنطقة \n املعني \n مدير م اعد– \n االنذار املركزي \n الصرافات الخارجية وما يتعلع  ها \n مدير– مركز عمليات الفروع \n مدير م اعد– \n االنذار املركزي \nوحدة النقد الرئي ية / عمان \n مدير– مركز عمليات الفروع \n مدير م اعد– \n االنذار املركزي \nالبات مركز جودة الخدمات \n وتع ين االعمال مدير \n أول– مركز \n جودة الخدمات وتع ين\n االعمال \n مد"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 1,
+            "content": "اعداد: دائرة تطوير وهندسة العمليات                                                                                                                                                                                                                                                   \n    \n                                                  \n      \n \n \n \n \n \n \n \n \n \n دليل إجراءات وحدة االنذار املركزي"
+          }
+        ],
+        "num_docs": 5,
+        "route": "basic_rag",
+        "techniques": [],
+        "reason": "parse_fallback",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 408,
+              "output_tokens": 214,
+              "cost_usd": 0.0011085,
+              "latency_s": 4.1319,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 1396,
+              "output_tokens": 292,
+              "cost_usd": 0.002142,
+              "latency_s": 2.864,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 1804,
+          "total_output_tokens": 506,
+          "total_cost_usd": 0.0032505,
+          "total_latency_s": 6.9959
+        },
+        "latency": 7.28
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q4",
+      "question": "What are the challenges and failure modes of RAG?",
+      "focus": "Good candidate for Multi-Query.",
+      "basic_rag": {
+        "answer": "Based on the provided context, the manuals do not cover information regarding RAG (Retrieval-Augmented Generation) or its challenges and failure modes. The provided documents solely contain internal bank procedures for Central Alarms and Central Mail & Files operations.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16,
+            "content": "ث.\n \n.متا عة مفوض ي الفرع رالب ور للفرع خالل نصف ساعة \n .\n \n. ا حالة عد  ح ورهم ارال  مدير املنطقة \n-\n \n  ارال مدير م ةاعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي \n ونائب رئيس– \n مدير ال ةؤون ايدارية والتندسةية  ا\nحالة التعقع من االشارة   كل فوري. \n-\n \n رف  تقرير  ا  باح يو  العمل التالا الى\nمدير املنطقة يعالمف رالبادثة وساعة ح ور مدير الفرع وم اعدا \n  عد التن يع\n  م مدير م اعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي. \n-\n \n رف  تقرير الى املعنين (مةدير\nالةدائرةح مةدير ا"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 5,
+            "content": "11\n-\nاﺳـﺘﻼم اﻟ؄فﻳﺪ ﻋڴʄ اﻟﻜﺸـﻒ )اﳌﺴـﺘﺨﺮج( اﳌﺮﻓﻖ ﻣﻌﮫ واﻟﻌﻤﻞ ﻋڴʄ ﺗﻮزيﻌﮫ ﻋڴʄ اݍخﺎﻧﺎت اݍخﺎﺻـﺔ ﺑﮫ ﺗﻤهﻴﺪا ﻹرﺳـﺎﻟﮫ ﻟﻮﺟهﺘﮫ Ȋﻌﺪ اﻟﺘﻮﻗﻴﻊ ﻋڴʄ ا\nﻟﻜﺸـﻒ ﺑﻤﺎ \nﻳﻔﻴﺪ اﻻﺳﺘﻼم اﳌﺒﺪئﻲ واﻟﺘﻮزيﻊ. \n12\n-\n ﻗﺒﻮل اﻟﻄﻠﺒﺎت ﻋڴʄ ﻧﻈﺎمBPM\n \n ﻣﻦ واﻗﻊ اﻟﻜﺸــﻮﻓﺎت )اﳌﺴــﺘﺨﺮﺟﺎت( اﻟۘي ﺗﻢ اﻻﺳـﺘﻼم ﻋﻠٕڈﺎ Ȋﺸـɢﻞ ﻣﺒﺪئﻲ واﻟﻌﻤﻞ ﻋڴʄ ﺗﻤﺮʈﺮهﺎ ﻟݏجهﺔ اﳌﺴــﺘﻠﻤﺔ ࢭʏ ﺣﺎل\n.ʏڴﻋﺪم وﺟﻮد أي ﻣﻼﺣﻈﺎت Ȗﻌﻴﻖ ارﺳﺎل اﻟ؄فﻳﺪ Ȋﺸɢﻞ ﻓﻌ \n13\n-\n اﻟﻌﻤـﻞ ﻋڴʄ رﻓﺾ اﻟﻄﻠﺒـﺎت اﻟۘي ﻟﻢ ﻳﺮد ﺑﺮʈـﺪهـﺎ Ȋﺸــــɢـﻞ ﻓﻌڴʏ ﺛـﺎɲﻲ ﻳﻮم ﻋﻤـﻞ ﻣﻦ ﺗـﺎرʈﺦ ﺗﺮﺣﻴﻠهـﺎ ﺑـﺎﺳــــﺘثﻨـﺎء اﳌﻮﻻت واﻟۘي Ȗﻌﻤـﻞ ﺑﻨ"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 0,
+              "output_tokens": 67,
+              "cost_usd": 0.00025125,
+              "latency_s": 3.5575,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 67,
+          "total_cost_usd": 0.00025125,
+          "total_latency_s": 3.5575
+        },
+        "latency": 3.56
+      },
+      "advanced_rag": {
+        "answer": [
+          {
+            "type": "text",
+            "text": "The provided manuals do not cover the challenges and failure modes of Retrieval-Augmented Generation (RAG). \n\nThe context provided only contains internal bank procedures regarding the Central Alarm system and Central Mail & Files unit operations.",
+            "extras": {
+              "signature": "Ep4KCpsKARFNMg8EbZYompfjnG0FRnLtkQZNzHs8uxPtv/CiNXcWiR7x6yW+L4bJacil9xtjxUQ1Mfjuq50GeUw4cfiwBnLZmsB+hoRPceiVXz4EdDQCU2tN53Y5JnYs4CBS+wTBZBMFb07d/cMarkr/B682KnrPkY82S7poU6V5bSX3O1JK3aZdUzDcR4ayg2Db0AhQK4Sz0ye8VaDvYbxUc/ASrkGlXjEhzzJ7DpK3eelp5zIA/fQhNzLJEXoEN0OScjOd9eI+t89L6q8EDWejUKMPoADNw+LVkClG5awiQDQ0l2yj21UHb13/NPCYhQYK3uHBh49vrVR0TtenxgIq1DJcXGK7WNpMZJqxOloPHElRx5Z3/CK3tYThzPFgIKPkc43q4OjjoyY3fb8J3KFmQtH7SmB3aT+rUHzCJSUd61MxgjO2UrlvN/we8NYb6MTXsE1QhYFmGpNgwCN+sDdf+wuvEweDLxOQ6aKam7BZR1RBGMRT3HNAQNxAt0hXN7+RIGtCHn46V+rQCNaK83mUukZw4NsQQ1gTtivIBmtJp82o/tHPs3k2ZwmDB36fl2DKP0PBo9UPrpdnA6cnp9oc5iiKgxTYL3oABc5J2+l/Mrjx7G71N1fERlb+KV4C41uOmpD7LWXNxSBf1YeLg7mTRQ9OwMOQzP29jCHnh7Zpngl5eglouJhnSvnF+y+PsdImqT+TGjf8+2d6MkjNN48wfv7CtxPmLhv3mtV8XkmIKp4RDA+5asizVHpUvy7ZMjNjyHAp4uBH2nbw5tum82IUOYFr29cT4LD9bkhdTtYx8isDBPAwIzn44fMO18wTDkNa5fca05tFgMQX8shBa02/RdAZfgTpw6xIonKl7hop70A1idClf6sU1SzOWrKET7B4SQNcyrV8jlNVOoczvi7WwgGIHZERgbE+4k5Nf2/5xrPPFPn9bcFe4/CAsjbsUoH3oVF9TKKJypFas5vhHBhNngouDlIZ1JcFEH8Zp+/ZvVsuSDgyT05LNjUpmOM18jkCN429hlYOFDXsJSRcjyQuonfc9wS8BTi1zsylfU6bJXFVC1y6JUJxLjg657592bARnwy4Tc34j3Z7rMlDTdxZF5dJb0iJ6b/HbWN36xJ3xRVHsBNTA0Px3FrOOQ7dzTIxOOfvmFStjqmmgzlXWjySmnclnJ6Lbf2Il3AqmDgLWU7iUH8Ii6+3hzFzn1Lj5uWrTm2HLr6zCsR5Jf9BWdY1gIsIlrRuF2Htg5Jp0GqpDz0d2l/XDEk/X9M0/1boxxK3iuLFMmVbg229DFe22/6Plf2upjVrb9vbqhsEQGHq5S7vIOvtrvWcZCdUoWU0vWAP/nqddELlpCHJ0qvwWN0dDASW5OqY6U6D97DVSWdWEPBLvoQDlXlKJs103XWOttCYgh5RT4wBEWz2MFqaiFWbfLYZWCHt0OAt3+jYv8/KVgOC0n+2F+S/XhCm7vdxk8MT78hO0a6WZJryAtG096+9L1/AYLPmdqGFKQmUX9YAXMcmuaK+UJpoixzJwNbtQPIrWb7mWgwDAL8/TYM/gbpPxNSc7ZbPZwPl1UjpbQ8V4sYNphDA+x7u+oT+pyx0SE4t2tXp70ghSu470la8Qj2pkVTKhjwAOPz4FGZeg2LDCGVEiVkpi8YWs+SVFIFCL7joir78vwny/NctS43Zy3qkvJIny7jNjMG0G3ChZRs9631vB1nKObPvtZADOX4L7y8zMZqgs95OcovHmS1KdEE="
+            }
+          }
+        ],
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16,
+            "content": "ث.\n \n.متا عة مفوض ي الفرع رالب ور للفرع خالل نصف ساعة \n .\n \n. ا حالة عد  ح ورهم ارال  مدير املنطقة \n-\n \n  ارال مدير م ةاعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي \n ونائب رئيس– \n مدير ال ةؤون ايدارية والتندسةية  ا\nحالة التعقع من االشارة   كل فوري. \n-\n \n رف  تقرير  ا  باح يو  العمل التالا الى\nمدير املنطقة يعالمف رالبادثة وساعة ح ور مدير الفرع وم اعدا \n  عد التن يع\n  م مدير م اعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي. \n-\n \n رف  تقرير الى املعنين (مةدير\nالةدائرةح مةدير ا"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 5,
+            "content": "11\n-\nاﺳـﺘﻼم اﻟ؄فﻳﺪ ﻋڴʄ اﻟﻜﺸـﻒ )اﳌﺴـﺘﺨﺮج( اﳌﺮﻓﻖ ﻣﻌﮫ واﻟﻌﻤﻞ ﻋڴʄ ﺗﻮزيﻌﮫ ﻋڴʄ اݍخﺎﻧﺎت اݍخﺎﺻـﺔ ﺑﮫ ﺗﻤهﻴﺪا ﻹرﺳـﺎﻟﮫ ﻟﻮﺟهﺘﮫ Ȋﻌﺪ اﻟﺘﻮﻗﻴﻊ ﻋڴʄ ا\nﻟﻜﺸـﻒ ﺑﻤﺎ \nﻳﻔﻴﺪ اﻻﺳﺘﻼم اﳌﺒﺪئﻲ واﻟﺘﻮزيﻊ. \n12\n-\n ﻗﺒﻮل اﻟﻄﻠﺒﺎت ﻋڴʄ ﻧﻈﺎمBPM\n \n ﻣﻦ واﻗﻊ اﻟﻜﺸــﻮﻓﺎت )اﳌﺴــﺘﺨﺮﺟﺎت( اﻟۘي ﺗﻢ اﻻﺳـﺘﻼم ﻋﻠٕڈﺎ Ȋﺸـɢﻞ ﻣﺒﺪئﻲ واﻟﻌﻤﻞ ﻋڴʄ ﺗﻤﺮʈﺮهﺎ ﻟݏجهﺔ اﳌﺴــﺘﻠﻤﺔ ࢭʏ ﺣﺎل\n.ʏڴﻋﺪم وﺟﻮد أي ﻣﻼﺣﻈﺎت Ȗﻌﻴﻖ ارﺳﺎل اﻟ؄فﻳﺪ Ȋﺸɢﻞ ﻓﻌ \n13\n-\n اﻟﻌﻤـﻞ ﻋڴʄ رﻓﺾ اﻟﻄﻠﺒـﺎت اﻟۘي ﻟﻢ ﻳﺮد ﺑﺮʈـﺪهـﺎ Ȋﺸــــɢـﻞ ﻓﻌڴʏ ﺛـﺎɲﻲ ﻳﻮم ﻋﻤـﻞ ﻣﻦ ﺗـﺎرʈﺦ ﺗﺮﺣﻴﻠهـﺎ ﺑـﺎﺳــــﺘثﻨـﺎء اﳌﻮﻻت واﻟۘي Ȗﻌﻤـﻞ ﺑﻨ"
+          }
+        ],
+        "num_docs": 5,
+        "route": "basic_rag",
+        "techniques": [],
+        "reason": "parse_fallback",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 414,
+              "output_tokens": 85,
+              "cost_usd": 0.00062925,
+              "latency_s": 2.0303,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 2646,
+              "output_tokens": 315,
+              "cost_usd": 0.00316575,
+              "latency_s": 3.2411,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 3060,
+          "total_output_tokens": 400,
+          "total_cost_usd": 0.003795,
+          "total_latency_s": 5.2714
+        },
+        "latency": 5.57
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q5",
+      "question": "Compare RAG and fine-tuning, explain their advantages and disadvantages, and state when each should be used.",
+      "focus": "Complex multi-part question; good for Decomposition.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.6-flash\\nPlease retry in 30.407381374s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '30s'}]}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": [
+          {
+            "type": "text",
+            "text": "The provided manuals do not cover Retrieval-Augmented Generation (RAG) or fine-tuning. The context provided consists exclusively of internal bank procedure manuals regarding Central Alarm operations, Central Mail & Files, and Assets/Warehouse Operations.",
+            "extras": {
+              "signature": "EvgLCvULARFNMg8sqYBOfPkemcY0Aj9uMHEg5cGUEbYt0BzMsiP6/W38gfpCrmawp8hGG0ska3hmYHBk1hf5GVl1r8N978gNjxOVMY4hOTmMVNJy0nC2e+XB7vsNxBdewPJADMrpfkTSpG1L1ygdO7KmjqgGdmbAFYTU83J+hAM66GP3GVX5qNlBxyleS0DdoOTU+fCXtMIiKV6sQvwfo60gaToMXLljvDYymdP+e3HITIOWMsNyPK9aK6KRCKg5N/7jPkDMu9XX0c9dc/9pBK7Zi4hnEUHCYkXEhKIETTQrIUFmFLRxkd66hf6U0prwK6jDzE2seXQ30RmAl/9CqPwOeO7cd4SXqN+f/xq1dwQXlVucMQ9+z5LaQkO1olTMa+QnY/FaQUWAxodD9ce7m7RntF8RWSt8VnCqS5e1gvGHE0WOG+VnDGPZZ13AD9LgNM4XmTkYEcybqJVVbNyNU8hlmewC9OIljuLxwRnC7oR7jwRDiMiKgQg3b981UdQLrXqougx7U1zk8q0r9j1V5UZedTrfDbI/xJn5CV1BQKfF7S7t3lAj0V82IlP/VaslSby1AcNraNkpGRYLVpgB7KUWQaSUlEdxN7rzfuLQcZFPJ3moySl+tBfqp4UBmy1GBxZqNsieCAUjzKz9Pj+FXFS9lQ/VpjzB98XDlOfZvtbDazRIeFfCt1o2zN8u8Yz3EpDro6N3zFc0KYUfTF6DiHhnLHDt4ROFj1Kwt3bZmHh1ZpNGB9ebV+iAFPrD2aVhGrw4UMKacFsG7wcWxUExZZtMIvM7nMGo19w8tuUJPLu3jEOC20tXgoJpZ89wza3EsG3Gh4rR0TycygSmwN8/dhO4w5u7xb8RVy1PaKZk2mXxUx8rKUOIQRSSL+QJTS0gRwfDRcnhqjSamK57WiRM2d0qTcbY1DfR6iwHEZEc0kRB5fpY/coILXNxywWiP5F1DzLXx1+IxRAnhlsNtCHlRjexepqkEpAWx/hMhIL6YUF/dHPdHo3q5OodhWXg470o4byXlE9BDXJWbJVzmrCH6OdXcQa/TuuufG2rhmdrDD3sKzJ7uCOYu5RvuLs/48ktFw145koNmr1jGNtlYkNMsm79jWjabpiMCUb/Y6f1rIA3h7BUr67bDMaiXoCjmEJVgDGXh646VQAB1jTZX7tGBXzpiZtLFj1e8H1o9fx+YacuO4d+jA3nCPlGN6ueFCL3aciLWna/TPHtw1dkT//sKy1dn/Gmc1YTAgOTbbCgfqO5HK6mz6EEsnRwNQMDdDXuaBsT513lC+TB217Kt32gmxK3qhCCemkC3Q/pbAkHqlVp7GhjUn+pwEMHhKrZwTIb4TJ/O+L2z7YPuO87Oyi/x+AKDUwiQf3hkyhiB7rCQV0F7jR3/GBejaIX0KbshAD0WzQzV1orEU+WHhmaDOkLz9U3zw61ENkMBLaSa7xTVXcAszrRPbOtp38soB/149UgwPq8hVW/Xcfx914Xnza/rRM144MQX/A+RPajwFsh6R2BodMZCQ3MGUzeXWx/qeiJeJURbq8Kns3gQPhsz34c1ll489JeW0iLGB9l6cb34FP07Ln17yv1MhAKzoJJBNvPJKklvxlXLiVUq1vV9cx/pUZSNZBvd73yAoiAVVh+71V6XuG90urkl49iaJUdngjN2LyR+6x/30tN2Jjz3HecF/tA5q40BS5Pdmlv2mTqp/xy0gR2P2PFdkwvfdvQKpBPox9JHGkb1qqoMTlvX1Rhy6sajRQrl67WxyeD0/LQXOYGOGnRccNY8yRlulHBEhMcp0SXjn9xulf4JOeoTkeE64Mk4EApwEpnyfOEmF4PPH4/mDJNdz+tOrZck/Nb6JwVyjRZsi0PBCnNTZxtHSfEcr6iDnoT2Kr+QHhQAuF9lCNASPypVBm/S0tXofMznbHj6wGWJ63GNxt+Li5GgdWeCZSOlpf6UuCDwkmc/UOjNoN2NJBL7YmxPMKc+W4w2Eq7mTmRuwntiZZm455jmKY0l+lfvnEc5HIBYyv/XLz8bCW6YD/eingxb0bnfA=="
+            }
+          }
+        ],
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 7,
+            "content": "مركز جودة الخدمات وتع ين االعمال مدير \n أول– مركز \n جودة الخدمات وتع ين\n االعمال \n مدير– \n األمن واالنذار املركزي \n موظفي دائرة التدقيع الداخسا \n املدير التنفيذي املعني \n مدير– \n األمن واالنذار املركزي \nموظفي مركز الرقارة الداخلية \n مدير– \n الرقارة الداخلية \n مدير– \n األمن واالنذار املركزي \n \n5-\n يتوجب عسى وحدة االنذار املركزي القيا \n رفعص التسعيالت و ح ب الباجة و رعد اقص ى كل3 \n.اشتر \n6-\nيتوجب عسى وحدة االنذار املركزي وب كل م تمر \n الت كد من عمل جمي  الكاميرات الخا ة رالفروع والصرافات اآللية وا"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 13,
+            "content": "-\n \n نرارنة األرصدة النظانية نع\nاألرصدة املحاساية ونطابروها. \n-\n \n  اعال الارع بنتينة املطابرة والتنسيق نعه يحل الاروقات\"او وجدت.\" \n2-\n اجراء نطابرة يحسام ارباح– \n .خسائر بيع نوجودات الابتة والبمث ع  اسبام الاروقات ونعايةوها او وجدت \n3-\n  االضددددافات+  اجراء نطابرة نا بيو ارصددددة النظا  في نهاية الربع نرارنة نع رصدددديد بداية العا– \n االسددددتبعادات لكل ن  الريمة االسددددمية\n وننمع االسوهالك عل  نستو  كل ن  األر دو وفرع البمري ، و بياو تااصيل أسبام الاروقات الظاهرة في ايحسابات\"او وجدت.\"\n \n4-\n "
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 1,
+            "content": "اعداد: دائرة تطوير وهندسة العمليات                                                                                                                                                                                                                                                   \n    \n                                                  \n      \n \n \n \n \n \n \n \n \n \n دليل إجراءات وحدة االنذار املركزي"
+          }
+        ],
+        "num_docs": 5,
+        "route": "basic_rag",
+        "techniques": [],
+        "reason": "parse_fallback",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 425,
+              "output_tokens": 100,
+              "cost_usd": 0.00069375,
+              "latency_s": 1.4616,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 1680,
+              "output_tokens": 379,
+              "cost_usd": 0.00268125,
+              "latency_s": 6.3622,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 2105,
+          "total_output_tokens": 479,
+          "total_cost_usd": 0.003375,
+          "total_latency_s": 7.8238
+        },
+        "latency": 8.14
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q6",
+      "question": "How does RAG reduce hallucination?",
+      "focus": "Good candidate for HyDE.",
+      "basic_rag": {
+        "answer": "The provided manuals do not contain information about RAG (Retrieval-Augmented Generation) or how it reduces hallucinations. The context only covers internal bank procedures for the Central Alarm Unit, Central Mail & Files, and Assets/Warehouse Operations.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16,
+            "content": "ث.\n \n.متا عة مفوض ي الفرع رالب ور للفرع خالل نصف ساعة \n .\n \n. ا حالة عد  ح ورهم ارال  مدير املنطقة \n-\n \n  ارال مدير م ةاعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي \n ونائب رئيس– \n مدير ال ةؤون ايدارية والتندسةية  ا\nحالة التعقع من االشارة   كل فوري. \n-\n \n رف  تقرير  ا  باح يو  العمل التالا الى\nمدير املنطقة يعالمف رالبادثة وساعة ح ور مدير الفرع وم اعدا \n  عد التن يع\n  م مدير م اعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي. \n-\n \n رف  تقرير الى املعنين (مةدير\nالةدائرةح مةدير ا"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 7,
+            "content": "مركز جودة الخدمات وتع ين االعمال مدير \n أول– مركز \n جودة الخدمات وتع ين\n االعمال \n مدير– \n األمن واالنذار املركزي \n موظفي دائرة التدقيع الداخسا \n املدير التنفيذي املعني \n مدير– \n األمن واالنذار املركزي \nموظفي مركز الرقارة الداخلية \n مدير– \n الرقارة الداخلية \n مدير– \n األمن واالنذار املركزي \n \n5-\n يتوجب عسى وحدة االنذار املركزي القيا \n رفعص التسعيالت و ح ب الباجة و رعد اقص ى كل3 \n.اشتر \n6-\nيتوجب عسى وحدة االنذار املركزي وب كل م تمر \n الت كد من عمل جمي  الكاميرات الخا ة رالفروع والصرافات اآللية وا"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 0,
+              "output_tokens": 64,
+              "cost_usd": 0.00024,
+              "latency_s": 4.4902,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 64,
+          "total_cost_usd": 0.00024,
+          "total_latency_s": 4.4902
+        },
+        "latency": 4.49
+      },
+      "advanced_rag": {
+        "answer": [
+          {
+            "type": "text",
+            "text": "The provided manuals (Central Mail & Files, Central Alarm, and Assets/Warehouse Operations) do not contain information about RAG (Retrieval-Augmented Generation) or how it reduces hallucination.",
+            "extras": {
+              "signature": "EuEHCt4HARFNMg8miS+Nfm6F4TPLFTwq9bAbwdjyUcafAdPOJeujELzc+LvBWyScJBAMHwT2EWcaeiphpYJlS0b3wE1vVmEpm5miwDIQTJaeVsR6W+QlaH5elEorp7KERcaZGxfWPf7gOKHKpRJ3sq41xgLrp3ClfZdHubCDmprIKDilU3408eRHiw7MHpGzOPK70aOGcAwf3RjV/tTWM5Ydf0BRkWHlcjELpeRfLQEjKGJuL7OflP9q28zEF1hwBhYmk4wWAXWlwt+nBKEwu6R29WVJIBIXKIGHE7xpAspf/t7dYzYEklEr3/HGJPehcJd5h9TghUFySBWuxUq4Lp4jegn7tiVsoERbGhAUJQeR6lBna26tGeEQt8qdA5FYYdfO1t6t7ozlRULmhh0a709QcsK7QePvZRnXc7zekiGdHZruAe6wRISW7jEuUcmY3c6gRydlnh9Ozd/J/tVB2uBrWxcKk4zqncArEmU91+LHl9/8vmO3fg6oyrMDKDRgAwfuyVLNmiIX9cSEghJwfeCtf1H2+ZaZcMsUw7lltBzGRU5F+oc9m9z1zD3Qd49kQwtcTZTGpkL4/gtmL4mtNjUDKiKMyzex+S1eStuepAKFvoaFKx82ZqzRzgQLk1zDE1gwuJ1peqSmbLgGMt0+FKu/CKOuIdPQjEEMX8mpjRWsMNrsc5XloVcjIPqJUvZiGW8nTJm2Cu2oC1yPGK+ynxhXVAL2x/knl1xCf2IoDTcCWv9m4GyCSycIwp2PoBhNzvvjepikpuj7qMjr69p4F2gB4sT1f9TURk1OkJa4fOf2AIerdnnE9Q5wLeSFClSoLjV//RTFFV3Y7fadxrcQrezAWiV0/jvfdP/yo+zv//ViJ55CtTkdm6iBdsbpT28BRFRpHKo0RMPf/Il9U+GIFPHxKO39vx3x0OI4sRv33qWHOLxhb5c/11Rafu+/3cpxoUU8EgeFaiAhj9+eIHvMXtHIUxqfXDYMssAXGsSqn8+olPs6Gek2ePRRfTAOtJ5c7VXlSBi/6q9HPlM882evqgA0cJY8lGX4zfn6TldRgazskSrAotKLk/Lo20d30G0D8s9JGLxwx8fVuM6qDNwSA4qg94eDMydfFv1mbz6wCyU+V/VD9pFkF3hTU2nOInbxEAUYRRCLQTjoiY/5C9g7hlMBF07TL6bO/tsyMXW0RlWFVdfHpgaHus9PkRy9AFNyItZMtM3lJOuoaul9wIoe70pXp1t8qAX+hivA5I9dtxR6AqOKy+MrDi54oYKi+A40A47sMqG11b+fK85fnlvWM3SiQKrLf0lzL0wuLAZupL91u69N"
+            }
+          }
+        ],
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16,
+            "content": "ث.\n \n.متا عة مفوض ي الفرع رالب ور للفرع خالل نصف ساعة \n .\n \n. ا حالة عد  ح ورهم ارال  مدير املنطقة \n-\n \n  ارال مدير م ةاعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي \n ونائب رئيس– \n مدير ال ةؤون ايدارية والتندسةية  ا\nحالة التعقع من االشارة   كل فوري. \n-\n \n رف  تقرير  ا  باح يو  العمل التالا الى\nمدير املنطقة يعالمف رالبادثة وساعة ح ور مدير الفرع وم اعدا \n  عد التن يع\n  م مدير م اعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي. \n-\n \n رف  تقرير الى املعنين (مةدير\nالةدائرةح مةدير ا"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 7,
+            "content": "مركز جودة الخدمات وتع ين االعمال مدير \n أول– مركز \n جودة الخدمات وتع ين\n االعمال \n مدير– \n األمن واالنذار املركزي \n موظفي دائرة التدقيع الداخسا \n املدير التنفيذي املعني \n مدير– \n األمن واالنذار املركزي \nموظفي مركز الرقارة الداخلية \n مدير– \n الرقارة الداخلية \n مدير– \n األمن واالنذار املركزي \n \n5-\n يتوجب عسى وحدة االنذار املركزي القيا \n رفعص التسعيالت و ح ب الباجة و رعد اقص ى كل3 \n.اشتر \n6-\nيتوجب عسى وحدة االنذار املركزي وب كل م تمر \n الت كد من عمل جمي  الكاميرات الخا ة رالفروع والصرافات اآللية وا"
+          }
+        ],
+        "num_docs": 5,
+        "route": "basic_rag",
+        "techniques": [],
+        "reason": "parse_fallback",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 411,
+              "output_tokens": 84,
+              "cost_usd": 0.00062325,
+              "latency_s": 1.1967,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 2113,
+              "output_tokens": 231,
+              "cost_usd": 0.002451,
+              "latency_s": 3.9655,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 2524,
+          "total_output_tokens": 315,
+          "total_cost_usd": 0.00307425,
+          "total_latency_s": 5.1622
+        },
+        "latency": 5.52
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q7",
+      "question": "Find documents about RAG published after 2024.",
+      "focus": "Good candidate for Self-Query.",
+      "basic_rag": {
+        "answer": "Based on the provided context, the manuals do not contain any information about \"RAG\" (Retrieval-Augmented Generation). \n\nThe provided context only includes internal bank procedure manuals covering Central Alarm systems, Central Mail & Files, and Assets/Warehouse Operations.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 20,
+            "content": "1\n \n رقم النسخة \n دليل إجراءات وحدة االنذار املركزي \n اسم االجراء \n \n08/2024\n \n تاريخ اإلصدار \n02/2026\n \n تاريخ آخر مراجعة\n \nInternal Use                                                                                                                                                                                                              20/20 إعداد / \n دائرة تطوير وهندسة العمليات \n \n:املالحق \n ملحق رقم1 \n : االوقات املعيارية ملراجعة ال Logs\n \n :و حسب البنود الواردة و التي تخص كل نظام  ضمن اا"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 6,
+            "content": "1\n \n رقم النسخة \n دليل إجراءات وحدة املوجودات\n وعمليات املستودعات \n اسم االجراء \n \n02/2026\n \n تاريخ اإلصدار \n02/2026\n \n تاريخ آخر مراجعة\n \nInternal Use                                                                                                                                                                                                              6/29 إعداد / \n دائرة تطوير وهندسة العمليات \n \n  نشكل الر  أو كلما دعت ايحاجة ل ل  يتوجب عل فريق عمل \n:تررير ن ير املوجودات الريا  بما يلي \n-\n \n"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 2,
+            "content": "..........\n \n25\n \n15.اجراءات املخزون الراكد من اللوازم والقرطاسية \n................................\n................................\n................................\n.....\n \n26\n \n:النماذج \n................................\n................................\n................................\n................................\n................................\n... \n27\n \n:التقارير \n................................\n................................\n................................\n.........................."
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 0,
+              "output_tokens": 68,
+              "cost_usd": 0.000255,
+              "latency_s": 5.3634,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 68,
+          "total_cost_usd": 0.000255,
+          "total_latency_s": 5.3634
+        },
+        "latency": 5.36
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.6-flash\\nPlease retry in 26.374621475s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '26s'}]}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.6-flash\\nPlease retry in 26.374621475s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '26s'}]}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q8",
+      "question": "What is reranking and why is it useful in RAG?",
+      "focus": "Retrieval/re-ranking knowledge question.",
+      "basic_rag": {
+        "answer": "The provided manuals do not cover information about reranking or RAG (Retrieval-Augmented Generation). The context only contains internal bank procedures related to Central Alarm Systems, Central Mail & Files, and Assets/Warehouse Operations.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 18,
+            "content": "-\n \n تغيير  اParameters األنممة. \n-\n تغيير  ا ررم ة هذا األنممة. \n-\n إيقاف التسعيل عسى أجتزة الكاميرات.  \n-\n \n إيقاف حماية املواق  او تنطي(\nBy Pass\n )أحد \n  . الكواشف  ا احد املواق \n-\n \n إيقاف\nأحد \n الكواشف  ا\nأحد \n  . املواق \n-\n إيقاف نما  البريع او أحد كواشف البريع.  \n-\n منر  الحيات الدخول عسى أنممة التعوم راملداخل لغرف ال يرفر  ا املباني الرئي ية. \n1-\n مدير مساعد– \n االنذار املركزي \n:املنفذ \n الت كد من استنرا  التقارير وح ب \n دورييها\nودراسة \n.التقارير وبيان أية مالحمات \n2-\n ارسال التقرير\nالى "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "ﺑﺤﺴﺐ ﻃﺒﻴﻌﺔ اݍحﺎﻟﺔ. \n9-\n اداري اول– ﺑﺮʈﺪ ﻣﺮﻛﺰي وﻣﻠﻔﺎت اﳌﻨﻔﺬ \n.ﺗﻨﻔﻴﺬ اﻟﻘﺮار\n \n اﺳﺘﻼم اﻟﻘﺮار ﻣﻦ ﻣﺪﻳﺮ\n– \nاﳌﻄﺒﻌﺔ واﳌﺴﺘﻮدﻋﺎت وﺗﻨﻔﻴﺬﻩ.\n 10\n-\n ﻣﻮﻇﻒ اداري\n– \nدﻳﻮان\n \nاﳌﻨﻔﺬ\n \n.ﺣﻔﻆ ɲܦخﺔ ﻣﻦ اﻟﻘﺮار ࢭʏ اﳌﻠﻒ اݍخﺎص ﻟﺪى اﻟﻮﺣﺪة \n11\n-"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 5,
+            "content": "ل ل ، ويتم ت ني  املواد عل  أنها راكدة في حال لم يتم ال ر  ننها ملدة6 \n.الور \n5-\n فيما يتعلق ب ايةرد  الدور: للموجودات الثابتة في البن \n1. تشددددييدل يةندة نركزيدة \n نرة\nواحدة \n كدل الالالدة سددددنوات إلجراء جرد دور \n لكدافدة نوجودات البند  ودائرة انظمدة املعلوندات واملراكز التدانعدة للدا بمدا ف ها\n املوجودات املريدة عل  ادركات صديانة أجلزة اليمبيوتر وعل  دائرة انظمة املعلونات انتدام اعضداء ن  كافة التخ د دات الانية لد ها ملشدار كة\n اللةنة في جرد املو:جودات التانعة للا حيث تتشكل اللةنة لد  وحدة "
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 2,
+            "content": "................................\n................................\n................................\n......\n 4 \n :القواعد واألحكام العامة \n................................\n................................\n................................\n................................\n.............\n 5 \n :االجراءات \n................................\n................................\n................................\n................................\n................................\n.. 8 \n1\n .إجراءات اصدار– \n ايقاف– \n"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 16,
+            "content": "ث.\n \n.متا عة مفوض ي الفرع رالب ور للفرع خالل نصف ساعة \n .\n \n. ا حالة عد  ح ورهم ارال  مدير املنطقة \n-\n \n  ارال مدير م ةاعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي \n ونائب رئيس– \n مدير ال ةؤون ايدارية والتندسةية  ا\nحالة التعقع من االشارة   كل فوري. \n-\n \n رف  تقرير  ا  باح يو  العمل التالا الى\nمدير املنطقة يعالمف رالبادثة وساعة ح ور مدير الفرع وم اعدا \n  عد التن يع\n  م مدير م اعد– \n االنذار املركزي  و مدير– \n األمن واالنذار املركزي. \n-\n \n رف  تقرير الى املعنين (مةدير\nالةدائرةح مةدير ا"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "gemini-3.6-flash",
+              "input_tokens": 0,
+              "output_tokens": 60,
+              "cost_usd": 0.000225,
+              "latency_s": 6.6128,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 60,
+          "total_cost_usd": 0.000225,
+          "total_latency_s": 6.6128
+        },
+        "latency": 6.61
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 10.614923904s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '10s'}]}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 10.614923904s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '10s'}]}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q9",
+      "question": "Which approach should be used for a simple question versus a complex multi-part question?",
+      "focus": "Routing decision question.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 2.867347144s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '2s'}]}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 27.309709753s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '27s'}]}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 27.309709753s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '27s'}]}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    },
+    {
+      "id": "Q10",
+      "question": "ما هي إجراءات التعامل مع البريد السري في وحدة البريد والملفات المركزية؟",
+      "focus": "CRAG/retrieval-correction test; corpus-specific question.",
+      "basic_rag": {
+        "answer": "ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 18.364014828s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 43.209679769s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}",
+        "docs": [],
+        "num_docs": 0,
+        "route": "error",
+        "techniques": [],
+        "reason": "Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 43.209679769s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}",
+        "cost_summary": {},
+        "latency": 0
+      },
+      "evaluation": {}
+    }
+  ],
+  "summary": {
+    "route_distribution": {
+      "basic_rag": 6,
+      "error": 4
+    },
+    "total_basic_cost_usd": 0.001361,
+    "total_advanced_cost_usd": 0.018866,
+    "avg_eval_scores": {}
+  }
+}
