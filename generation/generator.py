@@ -16,6 +16,20 @@ Also provides `advanced_rag_answer`, a heavier pipeline that adds:
 """
 
 from __future__ import annotations
+from retrieval.retriever import retrieve
+from config import (
+    DEFAULT_BM25_WEIGHT,
+    DEFAULT_GROQ_MODEL,
+    DEFAULT_RETRIEVAL_MODE,
+    DEFAULT_SEARCH_TYPE,
+    DEFAULT_SEMANTIC_WEIGHT,
+    DEFAULT_TEMPERATURE,
+    GROQ_API_KEY,
+)
+from langchain_groq import ChatGroq
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.documents import Document
 
 import os
 import sys
@@ -27,20 +41,6 @@ project_root = Path(__file__).resolve().parent.parent
 if str(project_root) not in sys.path:
     sys.path.insert(0, str(project_root))
 
-from langchain_core.documents import Document
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_groq import ChatGroq
-
-from config import (
-    DEFAULT_BM25_WEIGHT,
-    DEFAULT_GROQ_MODEL,
-    DEFAULT_RETRIEVAL_MODE,
-    DEFAULT_SEMANTIC_WEIGHT,
-    DEFAULT_TEMPERATURE,
-    GROQ_API_KEY,
-)
-from retrieval.retriever import retrieve
 
 SYSTEM_PROMPT = """You are a precise assistant answering questions about internal bank \
 procedure manuals (Central Mail & Files, Central Alarm, and Assets/Warehouse Operations).
@@ -52,8 +52,8 @@ If the user asks in English, answer in English (translating/summarizing the rele
 Arabic content faithfully).
 - If the answer is not contained in the context, say clearly that the manuals do not \
 cover it -- do not invent procedures, names, or numbers.
-- When useful, mention which document/section the information came from (use the \
-"source" and "page" metadata shown with each chunk).
+- Ground every fact in the provided context and cite the source document name and page number \
+inline where relevant (e.g., [اسم الدليل، صفحة X] or [Document Name, Page X]). Do not add a separate "المراجع" or "Sources" section at the end of your answer.
 - Keep answers structured (numbered steps) when the original content is a procedure.
 
 Context:
@@ -168,7 +168,7 @@ def answer_question(
     model_name: str = DEFAULT_GROQ_MODEL,
     top_k: int = 5,
     retrieval_mode: str = DEFAULT_RETRIEVAL_MODE,
-    search_type: str = "mmr",
+    search_type: str = DEFAULT_SEARCH_TYPE,
     source_filter: str | None = None,
     semantic_weight: float = DEFAULT_SEMANTIC_WEIGHT,
     bm25_weight: float = DEFAULT_BM25_WEIGHT,
@@ -246,7 +246,8 @@ def _grade_relevance(llm, question: str, docs: List[Document]) -> List[Document]
     chunks_text = _numbered_chunks(docs)
     chain = _GRADE_PROMPT | llm | StrOutputParser()
     try:
-        raw = chain.invoke({"question": question, "chunks": chunks_text}).strip().lower()
+        raw = chain.invoke(
+            {"question": question, "chunks": chunks_text}).strip().lower()
     except Exception:  # noqa: BLE001
         return docs  # fail safe: keep everything if grading breaks
 
@@ -270,7 +271,8 @@ def _compress_chunks(llm, question: str, docs: List[Document], max_total_chars: 
     chunks_text = _numbered_chunks(docs, max_total_chars=max_total_chars)
     chain = _COMPRESS_PROMPT | llm | StrOutputParser()
     try:
-        compressed = chain.invoke({"question": question, "chunks": chunks_text}).strip()
+        compressed = chain.invoke(
+            {"question": question, "chunks": chunks_text}).strip()
     except Exception:  # noqa: BLE001
         return chunks_text  # fail safe: fall back to uncompressed chunks
     return compressed or chunks_text
@@ -281,7 +283,7 @@ def advanced_rag_answer(
     model_name: str = DEFAULT_GROQ_MODEL,
     top_k: int = 5,
     retrieval_mode: str = DEFAULT_RETRIEVAL_MODE,
-    search_type: str = "mmr",
+    search_type: str = DEFAULT_SEARCH_TYPE,
     source_filter: Optional[str] = None,
     semantic_weight: float = DEFAULT_SEMANTIC_WEIGHT,
     bm25_weight: float = DEFAULT_BM25_WEIGHT,
@@ -334,7 +336,8 @@ def advanced_rag_answer(
         semantic_weight=semantic_weight,
         bm25_weight=bm25_weight,
     )
-    meta["techniques"].append("hybrid_retrieval" if retrieval_mode == "hybrid" else "retrieval")
+    meta["techniques"].append(
+        "hybrid_retrieval" if retrieval_mode == "hybrid" else "retrieval")
 
     # 4. CRAG-style relevance grading
     graded_docs = _grade_relevance(llm, question, retrieved_docs)
@@ -365,11 +368,13 @@ def advanced_rag_answer(
         return answer, [], meta
 
     # 5. Compression
-    compressed_context = _compress_chunks(llm, question, final_docs, max_total_chars=4500)
+    compressed_context = _compress_chunks(
+        llm, question, final_docs, max_total_chars=4500)
     meta["techniques"].append("compression")
 
     # 6. Final answer
     chain = _prompt | llm | StrOutputParser()
-    answer = chain.invoke({"context": compressed_context, "question": question})
+    answer = chain.invoke(
+        {"context": compressed_context, "question": question})
 
     return answer, final_docs, meta

@@ -35,19 +35,17 @@ from config import (
     DEFAULT_CHUNK_SIZE,
     DEFAULT_CHUNK_STRATEGY,
     DEFAULT_GROQ_MODEL,
-    DEFAULT_PIPELINE_MODE,
     DEFAULT_RETRIEVAL_MODE,
     DEFAULT_SEARCH_TYPE,
     DEFAULT_SEMANTIC_WEIGHT,
     DEFAULT_TEMPERATURE,
     DEFAULT_TOP_K,
     DOCLING_DO_OCR,
-    PIPELINE_MODES,
     RETRIEVAL_MODES,
 )
 from ingestion.ingest import run_ingestion
 from retrieval.vectorstore import vectorstore_is_ready
-from generation.generator import answer_question, advanced_rag_answer
+from advanced_rag.pipeline import advanced_rag_answer, AdvancedRAGResult
 
 # ---------------------------------------------------------------------------
 # Page configuration
@@ -137,13 +135,6 @@ with st.sidebar:
     semantic_weight = DEFAULT_SEMANTIC_WEIGHT
     bm25_weight = DEFAULT_BM25_WEIGHT
 
-    if retrieval_mode in ("semantic", "hybrid"):
-        search_type = st.radio(
-            "Vector search type",
-            ["mmr", "similarity"],
-            index=0 if DEFAULT_SEARCH_TYPE == "mmr" else 1,
-            help="MMR diversifies chunks to reduce repeated boilerplate headers/footers.",
-        )
 
     if retrieval_mode == "hybrid":
         sem_ratio = st.slider(
@@ -159,113 +150,199 @@ with st.sidebar:
 
     source_filter = None  # Search across all source documents by default
 
-    st.divider()
-    st.subheader("3. Pipeline Mode")
-    pipeline_mode = st.radio(
-        "RAG Pipeline",
-        PIPELINE_MODES,
-        index=PIPELINE_MODES.index(DEFAULT_PIPELINE_MODE),
-        format_func=lambda m: {
-            "basic": "📋 Basic RAG",
-            "advanced": "🚀 Advanced RAG (Routing + Transforms)",
-        }.get(m, m),
-        help="Advanced RAG adds routing, query transforms, reranking, compression, and CRAG.",
-    )
-
 # ---------------------------------------------------------------------------
 # Main area - chat
 # ---------------------------------------------------------------------------
 st.title("📄 Bank Procedure Manuals — RAG Assistant")
 st.caption(
     "OCR-aware ingestion • configurable chunking • Semantic / Keyword / Hybrid retrieval • "
-    "Basic or Advanced RAG • Groq generation"
+    "Intelligent Dynamic Routing (Simple / Basic RAG / Advanced RAG) • Groq generation"
 )
 
 if "chat_history" not in st.session_state:
-    # list of (role, content, sources, mode)
     st.session_state.chat_history = []
 
+def render_sources_expander(docs: list, mode_label: str = "", key_prefix: str = "src"):
+    if not docs:
+        return
+    with st.expander(f"📚 Sources used ({len(docs)} chunks{mode_label})"):
+        unique_sources: dict[str, set[str]] = {}
+        for doc in docs:
+            s_name = doc.metadata.get("source", "Unknown")
+            p_num = str(doc.metadata.get("page", "?"))
+            unique_sources.setdefault(s_name, set()).add(p_num)
+
+        for s_name, pages in unique_sources.items():
+            sorted_pages = ", ".join(sorted(pages, key=lambda x: int(x) if x.isdigit() else 999))
+            st.markdown(f"- 📄 **Document:** `{s_name}` — 📑 **Page:** `{sorted_pages}`")
+
+
 # --- Replay previous turns ---
-for item in st.session_state.chat_history:
-    role = item[0]
-    content = item[1]
-    srcs = item[2] if len(item) > 2 else None
-    mode_used = item[3] if len(item) > 3 else None
+for turn_idx, item in enumerate(st.session_state.chat_history):
+    if isinstance(item, dict):
+        role = item.get("role", "assistant")
+        content = item.get("content", "")
+        srcs = item.get("docs")
+        mode_used = item.get("retrieval_mode")
+        route = item.get("route")
+        reason = item.get("reason")
+        techniques = item.get("techniques", [])
+        rewritten_q = item.get("rewritten_query")
+        latency = item.get("latency")
+        cost = item.get("cost")
+    else:
+        role = item[0]
+        content = item[1]
+        srcs = item[2] if len(item) > 2 else None
+        mode_used = item[3] if len(item) > 3 else None
+        route = None
+        reason = None
+        techniques = []
+        rewritten_q = None
+        latency = None
+        cost = None
 
     with st.chat_message(role):
         st.markdown(content)
+
+        if role == "assistant" and route:
+            if route == "simple":
+                st.markdown(
+                    '<span style="background-color: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟢 Route: Simple (Direct Response • No Document Search)</span>',
+                    unsafe_allow_html=True,
+                )
+            elif route == "basic_rag":
+                mode_str = f" • {mode_used}" if mode_used else ""
+                st.markdown(
+                    f'<span style="background-color: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🔵 Route: Basic RAG (Standard Retrieval{mode_str})</span>',
+                    unsafe_allow_html=True,
+                )
+            elif route == "advanced_rag":
+                tech_str = ", ".join(techniques) if techniques else "transforms"
+                st.markdown(
+                    f'<span style="background-color: #f3e8ff; color: #6b21a8; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟣 Route: Advanced RAG ({tech_str})</span>',
+                    unsafe_allow_html=True,
+                )
+
+            meta_line = []
+            if reason:
+                meta_line.append(f"💡 **Reason:** {reason}")
+            if latency:
+                meta_line.append(f"⏱️ **Latency:** {latency:.2f}s")
+            if cost is not None and cost > 0:
+                meta_line.append(f"💰 **Est. Cost:** ${cost:.6f}")
+
+            if meta_line:
+                st.caption(" • ".join(meta_line))
+
+            if rewritten_q:
+                st.caption(f"🔎 **Rewritten Query:** _{rewritten_q}_")
+
         if srcs:
-            mode_label = f" (via {mode_used} retrieval)" if mode_used else ""
-            with st.expander(f"📚 Sources used{mode_label}"):
-                for i, doc in enumerate(srcs, start=1):
-                    src_name = doc.metadata.get("source", "Unknown")
-                    page_num = doc.metadata.get("page", "?")
-                    st.markdown(f"**{i}. {src_name}** — Page `{page_num}`")
+            render_sources_expander(
+                srcs,
+                mode_label=f" (via {mode_used} retrieval)" if mode_used else "",
+                key_prefix=f"prev_{turn_idx}",
+            )
 
 # --- The question bar itself ---
 question = st.chat_input(
     "Ask a question about the manuals (Arabic or English)...")
 
 if question:
-    st.session_state.chat_history.append(("user", question, None, None))
+    st.session_state.chat_history.append({"role": "user", "content": question})
     with st.chat_message("user"):
         st.markdown(question)
 
     with st.chat_message("assistant"):
         docs = []
+        route = None
+        reason = None
+        techniques = []
+        rewritten_q = None
+        latency = None
+        cost = None
 
-        if not vectorstore_is_ready():
-            answer = "⚠️ The vector store is empty. Please run ingestion first (sidebar)."
-        elif not os.getenv("GROQ_API_KEY"):
+        if not os.getenv("GROQ_API_KEY"):
             answer = "⚠️ GROQ_API_KEY is not set. Add it to your .env file and restart the app."
         else:
-            meta = None
-            with st.spinner(f"Retrieving chunks ({retrieval_mode}) and generating answer ({pipeline_mode})..."):
+            with st.spinner(f"Routing question & generating response ({retrieval_mode} retrieval)..."):
                 try:
-                    if pipeline_mode == "advanced":
-                        answer, docs, meta = advanced_rag_answer(
-                            question,
-                            model_name=model_name,
-                            top_k=top_k,
-                            retrieval_mode=retrieval_mode,
-                            search_type=search_type,
-                            source_filter=source_filter,
-                            semantic_weight=semantic_weight,
-                            bm25_weight=bm25_weight,
-                            temperature=temperature,
-                        )
-                    else:
-                        answer, docs = answer_question(
-                            question,
-                            model_name=model_name,
-                            top_k=top_k,
-                            retrieval_mode=retrieval_mode,
-                            search_type=search_type,
-                            source_filter=source_filter,
-                            semantic_weight=semantic_weight,
-                            bm25_weight=bm25_weight,
-                            temperature=temperature,
-                        )
+                    result: AdvancedRAGResult = advanced_rag_answer(
+                        question,
+                        model_name=model_name,
+                        top_k=top_k,
+                        retrieval_mode=retrieval_mode,
+                        search_type=search_type,
+                        source_filter=source_filter,
+                        semantic_weight=semantic_weight,
+                        bm25_weight=bm25_weight,
+                        temperature=temperature,
+                    )
+                    answer = result.answer
+                    docs = result.docs
+                    route = result.route.route if hasattr(result.route, "route") else str(result.route)
+                    reason = getattr(result.route, "reason", "")
+                    techniques = getattr(result.route, "techniques", [])
+                    rewritten_q = getattr(result, "rewritten_query", None)
+                    latency = getattr(result, "total_latency", None)
+                    cost = result.cost_summary.get("total_cost_usd", 0.0) if hasattr(result, "cost_summary") else 0.0
+
                 except Exception as e:  # noqa: BLE001
                     answer = f"❌ Error while generating the answer: {e}"
                     docs = []
 
         st.markdown(answer)
 
-        if meta:
-            route = meta.get("route", "?")
-            techniques = ", ".join(meta.get("techniques", [])) or "—"
-            route_label = "answered directly (no retrieval)" if route == "direct" else "retrieved from manuals"
-            st.caption(f"🧭 Route: {route_label} • Techniques: {techniques}")
-            if meta.get("rewritten_query"):
-                st.caption(f"🔎 Rewritten query: _{meta['rewritten_query']}_")
+        if route:
+            if route == "simple":
+                st.markdown(
+                    '<span style="background-color: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟢 Route: Simple (Direct Response • No Document Search)</span>',
+                    unsafe_allow_html=True,
+                )
+            elif route == "basic_rag":
+                st.markdown(
+                    f'<span style="background-color: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🔵 Route: Basic RAG (Standard Retrieval • {retrieval_mode})</span>',
+                    unsafe_allow_html=True,
+                )
+            elif route == "advanced_rag":
+                tech_str = ", ".join(techniques) if techniques else "transforms"
+                st.markdown(
+                    f'<span style="background-color: #f3e8ff; color: #6b21a8; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟣 Route: Advanced RAG ({tech_str})</span>',
+                    unsafe_allow_html=True,
+                )
+
+            meta_line = []
+            if reason:
+                meta_line.append(f"💡 **Reason:** {reason}")
+            if latency:
+                meta_line.append(f"⏱️ **Latency:** {latency:.2f}s")
+            if cost is not None and cost > 0:
+                meta_line.append(f"💰 **Est. Cost:** ${cost:.6f}")
+
+            if meta_line:
+                st.caption(" • ".join(meta_line))
+
+            if rewritten_q:
+                st.caption(f"🔎 **Rewritten Query:** _{rewritten_q}_")
 
         if docs:
-            with st.expander(f"📚 Sources used (via {retrieval_mode} retrieval, {pipeline_mode} mode)"):
-                for i, doc in enumerate(docs, start=1):
-                    src_name = doc.metadata.get("source", "Unknown")
-                    page_num = doc.metadata.get("page", "?")
-                    st.markdown(f"**{i}. {src_name}** — Page `{page_num}`")
+            render_sources_expander(
+                docs,
+                mode_label=f" via {retrieval_mode}",
+                key_prefix=f"curr_{len(st.session_state.chat_history)}",
+            )
 
-    st.session_state.chat_history.append(
-        ("assistant", answer, docs, retrieval_mode))
+        st.session_state.chat_history.append({
+            "role": "assistant",
+            "content": answer,
+            "docs": docs,
+            "retrieval_mode": retrieval_mode,
+            "route": route,
+            "reason": reason,
+            "techniques": techniques,
+            "rewritten_query": rewritten_q,
+            "latency": latency,
+            "cost": cost,
+        })
+

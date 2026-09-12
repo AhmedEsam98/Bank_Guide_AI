@@ -13,6 +13,33 @@ improvements, and final generation into a single call.
 """
 
 from __future__ import annotations
+from advanced_rag.retrieval_improve import (
+    rerank_documents,
+    compress_documents,
+    evaluate_retrieval_crag,
+)
+from advanced_rag.query_transform import (
+    rewrite_query,
+    generate_multi_queries,
+    decompose_question,
+    generate_hyde_passage,
+    extract_self_query,
+)
+from routing.router import RouteDecision, route_question
+from retrieval.retriever import retrieve
+from generation.generator import get_llm, _format_context, _prompt as generation_prompt
+from evaluation.cost_tracker import CostTracker
+from config import (
+    DEFAULT_BM25_WEIGHT,
+    DEFAULT_GROQ_MODEL,
+    DEFAULT_RETRIEVAL_MODE,
+    DEFAULT_SEARCH_TYPE,
+    DEFAULT_SEMANTIC_WEIGHT,
+    DEFAULT_TEMPERATURE,
+)
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.documents import Document
 
 import logging
 import sys
@@ -26,33 +53,6 @@ project_root = Path(__file__).resolve().parent.parent
 if str(project_root) not in sys.path:
     sys.path.insert(0, str(project_root))
 
-from langchain_core.documents import Document
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate
-
-from config import (
-    DEFAULT_BM25_WEIGHT,
-    DEFAULT_GROQ_MODEL,
-    DEFAULT_RETRIEVAL_MODE,
-    DEFAULT_SEMANTIC_WEIGHT,
-    DEFAULT_TEMPERATURE,
-)
-from evaluation.cost_tracker import CostTracker
-from generation.generator import get_llm, _format_context, _prompt as generation_prompt
-from retrieval.retriever import retrieve
-from routing.router import RouteDecision, route_question
-from advanced_rag.query_transform import (
-    rewrite_query,
-    generate_multi_queries,
-    decompose_question,
-    generate_hyde_passage,
-    extract_self_query,
-)
-from advanced_rag.retrieval_improve import (
-    rerank_documents,
-    compress_documents,
-    evaluate_retrieval_crag,
-)
 
 logger = logging.getLogger(__name__)
 
@@ -65,6 +65,24 @@ class AdvancedRAGResult:
     route: RouteDecision
     cost_summary: Dict[str, Any]
     total_latency: float = 0.0
+    rewritten_query: Optional[str] = None
+    sub_questions: List[str] = field(default_factory=list)
+
+    def __iter__(self):
+        """Allow unpacking: answer, docs, meta = result"""
+        meta = {
+            "route": self.route.route if hasattr(self.route, "route") else str(self.route),
+            "reason": getattr(self.route, "reason", ""),
+            "techniques": getattr(self.route, "techniques", []),
+            "cost_summary": self.cost_summary,
+            "latency": self.total_latency,
+            "rewritten_query": self.rewritten_query,
+            "sub_questions": self.sub_questions,
+        }
+        return iter((self.answer, self.docs, meta))
+
+    def __getitem__(self, index):
+        return tuple(self)[index]
 
 
 def _deduplicate_docs(docs: List[Document]) -> List[Document]:
@@ -89,13 +107,17 @@ def _simple_answer(
     temperature: float,
     tracker: CostTracker,
 ) -> str:
-    """Answer a general-knowledge question directly (no retrieval)."""
+    """Answer a general-knowledge or small-talk question directly (no retrieval)."""
     llm = get_llm(model_name=model_name, temperature=temperature)
     prompt = ChatPromptTemplate.from_messages([
         ("system",
-         "You are a helpful assistant. Answer the user's question clearly and "
-         "concisely. If the question is about bank procedures, mention that you "
-         "would need to search the manuals for a precise answer."),
+         "You are a helpful assistant for a bilingual banking Standard Operating Procedures (SOP) "
+         "knowledge base. Answer the user's question clearly, accurately, and concisely in the same "
+         "language as the user's message (Arabic or English).\n\n"
+         "- For general questions, conceptual inquiries (e.g. what is RAG, reranking, vectors), or greetings, "
+         "provide a clear and helpful explanation.\n"
+         "- If the user is asking about specific internal bank procedures or workflows, provide a helpful general "
+         "summary and mention that the internal manuals can be searched for exact unit-level procedures."),
         ("human", "{question}"),
     ])
 
@@ -135,7 +157,7 @@ def advanced_rag_answer(
     model_name: str = DEFAULT_GROQ_MODEL,
     top_k: int = 5,
     retrieval_mode: str = DEFAULT_RETRIEVAL_MODE,
-    search_type: str = "mmr",
+    search_type: str = DEFAULT_SEARCH_TYPE,
     source_filter: Optional[str] = None,
     semantic_weight: float = DEFAULT_SEMANTIC_WEIGHT,
     bm25_weight: float = DEFAULT_BM25_WEIGHT,
@@ -155,7 +177,7 @@ def advanced_rag_answer(
     if route.route == "simple":
         # Mark all advanced steps as skipped
         for step in ["rewriter", "multi_query", "decomposition", "hyde",
-                      "self_query", "reranking", "compression", "crag_evaluator"]:
+                     "self_query", "reranking", "compression", "crag_evaluator"]:
             tracker.record_skipped(step)
 
         answer = _simple_answer(question, model_name, temperature, tracker)
@@ -170,7 +192,7 @@ def advanced_rag_answer(
     # ── Step 3: Basic RAG route ────────────────────────────────────────
     if route.route == "basic_rag":
         for step in ["rewriter", "multi_query", "decomposition", "hyde",
-                      "self_query", "reranking", "compression", "crag_evaluator"]:
+                     "self_query", "reranking", "compression", "crag_evaluator"]:
             tracker.record_skipped(step)
 
         effective_top_k = min(top_k, 5)
@@ -183,7 +205,8 @@ def advanced_rag_answer(
             semantic_weight=semantic_weight,
             bm25_weight=bm25_weight,
         )
-        answer = _generate_answer(question, docs, model_name, temperature, tracker)
+        answer = _generate_answer(
+            question, docs, model_name, temperature, tracker)
         return AdvancedRAGResult(
             answer=answer,
             docs=docs,
@@ -201,27 +224,34 @@ def advanced_rag_answer(
 
     active_query = question
     active_source_filter = source_filter
+    rewritten_query_str: Optional[str] = None
+    sub_questions_list: List[str] = []
 
     # 4a. Rewriting
     if "rewriting" in techniques:
-        active_query = rewrite_query(question, model_name=model_name, tracker=tracker)
+        active_query = rewrite_query(
+            question, model_name=model_name, tracker=tracker)
+        rewritten_query_str = active_query
         logger.info("Rewritten query: %s", active_query[:100])
     else:
         tracker.record_skipped("rewriter")
 
     # 4b. Self-Query (metadata extraction)
     if "self_query" in techniques:
-        sq = extract_self_query(question, model_name=model_name, tracker=tracker)
+        sq = extract_self_query(
+            question, model_name=model_name, tracker=tracker)
         active_query = sq["query"]
         if sq["filters"].get("source"):
             active_source_filter = sq["filters"]["source"]
-        logger.info("Self-query: query=%s, filters=%s", active_query[:80], sq["filters"])
+        logger.info("Self-query: query=%s, filters=%s",
+                    active_query[:80], sq["filters"])
     else:
         tracker.record_skipped("self_query")
 
     # 4c. Multi-Query
     if "multi_query" in techniques:
-        queries = generate_multi_queries(active_query, n=3, model_name=model_name, tracker=tracker)
+        queries = generate_multi_queries(
+            active_query, n=3, model_name=model_name, tracker=tracker)
         for q in queries:
             docs = retrieve(
                 q, mode=retrieval_mode, top_k=effective_top_k,
@@ -234,7 +264,9 @@ def advanced_rag_answer(
 
     # 4d. Decomposition
     if "decomposition" in techniques:
-        sub_questions = decompose_question(question, model_name=model_name, tracker=tracker)
+        sub_questions = decompose_question(
+            question, model_name=model_name, tracker=tracker)
+        sub_questions_list = sub_questions
         for sq in sub_questions:
             docs = retrieve(
                 sq, mode=retrieval_mode, top_k=effective_top_k,
@@ -247,7 +279,8 @@ def advanced_rag_answer(
 
     # 4e. HyDE
     if "hyde" in techniques:
-        hyde_passage = generate_hyde_passage(question, model_name=model_name, tracker=tracker)
+        hyde_passage = generate_hyde_passage(
+            question, model_name=model_name, tracker=tracker)
         docs = retrieve(
             hyde_passage, mode=retrieval_mode, top_k=effective_top_k,
             search_type=search_type, source_filter=active_source_filter,
@@ -273,7 +306,8 @@ def advanced_rag_answer(
 
     # 4f. Reranking
     if "reranking" in techniques:
-        all_docs = rerank_documents(active_query, all_docs, top_k=effective_top_k)
+        all_docs = rerank_documents(
+            active_query, all_docs, top_k=effective_top_k)
     else:
         tracker.record_skipped("reranking")
 
@@ -295,7 +329,10 @@ def advanced_rag_answer(
         if verdict == "incorrect":
             # Retrieval failed — try rewriting and re-retrieving once
             logger.info("CRAG: incorrect — attempting rewrite + re-retrieve")
-            rewritten = rewrite_query(question, model_name=model_name)
+            rewritten = rewrite_query(
+                question, model_name=model_name, tracker=tracker)
+            if not rewritten_query_str:
+                rewritten_query_str = rewritten
             all_docs = retrieve(
                 rewritten, mode=retrieval_mode, top_k=effective_top_k,
                 search_type=search_type, source_filter=active_source_filter,
@@ -304,7 +341,10 @@ def advanced_rag_answer(
         elif verdict == "ambiguous":
             # Supplement with additional retrieval
             logger.info("CRAG: ambiguous — supplementing with rewritten query")
-            rewritten = rewrite_query(question, model_name=model_name)
+            rewritten = rewrite_query(
+                question, model_name=model_name, tracker=tracker)
+            if not rewritten_query_str:
+                rewritten_query_str = rewritten
             extra_docs = retrieve(
                 rewritten, mode=retrieval_mode, top_k=effective_top_k,
                 search_type=search_type, source_filter=active_source_filter,
@@ -319,7 +359,8 @@ def advanced_rag_answer(
     all_docs = all_docs[:effective_top_k]
 
     # ── Step 5: Final generation ───────────────────────────────────────
-    answer = _generate_answer(question, all_docs, model_name, temperature, tracker)
+    answer = _generate_answer(
+        question, all_docs, model_name, temperature, tracker)
 
     return AdvancedRAGResult(
         answer=answer,
@@ -327,4 +368,6 @@ def advanced_rag_answer(
         route=route,
         cost_summary=tracker.summary(),
         total_latency=time.time() - pipeline_t0,
+        rewritten_query=rewritten_query_str,
+        sub_questions=sub_questions_list,
     )

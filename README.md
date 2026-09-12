@@ -55,7 +55,7 @@ flowchart TD
     end
 
     subgraph Hybrid_Retrieval ["4. Hybrid Retrieval & Post-Processing"]
-        Rewriter & MultiQ & Decomp & HyDE & SelfQ & StandardRet --> Dense["🧠 Dense Vector Search (Chroma + BGE-M3 / MMR)"]
+        Rewriter & MultiQ & Decomp & HyDE & SelfQ & StandardRet --> Dense["🧠 Dense Vector Search (Chroma + BGE-M3 / Cosine Similarity)"]
         Rewriter & MultiQ & Decomp & HyDE & SelfQ & StandardRet --> Sparse["🔍 Sparse Keyword Search (BM25)"]
         Dense & Sparse --> RRF["🔀 Reciprocal Rank Fusion (w₁=0.5, w₂=0.5, k=60)"]
         RRF --> Rerank["🎯 Cross-Encoder Reranker (BGE-Reranker-v2-m3 on GPU)"]
@@ -88,7 +88,7 @@ flowchart TD
   - **HyDE (Hypothetical Document Embeddings)**: Hallucinates Arabic procedural passages to bridge language vector spaces.
   - **Self-Querying**: Extracts metadata filters (e.g., `{year: 2026, source: 'Central Alarm'}`) alongside clean semantic queries.
 - **🔀 Hybrid Search & Reciprocal Rank Fusion (`retrieval/retriever.py`)**:
-  - **Dense Channel**: BAAI/bge-m3 on NVIDIA CUDA with Maximal Marginal Relevance (MMR) or Cosine Similarity.
+  - **Dense Channel**: BAAI/bge-m3 on NVIDIA CUDA with Cosine Similarity.
   - **Sparse Channel**: Rank-BM25 optimized for exact banking codes, dispatch serials, form numbers, and article citations.
   - **RRF Fusion**: Weighted formula ($w_{\text{dense}}=0.5, w_{\text{bm25}}=0.5, k=60$) combining semantic and lexical ranks.
 - **🎯 GPU Cross-Encoder Reranker (`advanced_rag/retrieval_improve.py`)**:
@@ -106,8 +106,8 @@ flowchart TD
   - LLM-as-a-Judge scoring on a 1–5 rubric across 4 dimensions: **Context Relevance**, **Faithfulness**, **Answer Relevance**, and **Correctness**.
 - **💰 Per-Step Cost & Latency Accounting (`evaluation/cost_tracker.py`)**:
   - Deterministic tracking of prompt tokens, completion tokens, latency, and dollar costs across every pipeline module.
-- **📘 Publication-Ready Word Documentation (`Bank_Guide_AI_Documentation.docx`)**:
-  - Complete, styled technical manual covering system specifications, empirical benchmark tables, and detailed answers to all 15 analysis questions.
+- **📊 Empirical Benchmark & Ground-Truth Test Suite**:
+  - 14-case ground-truth evaluation benchmark (`tests/test_rag.md`) testing OOD, tabular reasoning, temporal constraints, multi-document synthesis, and ambiguity.
 
 ---
 
@@ -119,9 +119,6 @@ Bank_Guide_AI/
 ├── app.py                              # Streamlit web application & interactive UI
 ├── requirements.txt                    # Python dependencies
 ├── .env.example                        # Environment configuration template
-├── Bank_Guide_AI_Documentation.docx    # Complete generated Word documentation (.docx)
-├── generate_project_documentation.py   # Script to build/re-generate Word documentation
-├── advanced_rag_task.md                # Project specifications & analytical requirements
 │
 ├── data/
 │   ├── pdfs/                           # Source banking PDF manuals (78 pages)
@@ -145,7 +142,7 @@ Bank_Guide_AI/
 │
 ├── retrieval/
 │   ├── vectorstore.py                  # ChromaDB vector store manager & batch writer
-│   └── retriever.py                    # HybridEnsembleRetriever (RRF), BM25, and MMR search
+│   └── retriever.py                    # HybridEnsembleRetriever (RRF), BM25, and Cosine Similarity vector search
 │
 ├── generation/
 │   └── generator.py                    # Groq chat completions + strict anti-hallucination prompts
@@ -157,9 +154,15 @@ Bank_Guide_AI/
 │   └── results/                        # Persisted evaluation JSON run artifacts
 │
 └── tests/
-    ├── test_pipeline.py                # End-to-end pipeline extraction & chunking test runner
-    ├── extracted_data.md               # Extracted Docling layout report across all 78 pages
-    └── chunking_test.md                # Detailed chunk inspection report (1,043 chunks)
+    ├── test_rag.md                     # Ground-truth 14-case evaluation benchmark dataset
+    ├── test_pipeline.py                # End-to-end RAG pipeline testing runner
+    ├── test_retrieval.py               # Retrieval quality benchmark against ground-truth
+    ├── test_chunking.py                # 5 chunking strategies side-by-side comparison runner
+    ├── test_extraction.py              # Docling PDF extraction verification runner
+    ├── verify_routing.py               # Dynamic query router verification test
+    ├── retrieval_report.md             # Benchmark retrieval hit-rate & latency report
+    ├── chunking_report.md              # Chunk distribution & length report
+    └── extraction_report.md            # Docling document extraction quality report
 ```
 
 ---
@@ -235,17 +238,38 @@ python -m evaluation.run_evaluation
 Results will be displayed in a formatted console table and saved as a JSON report in `evaluation/results/`.
 
 ### Run End-to-End Pipeline Tests
-Verify document extraction and chunking across all 78 PDF pages:
+Execute sample queries through dynamic routing, retrieval, and generation:
 ```bash
 python -m tests.test_pipeline
 ```
+Diagnostics and generated answers are saved to `tests/rag_answers_output.txt`.
 
-### Re-Generate Word Documentation (.docx)
-To regenerate the styled, publication-ready Microsoft Word documentation manual:
+### Run Retrieval Quality Benchmark against Ground-Truth
+Benchmark retrieval accuracy and latency across the 14 curated cases in `tests/test_rag.md`:
 ```bash
-python generate_project_documentation.py
+python tests/test_retrieval.py
 ```
-Output is saved to `Bank_Guide_AI_Documentation.docx`.
+Outputs hit-rate statistics and latency breakdowns to `tests/retrieval_report.md`.
+
+### Run Chunking Strategy Comparison
+Compare all 5 chunking strategies side-by-side:
+```bash
+python tests/test_chunking.py
+```
+Saves character distributions, average lengths, and sample chunks to `tests/chunking_report.md`.
+
+### Verify PDF Document Extraction
+Verify Docling layout parsing and TableFormer extraction quality:
+```bash
+python tests/test_extraction.py
+```
+Outputs page-by-page extraction details to `tests/extraction_report.md`.
+
+### Verify Dynamic Query Router
+Test classification between `simple`, `basic_rag`, and `advanced_rag`:
+```bash
+python tests/verify_routing.py
+```
 
 ### Run Headless Ingestion via CLI
 ```bash
@@ -274,13 +298,15 @@ python -m ingestion.ingest --strategy markdown_heading --chunk-size 800 --chunk-
 - **Reranker**: `BAAI/bge-reranker-v2-m3` (Cross-Encoder running locally on GPU)
 - **Document OCR & Parsing**: Docling with EasyOCR (CRAFT + CRNN) and IBM TableFormer (Accurate Mode)
 - **LLM Engine**: Groq Cloud Platform (`openai/gpt-oss-20b`, `qwen/qwen3.6-27b`, `openai/gpt-oss-120b`)
-- **Evaluation & Cost**: LLM-as-a-Judge with custom `CostTracker` & 4-metric scoring rubric
-- **Documentation Generator**: `python-docx` for automated Word report synthesis
+- **Testing & Benchmarking**: Pytest, Docling verification, Retrieval Hit-Rate Benchmark, Strategy Comparison
 - **Frontend UI**: Streamlit
 
 ---
 
-## 📄 License & Deliverables
+## 📄 License & Evaluation Deliverables
 
-- **Documentation**: [Bank_Guide_AI_Documentation.docx](Bank_Guide_AI_Documentation.docx)
+- **Benchmark Dataset**: [tests/test_rag.md](tests/test_rag.md)
+- **Retrieval Report**: [tests/retrieval_report.md](tests/retrieval_report.md)
+- **Chunking Report**: [tests/chunking_report.md](tests/chunking_report.md)
+- **Extraction Report**: [tests/extraction_report.md](tests/extraction_report.md)
 - **License**: This project is open-source under the [MIT License](LICENSE).

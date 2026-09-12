@@ -38,7 +38,7 @@ COLLECTION_NAME = "bank_manuals"
 # Embeddings (ingestion/embeddings.py)
 # ---------------------------------------------------------------------------
 EMBEDDING_MODEL_NAME = "BAAI/bge-m3"
-EMBEDDING_DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+EMBEDDING_DEVICE = "cpu"
 
 # Cross-encoder reranker (multilingual for Arabic & English)
 RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
@@ -47,7 +47,8 @@ RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
 # Docling (OCR + layout-aware extraction)
 # ---------------------------------------------------------------------------
 DOCLING_MODE = "accurate"   # "accurate" (TableFormer mode) | "standard" (fast)
-DOCLING_DO_OCR = True       # True = run OCR on images/scans | False = digital text only (fast)
+# True = run OCR on images/scans | False = digital text only (fast)
+DOCLING_DO_OCR = True
 
 # OCR Model specifications:
 # Engine: EasyOCR (Deep learning CRAFT text detector + CRNN recognizer)
@@ -58,6 +59,9 @@ DOCLING_OCR_LANGUAGES = ["ar", "en"]
 
 OCR_CACHE_DIR = BASE_DIR / "data" / "ocr_cache"
 OCR_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+# DPI used when rendering PDF pages for OCR (higher = better quality, slower)
+OCR_DPI = 300
 
 # ---------------------------------------------------------------------------
 # Evaluation output
@@ -76,11 +80,11 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 AVAILABLE_GROQ_MODELS = [
     "openai/gpt-oss-20b",   # fastest, cheapest, highest daily quota
     "openai/gpt-oss-120b",  # better quality, lower quota
-    "qwen/qwen3.6-27b",     # strong multilingual (good for Arabic), lower quota
+    # strong multilingual (good for Arabic), lower quota
+    "qwen/qwen3.6-27b",
 ]
 DEFAULT_GROQ_MODEL = "openai/gpt-oss-20b"
 DEFAULT_TEMPERATURE = 0.0
-
 
 
 # ---------------------------------------------------------------------------
@@ -102,7 +106,7 @@ DEFAULT_CHUNK_OVERLAP = 100
 # ---------------------------------------------------------------------------
 RETRIEVAL_MODES = ["hybrid", "semantic", "keyword"]
 DEFAULT_RETRIEVAL_MODE = "hybrid"
-DEFAULT_SEARCH_TYPE = "mmr"  # "mmr" or "similarity"
+DEFAULT_SEARCH_TYPE = "similarity"  # Cosine similarity (MMR removed)
 DEFAULT_TOP_K = 3
 DEFAULT_SEMANTIC_WEIGHT = 0.5
 DEFAULT_BM25_WEIGHT = 0.5

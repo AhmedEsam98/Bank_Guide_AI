@@ -27,7 +27,8 @@ if str(project_root) not in sys.path:
     sys.path.insert(0, str(project_root))
 
 from config import DEFAULT_GROQ_MODEL, BASE_DIR
-from generation.generator import answer_question, advanced_rag_answer
+from generation.generator import answer_question
+from advanced_rag.pipeline import advanced_rag_answer
 from evaluation.evaluator import evaluate_all
 from evaluation.cost_tracker import CostTracker
 
@@ -104,7 +105,7 @@ def run_basic_rag(question: str, model_name: str) -> Dict[str, Any]:
         model_name=model_name,
         top_k=5,
         retrieval_mode="hybrid",
-        search_type="mmr",
+        search_type="similarity",
     )
     latency = time.time() - t0
 
@@ -135,7 +136,7 @@ def run_advanced_rag(question: str, model_name: str) -> Dict[str, Any]:
         model_name=model_name,
         top_k=5,
         retrieval_mode="hybrid",
-        search_type="mmr",
+        search_type="similarity",
     )
     latency = time.time() - t0
 
@@ -145,10 +146,10 @@ def run_advanced_rag(question: str, model_name: str) -> Dict[str, Any]:
                   "content": d.page_content[:500]}
                  for d in docs],
         "num_docs": len(docs),
-        "route": meta.get("route", "retrieve"),
+        "route": meta.get("route", "basic_rag"),
         "techniques": meta.get("techniques", []),
-        "reason": "",
-        "cost_summary": {},
+        "reason": meta.get("reason", ""),
+        "cost_summary": meta.get("cost_summary", {}),
         "latency": round(latency, 2),
     }
 

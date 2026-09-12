@@ -71,6 +71,7 @@ def build_vectorstore(chunks: List[Document], reset: bool = True) -> Chroma:
         client=client,
         collection_name=COLLECTION_NAME,
         embedding_function=get_embeddings(),
+        collection_metadata={"hnsw:space": "cosine"},
     )
 
     # Batch size 16 balances speed vs. memory on CPU with BGE-M3 (1024-dim)

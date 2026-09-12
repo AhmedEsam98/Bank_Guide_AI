@@ -2,7 +2,7 @@
 retrieval/retriever.py
 ------------------------
 Unified retriever module supporting 3 retrieval paradigms:
-1. Semantic / Dense: ChromaDB vector search (with MMR or Cosine similarity)
+1. Semantic / Dense: ChromaDB vector search (Cosine similarity)
 2. Keyword / Sparse: BM25 lexical search over indexed document chunks
 3. Hybrid / Ensemble: Combines Semantic + BM25 using Reciprocal Rank Fusion (RRF) with configurable weights
 """
@@ -104,11 +104,9 @@ def get_semantic_retriever(
     search_type: str = DEFAULT_SEARCH_TYPE,
     source_filter: str | None = None,
 ) -> BaseRetriever:
-    """Build a semantic / dense vector retriever backed by ChromaDB."""
+    """Build a semantic / dense vector retriever backed by ChromaDB (Cosine similarity)."""
     vectordb = load_vectorstore()
     search_kwargs: dict[str, Any] = {"k": top_k}
-    if search_type == "mmr":
-        search_kwargs.update({"fetch_k": max(top_k * 4, 20), "lambda_mult": 0.5})
     if source_filter:
         search_kwargs["filter"] = {"source": source_filter}
 
@@ -163,7 +161,7 @@ def get_retriever(
     bm25_weight: float = DEFAULT_BM25_WEIGHT,
 ) -> BaseRetriever:
     """Factory function to build a retriever for the requested mode:
-    - 'semantic': Dense vector search (Chroma + BGE-M3, MMR or similarity)
+    - 'semantic': Dense vector search (Chroma + BGE-M3, Cosine similarity)
     - 'keyword': BM25 exact keyword / lexical matching
     - 'hybrid': Ensemble combining Dense + BM25 with custom weights
     """

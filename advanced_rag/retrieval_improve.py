@@ -10,6 +10,11 @@ Three post-retrieval improvement strategies:
 """
 
 from __future__ import annotations
+from evaluation.cost_tracker import CostTracker
+from generation.generator import get_llm
+from config import RERANKER_MODEL
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.documents import Document
 
 import json
 import logging
@@ -23,12 +28,6 @@ project_root = Path(__file__).resolve().parent.parent
 if str(project_root) not in sys.path:
     sys.path.insert(0, str(project_root))
 
-from langchain_core.documents import Document
-from langchain_core.prompts import ChatPromptTemplate
-
-from config import RERANKER_MODEL
-from generation.generator import get_llm
-from evaluation.cost_tracker import CostTracker
 
 logger = logging.getLogger(__name__)
 
@@ -51,9 +50,11 @@ def _get_reranker():
                 max_length=512,
                 device="cuda",
             )
-            logger.info("Loaded cross-encoder reranker (%s) on CUDA.", RERANKER_MODEL)
+            logger.info(
+                "Loaded cross-encoder reranker (%s) on CUDA.", RERANKER_MODEL)
         except Exception as exc:
-            logger.warning("Failed to load cross-encoder (%s). Reranking disabled.", exc)
+            logger.warning(
+                "Failed to load cross-encoder (%s). Reranking disabled.", exc)
     return _reranker_model
 
 
@@ -130,7 +131,8 @@ def compress_documents(
                 question=question, chunk=doc.page_content[:1500]
             )
         )
-        text = response.content.strip() if hasattr(response, "content") else str(response).strip()
+        text = response.content.strip() if hasattr(
+            response, "content") else str(response).strip()
         if text and text.upper() != "NOT_RELEVANT":
             total_compressed += len(text)
             compressed.append(
@@ -205,7 +207,8 @@ def evaluate_retrieval_crag(
     try:
         cleaned = raw.strip()
         if cleaned.startswith("```"):
-            cleaned = cleaned.split("\n", 1)[1] if "\n" in cleaned else cleaned[3:]
+            cleaned = cleaned.split(
+                "\n", 1)[1] if "\n" in cleaned else cleaned[3:]
             if cleaned.endswith("```"):
                 cleaned = cleaned[:-3]
             cleaned = cleaned.strip()
