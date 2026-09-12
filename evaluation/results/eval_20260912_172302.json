@@ -1,0 +1,1851 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "timestamp": "2026-09-12 17:23:02",
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What is Retrieval-Augmented Generation (RAG)?",
+      "focus": "Simple/general knowledge question.",
+      "basic_rag": {
+        "answer": "The manuals provided do not cover the concept of Retrieval‑Augmented Generation (RAG).",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 11,
+            "content": "| أول نسؤول ا - اءات. الإجر لاستيمال المستودعات وعمليات الموجودات                                                                                                                                                                                                                                                                                              | وارساللا                                                                                                                                  |        "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 10,
+            "content": "| ومطابقة الرصيد مع رصيد يوم العمل السابق لبيان قيمة طوابع التي يومي من الة دمغ الطوابع يبين الرصيد المتاح بالآلة فيذلك استخراج  اليوم تقرير                                                                                      | ومطابقة الرصيد مع رصيد يوم العمل السابق لبيان قيمة طوابع التي يومي من الة دمغ الطوابع يبين الرصيد المتاح بالآلة فيذلك استخراج  اليوم تقرير                                                                                      |                 |"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 26,
+            "content": "| النقص . تدقيق                                                                                                                                                                                                                                                                                                                                                                                         | -11                                                                                    |"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 21,
+              "cost_usd": 2.1e-06,
+              "latency_s": 33.3175,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 21,
+          "total_cost_usd": 2.1e-06,
+          "total_latency_s": 33.3175
+        },
+        "latency": 33.32
+      },
+      "advanced_rag": {
+        "answer": "Retrieval‑Augmented Generation (RAG) is a hybrid approach that combines a language model’s generative abilities with an external knowledge source.  \n1. **Retrieval step** – Given a user query, the system first searches a large document or vector database (e.g., PDFs, knowledge base, web pages) and returns the most relevant passages.  \n2. **Augmentation step** – These retrieved passages are fed as additional context to the language model.  \n3. **Generation step** – The model then produces an answer that is informed by both its internal knowledge and the freshly retrieved information.\n\nThe result is more accurate, up‑to‑date, and context‑aware responses, especially for domain‑specific or rapidly changing information. RAG is widely used in customer support, legal research, and any scenario where up‑to‑date facts are critical.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "General knowledge question about RAG, not related to internal bank manuals",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 716,
+              "output_tokens": 117,
+              "cost_usd": 8.33e-05,
+              "latency_s": 0.5824,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 193,
+              "output_tokens": 209,
+              "cost_usd": 4.02e-05,
+              "latency_s": 0.8495,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 909,
+          "total_output_tokens": 326,
+          "total_cost_usd": 0.0001235,
+          "total_latency_s": 1.4319
+        },
+        "latency": 1.47
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so it cannot help answer the question."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "No context was provided, so none of the claims in the answer can be verified or grounded. The answer contains unsupported statements, resulting in a very poor score."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer clearly defines Retrieval-Augmented Generation, explains its components (retrieval, augmentation, generation), and describes its benefits and typical use cases, fully addressing the question without irrelevant content."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer accurately describes Retrieval-Augmented Generation, its components (retrieval, augmentation, generation), and typical use cases. It fully satisfies the question."
+        }
+      }
+    },
+    {
+      "id": "Q2",
+      "question": "What are the main limitations of RAG?",
+      "focus": "Document-grounded factual question.",
+      "basic_rag": {
+        "answer": "The manuals provided do not cover the topic of RAG (Retrieval‑Augmented Generation) or its limitations.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 6,
+            "content": "فالموافقة فيحال الحصول على موافقة صاحب الصلاحية ولم يكن هناك قدرة على الرجوع الى أنظمة الكاميرات من جهاز الموظف والإنذار المركزي. على الرجوع الى أنظمة المراقبة التلفزيونية من المحطة المركزية هي صلاحية المعني الامن مدير\n\nلن يتم إنجازه  وارساله الى منجز اسبوعي بالطلبات الواردة التيتم التعامل معها ) منجز قيد الإنجاز اعداد والانذار المركزي. الامن غير تقرير مدير"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 17,
+            "content": "| 'ان تطلب الأمرذلك متابعة اصلاح الأعطال مع الجهات المعنية بذلك والتصعيد                                                                                                                                                 | -8       |          |\n| وجود أي تحديثات عليها ويراعى ان يتم اخذ عينات عشوائية من ال ogsاللأنظمة لتوضح اية بشكل سنويء مراجعة البيانات للتأكد من هذه التغييرات على ملف التوثيق عدم  الخاص عكس                                                    | -9       |          |\n| الانذار المركزي."
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 29,
+            "content": "| القيود                                                                                                              |                                                                                                                     |\n| الجهة المعنية نفقات لوازم وقرطاسية                                                                                  |                                                                                                                     |"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 25,
+              "cost_usd": 2.5e-06,
+              "latency_s": 0.9034,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 25,
+          "total_cost_usd": 2.5e-06,
+          "total_latency_s": 0.9034
+        },
+        "latency": 0.9
+      },
+      "advanced_rag": {
+        "answer": "**Main limitations of Retrieval‑Augmented Generation (RAG)**  \n\n| Limitation | Why it matters | Typical impact |\n|------------|----------------|----------------|\n| **Dependence on retrieval quality** | RAG can only be as good as the documents it pulls in. If the retrieval step misses relevant passages or pulls in noisy/irrelevant ones, the generator will produce inaccurate or misleading answers. | Wrong or incomplete responses, especially on niche or rapidly changing topics. |\n| **Limited context window** | The generator still has a fixed token limit (e.g., 4 k–8 k tokens). Even if the retrieval step returns many documents, only a subset can be fed to the model, potentially omitting useful information. | Partial answers, loss of nuance. |\n| **Latency and resource cost** | Retrieval (vector search, database queries) plus generation adds extra inference steps, increasing response time and compute usage. | Slower user experience, higher operational cost. |\n| **Noisy or biased source data** | If the knowledge base contains errors, outdated facts, or biased viewpoints, RAG will propagate them. | Misinformation, reputational risk. |\n| **Difficulty with reasoning over multiple sources** | The model must implicitly combine evidence from several retrieved passages. Current architectures struggle with complex multi‑step reasoning or cross‑source contradictions. | Inconsistent or contradictory answers. |\n| **Privacy and compliance concerns** | Retrieving from internal documents may expose sensitive data if not properly filtered or anonymized. | Regulatory violations, data leaks. |\n| **Maintenance overhead** | The knowledge base must be regularly updated, indexed, and monitored for drift. | Out‑of‑date answers if maintenance lags. |\n| **Evaluation challenges** | Measuring factual correctness is harder because the answer depends on both retrieval and generation. | Harder to benchmark and improve. |\n\nIn practice, RAG works best when paired with a high‑quality, up‑to‑date, and well‑curated knowledge base, and when the system is designed to handle retrieval failures gracefully (e.g., fallback to a safe response).",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "General knowledge question about RAG, not related to internal bank manuals",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 715,
+              "output_tokens": 104,
+              "cost_usd": 8.19e-05,
+              "latency_s": 0.792,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 192,
+              "output_tokens": 477,
+              "cost_usd": 6.69e-05,
+              "latency_s": 1.1695,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 907,
+          "total_output_tokens": 581,
+          "total_cost_usd": 0.0001488,
+          "total_latency_s": 1.9615
+        },
+        "latency": 2.0
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so it cannot address the question."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "No context was provided, so none of the claims in the answer can be verified or grounded. All statements are unsupported."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer directly lists and explains the main limitations of Retrieval‑Augmented Generation, covering key aspects such as retrieval quality, context window, latency, bias, reasoning, privacy, maintenance, and evaluation. It fully satisfies the question without irrelevant content."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer accurately lists the key known limitations of Retrieval‑Augmented Generation, covering retrieval quality, context window, latency, data noise/bias, multi‑source reasoning, privacy, maintenance, and evaluation challenges. It is comprehensive and factually correct."
+        }
+      }
+    },
+    {
+      "id": "Q3",
+      "question": "Why is it bad?",
+      "focus": "Ambiguous/conversational query.",
+      "basic_rag": {
+        "answer": "I’m sorry, but the manuals provided do not contain information on that topic.",
+        "docs": [
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 16,
+            "content": "| -8              |"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 15,
+            "content": "|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                     "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 23,
+            "content": "|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 19,
+              "cost_usd": 1.9e-06,
+              "latency_s": 0.948,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 19,
+          "total_cost_usd": 1.9e-06,
+          "total_latency_s": 0.948
+        },
+        "latency": 0.95
+      },
+      "advanced_rag": {
+        "answer": "The manuals provided do not contain any information that explains why something is “bad.”",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 4,
+            "content": "مخاطر العمل وتنفيذ متطلبات الجهات الرقابية  إضسافة الى عليه فقدتم اعداد هذا الدليل ليبين كافة الحوادث الأمنية التي تحدث في مواقع البنك ورفع الاجراءات الواجب المسح تهدف تقديم الفني التقني الأمن المباني المشاريع الفروع التعامل التنسيقي دورها التقارير الالتزام"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 2,
+            "content": "| 18. 9.اجراءات استلام اللوازم والقرطاسية الموردة من مطبعة البنك                            |\n| 19 البنك خارجية والقرطاسية الموردة من 10 .اجراءات استلام مستودعات جهات اللوازم لدى        |\n| 20.                                                                                       |\n| 21 12.اجراءات إعادة تغذية المخزون ٠٠٠٠٠                                                   |\n| 23 13.إجراءات صرف معاملات شراء اللوازم والقرطاسية والموجودات الثابتة                      |\n| 25. 14 إجراءات متابعة وصرف ف"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 27,
+            "content": "|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|-----------------------"
+          }
+        ],
+        "num_docs": 5,
+        "route": "advanced_rag",
+        "techniques": [
+          "rewriting"
+        ],
+        "reason": "Vague pronoun without context",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 711,
+              "output_tokens": 82,
+              "cost_usd": 7.93e-05,
+              "latency_s": 3.5711,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 162,
+              "output_tokens": 731,
+              "cost_usd": 8.93e-05,
+              "latency_s": 2.3843,
+              "executed": true
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 756,
+              "output_tokens": 153,
+              "cost_usd": 9.09e-05,
+              "latency_s": 7.6815,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 1629,
+          "total_output_tokens": 966,
+          "total_cost_usd": 0.0002595,
+          "total_latency_s": 13.6369
+        },
+        "latency": 14.02
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "The retrieved chunks contain procedural and administrative details about bank operations and security incidents, which do not address or explain why anything is bad. They are irrelevant to the question."
+        },
+        "faithfulness": {
+          "score": 5,
+          "justification": "The provided context contains procedural and risk-related text in Arabic but does not mention the word \"bad\" or any explanation of why something is bad. Therefore the claim that the manuals do not contain such information is fully supported by the context."
+        },
+        "answer_relevance": {
+          "score": 1,
+          "justification": "The answer does not explain why something is bad; it merely states that the manuals lack that information, which does not address the user's question."
+        },
+        "correctness": {
+          "score": 1,
+          "justification": "The answer does not explain why the subject is bad; it merely states that manuals lack information, which does not address the question."
+        }
+      }
+    },
+    {
+      "id": "Q4",
+      "question": "What are the challenges and failure modes of RAG?",
+      "focus": "Good candidate for Multi-Query.",
+      "basic_rag": {
+        "answer": "The manuals provided do not cover Retrieval‑Augmented Generation (RAG) or its challenges and failure modes.",
+        "docs": [
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 26,
+            "content": "| النقص . تدقيق                                                                                                                                                                                                                                                                                                                                                                                         | -11                                                                                    |"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 13,
+            "content": "|                                                                                                                                                                                                                               |                                                                                                                                                                   | -7                                                           |"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 22,
+            "content": "| بنتائج عملية  المطبعة والمستودعات الجرد مدير                                                                                                                                                                                                                                                                                                                                   | -11                                                                                                                              "
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 26,
+              "cost_usd": 2.6e-06,
+              "latency_s": 7.2324,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 26,
+          "total_cost_usd": 2.6e-06,
+          "total_latency_s": 7.2324
+        },
+        "latency": 7.23
+      },
+      "advanced_rag": {
+        "answer": "**Challenges & Failure Modes of Retrieval‑Augmented Generation (RAG)**  \n\n| # | Challenge / Failure Mode | Why it Happens | Typical Impact |\n|---|--------------------------|----------------|----------------|\n| 1 | **Retrieval Quality** | Index is incomplete, outdated, or poorly indexed. | The model is fed irrelevant or missing evidence → inaccurate or incomplete answers. |\n| 2 | **Relevance Ranking** | Retrieval algorithm mis‑scores documents; top‑k may contain noise. | The model may “anchor” on wrong facts, leading to hallucinations or contradictory statements. |\n| 3 | **Coverage Gap** | The knowledge base lacks the needed context for a query. | The model must hallucinate or rely on its own prior knowledge, reducing reliability. |\n| 4 | **Latency & Scalability** | Real‑time retrieval from large corpora can be slow. | User experience suffers; in high‑throughput systems, retrieval bottlenecks become critical. |\n| 5 | **Context Window Limits** | Only a limited number of retrieved passages can be fed to the generator. | Important details may be truncated, causing partial or misleading answers. |\n| 6 | **Over‑Reliance on Retrieval** | The generator trusts retrieved text too much, even when it’s wrong. | The model can repeat false information verbatim, amplifying errors. |\n| 7 | **Hallucination from Retrieval** | The model blends retrieved facts with its own knowledge incorrectly. | Mixed‑source answers that appear plausible but are factually wrong. |\n| 8 | **Domain Mismatch** | Retrieval corpus is generic while the query is domain‑specific (e.g., banking regulations). | The model may provide generic or non‑compliant guidance. |\n| 9 | **Privacy & Security** | Retrieved documents may contain sensitive data. | Unintended disclosure or leakage of confidential information. |\n| 10 | **Index Drift & Versioning** | Knowledge base evolves but the retrieval index isn’t updated. | Answers become stale or inconsistent with current policies. |\n| 11 | **Ambiguity & Polysemy** | Query terms have multiple meanings; retrieval picks wrong sense. | The model answers a different question than intended. |\n| 12 | **Bias Amplification** | Retrieval corpus contains biased or skewed content. | The generator reproduces or magnifies that bias. |\n| 13 | **Evaluation Difficulty** | Ground truth is hard to define for open‑domain queries. | Hard to measure true performance and detect subtle failures. |\n\n### Mitigation Tips\n- Keep the retrieval index fresh and well‑structured (e.g., use embeddings, metadata tags).  \n- Combine relevance scoring with a confidence estimator; filter low‑confidence hits.  \n- Limit the number of passages and use a sliding window to stay within the model’s context size.  \n- Post‑process outputs for factual consistency and cross‑check against trusted sources.  \n- Implement privacy safeguards (redaction, access controls) on the retrieval corpus.  \n- Monitor latency and scale retrieval infrastructure (caching, sharding).  \n\n---\n\n**Note:** For specific internal banking procedures, consult the bank’s SOP manuals or the dedicated knowledge‑base search tool to retrieve unit‑level instructions.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "General knowledge question about RAG, not related to internal bank manuals",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 717,
+              "output_tokens": 86,
+              "cost_usd": 8.03e-05,
+              "latency_s": 3.4762,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 194,
+              "output_tokens": 808,
+              "cost_usd": 0.0001002,
+              "latency_s": 2.4148,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 911,
+          "total_output_tokens": 894,
+          "total_cost_usd": 0.0001805,
+          "total_latency_s": 5.891
+        },
+        "latency": 5.93
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so it cannot address the question."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "No context was provided, so none of the claims in the answer can be verified or grounded. All statements are unsupported."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer directly lists and explains the challenges and failure modes of Retrieval‑Augmented Generation (RAG), providing reasons, impacts, and mitigation tips, fully addressing the user's question without irrelevant content."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer accurately lists the major challenges and failure modes of Retrieval‑Augmented Generation, covering retrieval quality, relevance, coverage, latency, context limits, over‑reliance, hallucination, domain mismatch, privacy, index drift, ambiguity, bias, and evaluation difficulty. It also provides realistic mitigation strategies. No factual inaccuracies are evident, and the response fully satisfies the question."
+        }
+      }
+    },
+    {
+      "id": "Q5",
+      "question": "Compare RAG and fine-tuning, explain their advantages and disadvantages, and state when each should be used.",
+      "focus": "Complex multi-part question; good for Decomposition.",
+      "basic_rag": {
+        "answer": "The manuals provided do not cover the concepts of Retrieval‑Augmented Generation (RAG) or fine‑tuning.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 15,
+            "content": "| توضح الفرق الحاصل بين المطبعة والمستودعات مدير استلام المطابقات والتوصيات والتحقق منهاء وارسال بريد الكتروني عن فروقات تقريبية في النظام وقيود المعالجة المطلوب إجراءها بحيث الناتج                                                                                                                                                                                                                                                                                                         |                     "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 22,
+            "content": "| الإشراف على عملية والمستودعات ووضع التوصيات اللازمة. الجرد                                                                                                                                                                                                                                                                                                                     | -9                                                                                                                               "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 27,
+            "content": "| الاطلاع على التوصيات واتخاذ القرار المناسب.                                                                          | الاطلاع على التوصيات واتخاذ القرار المناسب.                                                                          | الاطلاع على التوصيات واتخاذ القرار المناسب.                                                                          | الاطلاع على التوصيات واتخاذ القرار المناسب.                                                                          | الاطلاع على التوصيات و"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 25,
+              "cost_usd": 2.5e-06,
+              "latency_s": 7.4665,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 25,
+          "total_cost_usd": 2.5e-06,
+          "total_latency_s": 7.4665
+        },
+        "latency": 7.47
+      },
+      "advanced_rag": {
+        "answer": "**Retrieval‑Augmented Generation (RAG) vs. Fine‑Tuning**\n\n| Aspect | RAG | Fine‑Tuning |\n|--------|-----|-------------|\n| **Core Idea** | Uses a large language model (LLM) to generate answers, but first retrieves relevant documents (e.g., policy PDFs, knowledge‑base articles) and conditions the generation on that evidence. | Trains the LLM on a curated dataset of domain‑specific examples so that the model’s weights encode the desired knowledge. |\n| **Data Requirements** | Needs a searchable corpus (vector store, database) but no model‑level training data. | Requires a labeled or curated dataset of examples; the model must be retrained or further trained. |\n| **Model Updates** | Updating the knowledge base (add/remove docs) is fast—no re‑training. | Updating knowledge requires re‑training or incremental fine‑tuning, which can be time‑consuming. |\n| **Explainability** | The retrieved documents provide a traceable source for the answer. | The model’s internal knowledge is opaque; no direct evidence is shown. |\n| **Performance on New Topics** | Handles new or rare topics well if the corpus contains relevant docs. | Struggles with topics not represented in the fine‑tuning data. |\n| **Computational Cost** | Retrieval is lightweight; inference cost is similar to a standard LLM call. | Fine‑tuned models can be larger and slower, especially if many parameters are updated. |\n| **Security & Compliance** | Keeps raw data separate; only the LLM sees the retrieved text, which can be audited. | The model may inadvertently encode sensitive data if not carefully curated. |\n| **Maintenance** | Periodic re‑indexing of the corpus; minimal code changes. | Requires ongoing data curation, re‑training pipelines, and version control. |\n\n---\n\n### When to Use Each\n\n| Scenario | Recommended Approach | Why |\n|----------|----------------------|-----|\n| **Rapidly evolving knowledge base** (e.g., new regulations, product updates) | **RAG** | Adding a new document instantly makes it available; no model retraining needed. |\n| **High‑volume, consistent responses** (e.g., FAQ chatbot) | **Fine‑Tuning** | Once the model is tuned, it can generate answers quickly without retrieval overhead. |\n| **Need for audit trail or evidence** (e.g., compliance queries) | **RAG** | The system can show the exact document snippet that supports the answer. |\n| **Limited data but high accuracy required** | **Fine‑Tuning** | With a small, high‑quality dataset, fine‑tuning can embed domain knowledge directly into the model. |\n| **Cost‑sensitive deployment** | **RAG** | Avoids the cost of training large models; only inference cost is incurred. |\n| **Regulatory constraints on data exposure** | **Fine‑Tuning** | Keeps sensitive data out of the inference pipeline; only the model weights are used. |\n\n---\n\n### Quick Takeaway\n\n- **RAG** is ideal when you need up‑to‑date, traceable information and want to avoid retraining.  \n- **Fine‑Tuning** is best for stable, high‑throughput applications where the knowledge set is well‑defined and you can afford the training effort.\n\n*If you need unit‑level SOP details, you can search the internal manuals or the knowledge‑base for the exact procedures.*",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "General AI/technical comparison not requiring internal bank manual retrieval",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 728,
+              "output_tokens": 137,
+              "cost_usd": 8.65e-05,
+              "latency_s": 7.9983,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 205,
+              "output_tokens": 816,
+              "cost_usd": 0.0001021,
+              "latency_s": 5.4266,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 933,
+          "total_output_tokens": 953,
+          "total_cost_usd": 0.0001886,
+          "total_latency_s": 13.4249
+        },
+        "latency": 13.46
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so it cannot satisfy the criterion."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "No context was provided, so none of the claims in the answer can be verified or grounded. All statements are unsupported."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer fully compares RAG and fine‑tuning, lists advantages and disadvantages, and clearly states when each approach should be used, with no irrelevant content."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer accurately describes the core differences between Retrieval‑Augmented Generation (RAG) and fine‑tuning, lists correct advantages and disadvantages for each approach, and provides realistic scenarios for when to use each. All statements are factually correct and align with current best practices in NLP deployment."
+        }
+      }
+    },
+    {
+      "id": "Q6",
+      "question": "How does RAG reduce hallucination?",
+      "focus": "Good candidate for HyDE.",
+      "basic_rag": {
+        "answer": "The manuals provided do not cover the topic of Retrieval‑Augmented Generation (RAG) or how it might reduce hallucination.",
+        "docs": [
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 16,
+            "content": "|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 19,
+            "content": "|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 11,
+            "content": "|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 30,
+              "cost_usd": 3e-06,
+              "latency_s": 7.2174,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 30,
+          "total_cost_usd": 3e-06,
+          "total_latency_s": 7.2174
+        },
+        "latency": 7.22
+      },
+      "advanced_rag": {
+        "answer": "Retrieval‑Augmented Generation (RAG) reduces hallucination by grounding the model’s output in real, external documents rather than relying solely on its internal knowledge base. The process works like this:\n\n1. **Query‑driven retrieval** – When a user asks a question, the system first retrieves the most relevant passages from a curated knowledge base (e.g., internal bank SOPs, policy documents, or trusted external sources).\n\n2. **Context injection** – These retrieved passages are fed into the language model as part of the prompt, giving the model concrete, verifiable information to base its answer on.\n\n3. **Answer generation** – The model generates a response conditioned on both the user’s query and the retrieved context. Because the model has direct access to factual snippets, it is less likely to fabricate details that aren’t present in the source material.\n\n4. **Post‑generation filtering (optional)** – Some implementations add a verification step that checks the generated answer against the retrieved documents, flagging or correcting any inconsistencies.\n\nBy anchoring the generation to actual documents, RAG limits the model’s tendency to “hallucinate” facts, making the output more reliable and aligned with the bank’s official procedures.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "General knowledge question about RAG, not specific to internal bank manuals",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 714,
+              "output_tokens": 94,
+              "cost_usd": 8.08e-05,
+              "latency_s": 4.8261,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 191,
+              "output_tokens": 288,
+              "cost_usd": 4.79e-05,
+              "latency_s": 0.7129,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 905,
+          "total_output_tokens": 382,
+          "total_cost_usd": 0.0001287,
+          "total_latency_s": 5.539
+        },
+        "latency": 5.58
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so it cannot help answer the question."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "No context was provided, so none of the claims in the answer can be verified or grounded. The answer contains unsupported statements."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer directly explains how Retrieval‑Augmented Generation reduces hallucination by grounding responses in retrieved documents, detailing the retrieval, context injection, generation, and optional filtering steps. It fully addresses the question with no irrelevant content."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer accurately explains how Retrieval‑Augmented Generation reduces hallucination by retrieving relevant documents, injecting them into the prompt, conditioning generation on that context, and optionally applying post‑generation filtering. All key mechanisms are correctly described."
+        }
+      }
+    },
+    {
+      "id": "Q7",
+      "question": "Find documents about RAG published after 2024.",
+      "focus": "Good candidate for Self-Query.",
+      "basic_rag": {
+        "answer": "The manuals provided in the context do not contain any documents or references to “RAG” that were published after 2024. None of the excerpts from the Central Alarm Tasks and Procedures Manual, the Central Mail and Files Unit Procedures Manual, or the Assets and Warehouse Operations Manual mention RAG or any related material. Therefore, based on the supplied information, there are no relevant documents about RAG published after 2024.",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 19,
+            "content": "|         | رقم النسخة    |\n|---------|---------------|\n| 08/2024 | تاريخ الإصدار |\n| 02/2026 | مراجعة آخر    |\n\nالانذار المركزي دليل إجراءات وحدة\n\nالاجراء اسم\n\nالتقارر"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 9,
+            "content": "|         | رقم النسخة       |\n|---------|------------------|\n| 02/2026 | تاريخ الإصدار    |\n| 02/2026 | تارىخ آخر مراجعة |\n\nاجراءات عمل والملفات المركزي البريد وحدة"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 10,
+            "content": "|         | رقم النسخة    |\n|---------|---------------|\n| 08/2024 | تاريخ الإصدار |\n| 02/2026 | مراجعة آخر    |\n\nالانذار المركزي دليل إجراءات وحدة\n\nالاجراء اسم"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 109,
+              "cost_usd": 1.09e-05,
+              "latency_s": 6.5999,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 109,
+          "total_cost_usd": 1.09e-05,
+          "total_latency_s": 6.5999
+        },
+        "latency": 6.6
+      },
+      "advanced_rag": {
+        "answer": "The provided manuals do not contain any information about documents concerning RAG that were published after 2024.",
+        "docs": [
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 16,
+            "content": "|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 11,
+            "content": "| الريود .                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                           |        "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 16,
+            "content": "|                 |"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          }
+        ],
+        "num_docs": 5,
+        "route": "advanced_rag",
+        "techniques": [
+          "self_query"
+        ],
+        "reason": "Requires searching for documents with metadata constraints (published after 2024).",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 717,
+              "output_tokens": 482,
+              "cost_usd": 0.0001199,
+              "latency_s": 10.5659,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 279,
+              "output_tokens": 200,
+              "cost_usd": 4.79e-05,
+              "latency_s": 0.6686,
+              "executed": true
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 530,
+              "output_tokens": 250,
+              "cost_usd": 7.8e-05,
+              "latency_s": 1.9365,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 1526,
+          "total_output_tokens": 932,
+          "total_cost_usd": 0.0002458,
+          "total_latency_s": 13.171
+        },
+        "latency": 13.48
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "The retrieved chunks contain unrelated Arabic administrative text and do not mention RAG or any documents published after 2024."
+        },
+        "faithfulness": {
+          "score": 5,
+          "justification": "The answer correctly states that the provided text contains no mention of RAG documents published after 2024, which is supported by the absence of any such references in the context."
+        },
+        "answer_relevance": {
+          "score": 1,
+          "justification": "The answer does not provide any documents about RAG published after 2024 and merely states that the manuals lack such information, failing to address the user's request."
+        },
+        "correctness": {
+          "score": 1,
+          "justification": "The answer does not provide any documents about RAG published after 2024, nor does it attempt to locate or list them. It merely states that none are found in the manuals, which is insufficient and likely incorrect. Therefore it fails to satisfy the question."
+        }
+      }
+    },
+    {
+      "id": "Q8",
+      "question": "What is reranking and why is it useful in RAG?",
+      "focus": "Retrieval/re-ranking knowledge question.",
+      "basic_rag": {
+        "answer": "The manuals provided do not cover the concept of reranking or its use in Retrieval‑Augmented Generation (RAG).",
+        "docs": [
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 17,
+            "content": "| 'ان تطلب الأمرذلك متابعة اصلاح الأعطال مع الجهات المعنية بذلك والتصعيد                                                                                                                                                 | -8       |          |\n| وجود أي تحديثات عليها ويراعى ان يتم اخذ عينات عشوائية من ال ogsاللأنظمة لتوضح اية بشكل سنويء مراجعة البيانات للتأكد من هذه التغييرات على ملف التوثيق عدم  الخاص عكس                                                    | -9       |          |\n| الانذار المركزي."
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 22,
+            "content": "| الإشراف على عملية والمستودعات ووضع التوصيات اللازمة. الجرد                                                                                                                                                                                                                                                                                                                     | -9                                                                                                                               "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Central Alarm Tasks And Procedures Manual.pdf",
+            "page": 13,
+            "content": "| بذلك السعات التخزينية وحصر الملاحظات ورفع  الانذار المركزي. مساعد تقرير  تقرير مدير                                                                                                                                            | -4                                            |\n| سب .                                                                                                                                                                                                                           "
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 27,
+              "cost_usd": 2.7e-06,
+              "latency_s": 8.7664,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 27,
+          "total_cost_usd": 2.7e-06,
+          "total_latency_s": 8.7664
+        },
+        "latency": 8.77
+      },
+      "advanced_rag": {
+        "answer": "**Reranking** is a post‑retrieval step in which the system re‑orders the top‑k documents (or passages) returned by an initial retrieval model (e.g., BM25, dense vector search). A separate, often more sophisticated model—such as a cross‑encoder or a fine‑tuned transformer—scores each candidate against the query and produces a new ranking.\n\n### Why it’s useful in RAG\n\n| Benefit | How it helps RAG |\n|---------|------------------|\n| **Higher relevance** | The reranker can capture fine‑grained semantic matches that the first‑stage retriever (which is usually fast but shallow) might miss. |\n| **Reduced noise** | By pushing truly relevant passages to the top, the generator receives cleaner, more focused context, improving answer quality. |\n| **Flexibility** | You can plug in different reranking models (e.g., BERT, RoBERTa) without changing the retrieval backbone. |\n| **Efficiency** | Only a small set of top‑k candidates is reranked, keeping latency low while still benefiting from a powerful model. |\n| **Adaptability** | Rerankers can be fine‑tuned on domain‑specific data, making RAG more effective for specialized tasks (e.g., legal, medical). |\n\nIn short, reranking refines the retrieval output, giving the language model in RAG a higher‑quality knowledge base to generate from, which leads to more accurate, coherent, and contextually appropriate responses.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "General knowledge question about RAG concepts",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 719,
+              "output_tokens": 149,
+              "cost_usd": 8.68e-05,
+              "latency_s": 6.0832,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 196,
+              "output_tokens": 365,
+              "cost_usd": 5.61e-05,
+              "latency_s": 0.8464,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 915,
+          "total_output_tokens": 514,
+          "total_cost_usd": 0.0001429,
+          "total_latency_s": 6.9296
+        },
+        "latency": 6.97
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so it cannot provide any information about reranking or its usefulness in Retrieval-Augmented Generation."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "The answer makes numerous claims about reranking and its benefits, but the provided context is empty, so none of these claims can be verified or grounded. Therefore the answer fails to satisfy the criterion."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer clearly defines reranking and explains its usefulness in Retrieval-Augmented Generation (RAG) with relevant details and examples, fully addressing the question without irrelevant content."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer accurately defines reranking as a post‑retrieval reordering step using a more powerful model, and correctly explains its benefits in Retrieval‑Augmented Generation (RAG) such as improved relevance, noise reduction, flexibility, efficiency, and adaptability. No factual errors are present."
+        }
+      }
+    },
+    {
+      "id": "Q9",
+      "question": "Which approach should be used for a simple question versus a complex multi-part question?",
+      "focus": "Routing decision question.",
+      "basic_rag": {
+        "answer": "The manuals do not cover that.",
+        "docs": [
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 11,
+            "content": "| نسؤول                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                           |        "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 29,
+            "content": "| ديوان اداري موظف                                                                                                                                                       |                                                                                                                                                         |                 |\n| الوحدة. حفظ نسخة من القرارفي الملف  الخاص لدى                                                                                                              "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 22,
+            "content": "| واتخاذ القرار المناسب. الاطلاع على المذكرة اوالبريد الالكتروني الشامل الخاص                                                                                                                                                                                                                                                                                                    |                                                                                                                                  "
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 25,
+            "content": "| إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | إعداد مذكرة اعتماد النفقة وتسجيلها بالسجل وأخذ صورة عن معاملة الصرف ورفع النفقة لوحدة النفقات للصرف واستكمال الإجراءات                                                                             | -17                                            |"
+          },
+          {
+            "source": "Assets and wearhouse operation Tasks and Procedures Manual.pdf",
+            "page": 19,
+            "content": "| وحدة                                                                                                                                                                                         | وحدة                                                                                                                                                                                         |                                                                                   |"
+          }
+        ],
+        "num_docs": 5,
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "basic_rag_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 0,
+              "output_tokens": 7,
+              "cost_usd": 7e-07,
+              "latency_s": 6.1753,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 0,
+          "total_output_tokens": 7,
+          "total_cost_usd": 7e-07,
+          "total_latency_s": 6.1753
+        },
+        "latency": 6.18
+      },
+      "advanced_rag": {
+        "answer": "For a **simple, single‑fact question** you can use a straightforward RAG (Retrieval‑Augmented Generation) approach:\n\n1. **Retrieve** the most relevant document(s) with a single vector‑search query.  \n2. **Generate** the answer directly from the retrieved text.  \n3. No extra reranking or chain‑of‑thought is usually needed.\n\nFor a **complex, multi‑part question** you should adopt a more elaborate workflow:\n\n1. **Break the question into sub‑queries** (if possible).  \n2. **Retrieve** multiple candidate passages for each sub‑query.  \n3. **Rerank** the candidates (e.g., using a reranker model or similarity scoring) to pick the best evidence.  \n4. **Chain‑of‑Thought / Multi‑step reasoning**: let the model reason step‑by‑step, using the top passages as evidence for each step.  \n5. **Generate** the final answer, optionally summarizing or synthesizing the multiple pieces of evidence.\n\nIn short:  \n- **Simple** → single retrieval + direct generation.  \n- **Complex** → multi‑step retrieval, reranking, and reasoning before generation.",
+        "docs": [],
+        "num_docs": 0,
+        "route": "simple",
+        "techniques": [],
+        "reason": "General knowledge question about classification approach, not requiring manual lookup",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 722,
+              "output_tokens": 178,
+              "cost_usd": 9e-05,
+              "latency_s": 5.7746,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 199,
+              "output_tokens": 376,
+              "cost_usd": 5.75e-05,
+              "latency_s": 2.9391,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 921,
+          "total_output_tokens": 554,
+          "total_cost_usd": 0.0001475,
+          "total_latency_s": 8.7137
+        },
+        "latency": 8.76
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 1,
+          "justification": "No context was retrieved, so it cannot help answer the question."
+        },
+        "faithfulness": {
+          "score": 1,
+          "justification": "The answer makes several claims about RAG workflows, but the provided context is empty, so none of the claims are supported by any context."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer directly compares the recommended approaches for simple versus complex multi-part questions, clearly outlining the steps for each scenario without adding irrelevant information."
+        },
+        "correctness": {
+          "score": 5,
+          "justification": "The answer correctly distinguishes between simple single‑fact questions (straightforward retrieval and generation) and complex multi‑part questions (breaking into sub‑queries, multiple retrievals, reranking, chain‑of‑thought reasoning, and synthesis). It aligns with standard best practices for RAG workflows and is factually accurate."
+        }
+      }
+    },
+    {
+      "id": "Q10",
+      "question": "ما هي إجراءات التعامل مع البريد السري في وحدة البريد والملفات المركزية؟",
+      "focus": "CRAG/retrieval-correction test; corpus-specific question.",
+      "basic_rag": {
+        "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1enatcyetwvvsv3vxx9hgwk` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6226, Requested 1947. Please try again in 1.297499999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+        "docs": [],
+        "num_docs": 0,
+        "cost_summary": {},
+        "latency": 0
+      },
+      "advanced_rag": {
+        "answer": "لا يغطي دليل وحدة البريد والملفات المركزية أي إرشادات محددة للتعامل مع البريد السري؛ لا توجد إشارة إلى هذا الموضوع في أي صفحة من الدليل المذكور.",
+        "docs": [
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 12,
+            "content": "|         | رقم النسخة       |\n|---------|------------------|\n| 02/2026 | تاريخ الإصدار    |\n| 02/2026 | تارىخ آخر مراجعة |\n\nالمركزي اجراءات عمل والملفات البريد وحدة\n\nاسم الدليل\n\nالبريد المركزي والملفات الجهة المنفذة وحدة\n\nمساعد - ديوان ادادي موظف\n\nامنفذ\n\n-1 البريد من خلال قوائم البريد الورقية لمراكزالعمل غيرالمشمولة بنظام اتمتة العمليات . ملاحظة : يتم البريد . - باسم استلام\n\nالبريد المركزي والملفات وتوقيعه على نموذج سجل توزيع الرسائل البريد للمؤسسات التي قامت بتفويض مندوبيها لاستلام البريد من -"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 24,
+            "content": "|         | رقم النسخة       |\n|---------|------------------|\n| 02/2026 | تاريخ الإصدار    |\n| 02/2026 | تارىخ آخر مراجعة |\n\nاجراءات عمل والملفات المركزي البريد وحدة\n\nاسم الدليل\n\nالقائمة والعاملة والحفوظة :\n\nالبريد المركزي والملفات الجهة المنفذة وحدة\n\n- ديوان موظف امنفذ اداري\n\nيتم كل سنتين مرة طلب كشوفات من مركز تخطيط وتحليل اعمال الافراد بكافة الملفات الخاصة بقطاع الافراد والشركات الصغيرة والتي ما زالت -1 قائمة وعاملة.\n\nاول - البريد تزويد -2 المركزي اداري\n\nاول - بريد مركزي وملفات امنفذ اداري\n\nو"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 5,
+            "content": "|         | رقم النسخة       |\n|---------|------------------|\n| 02/2026 | تاريخ الإصدار    |\n| 02/2026 | تارىخ آخر مراجعة |\n\nالمركزي اجراءات عمل والملفات البريد وحدة\n\nاسم الدليل\n\nالإجراءات :\n\nBPM اتمتة العمليات 1. آلية التعامل مع تبادل الديدمن خلال نظا"
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 7,
+            "content": "| التأكد والاشراف على تنفيذ الاجراء اعلاه بطريقة صحيحة وسليمة ودون  تأخير .                                                                                                                                                                               |                                       |                   |\n| وحدة البريد المركزي والملفات                                                                                                                                                              "
+          },
+          {
+            "source": "Central Mail and Files Unit Procedures Manual.pdf",
+            "page": 19,
+            "content": "| فقطعن حفظ ومتابعة الملفات التي قامت باستلامها بموجب الكشوفات المرفقة مع الملفات المركزي والملفات ملاحظة : وحدة صقرة ومراكز العمل المختلفة يتم مايلي : حفظ ملفات الموافقة الائتمانية وتدقيق إجراءات الصرف مسؤولة البريد وادي وحدة = للقرض .      | فقطعن حفظ ومتابعة الملفات التي قامت باستلامها بموجب الكشوفات المرفقة مع الملفات المركزي والملفات ملاحظة : وحدة صقرة ومراكز العمل المختلفة يتم مايلي : حفظ ملفات الموافقة الائتمانية وتدقيق إجراءات الصرف مسؤولة البريد وادي وحدة = للقرض .      | -2            "
+          }
+        ],
+        "num_docs": 5,
+        "route": "basic_rag",
+        "techniques": [],
+        "reason": "Straightforward procedural question about handling confidential mail in the central mail and files unit.",
+        "cost_summary": {
+          "steps": [
+            {
+              "step": "router",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 723,
+              "output_tokens": 124,
+              "cost_usd": 8.47e-05,
+              "latency_s": 0.4902,
+              "executed": true
+            },
+            {
+              "step": "rewriter",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "multi_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "decomposition",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "hyde",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "self_query",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "reranking",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "compression",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "crag_evaluator",
+              "model": "",
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cost_usd": 0.0,
+              "latency_s": 0.0,
+              "executed": false
+            },
+            {
+              "step": "final_generation",
+              "model": "openai/gpt-oss-20b",
+              "input_tokens": 1131,
+              "output_tokens": 347,
+              "cost_usd": 0.0001478,
+              "latency_s": 6.0009,
+              "executed": true
+            }
+          ],
+          "total_input_tokens": 1854,
+          "total_output_tokens": 471,
+          "total_cost_usd": 0.0002325,
+          "total_latency_s": 6.4911
+        },
+        "latency": 6.86
+      },
+      "evaluation": {
+        "context_relevance": {
+          "score": 2,
+          "justification": "The retrieved chunks discuss general procedures for the central mail and files unit, but they do not specifically address handling of secret mail. The content is largely garbled and lacks details on secret mail protocols, making it only partially relevant."
+        },
+        "faithfulness": {
+          "score": 5,
+          "justification": "The answer correctly states that the provided context contains no mention of handling confidential mail and that the guide does not provide specific instructions on this topic. No contradictory information is present in the context."
+        },
+        "answer_relevance": {
+          "score": 5,
+          "justification": "The answer directly addresses the question by stating that the guide does not cover any procedures for handling secret mail, providing a clear and relevant response without irrelevant content."
+        },
+        "correctness": {
+          "score": 2,
+          "justification": "The answer claims that the guide contains no instructions on handling secret mail, which is unlikely to be accurate for a central mail and file unit. Without a reference, the statement cannot be verified, but it probably omits relevant procedures, so it is considered incomplete."
+        }
+      }
+    }
+  ],
+  "summary": {
+    "route_distribution": {
+      "simple": 7,
+      "advanced_rag": 2,
+      "basic_rag": 1
+    },
+    "total_basic_cost_usd": 2.9e-05,
+    "total_advanced_cost_usd": 0.001798,
+    "avg_eval_scores": {
+      "context_relevance": 1.1,
+      "faithfulness": 2.2,
+      "answer_relevance": 4.2,
+      "correctness": 3.9
+    }
+  }
+}

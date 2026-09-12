@@ -17,6 +17,13 @@ import json
 import logging
 import sys
 import time
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any, Dict, List
@@ -233,6 +240,7 @@ def run_full_evaluation(
 
         logger.info("[%s] Done. Route=%s, Techniques=%s",
                     qid, advanced.get("route", "?"), advanced.get("techniques", []))
+        time.sleep(2.0)  # Cooldown to respect Groq free tier rate limits
 
     # Build summary
     output = {

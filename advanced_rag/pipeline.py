@@ -67,6 +67,7 @@ class AdvancedRAGResult:
     total_latency: float = 0.0
     rewritten_query: Optional[str] = None
     sub_questions: List[str] = field(default_factory=list)
+    confidence_score: Optional[float] = None
 
     def __iter__(self):
         """Allow unpacking: answer, docs, meta = result"""
@@ -78,11 +79,53 @@ class AdvancedRAGResult:
             "latency": self.total_latency,
             "rewritten_query": self.rewritten_query,
             "sub_questions": self.sub_questions,
+            "confidence_score": self.confidence_score,
         }
         return iter((self.answer, self.docs, meta))
 
     def __getitem__(self, index):
         return tuple(self)[index]
+
+
+def _compute_confidence_score(docs: List[Document]) -> Optional[float]:
+    """Calculate an estimated confidence score (0-100%) from retrieved document scores."""
+    if not docs:
+        return None
+    top_doc = docs[0]
+    meta = top_doc.metadata or {}
+
+    # Cross-encoder logit conversion via sigmoid
+    if "rerank_score" in meta:
+        try:
+            score = float(meta["rerank_score"])
+            import math
+            prob = 1.0 / (1.0 + math.exp(-score))
+            return round(prob * 100.0, 1)
+        except Exception:
+            pass
+
+    # 2. Metric from retriever: RRF score, cosine similarity, or BM25
+    for k in ("score", "relevance_score", "similarity"):
+        if k in meta:
+            try:
+                val = float(meta[k])
+                # RRF (Reciprocal Rank Fusion) score: typically in [0.005, 0.035]
+                if 0.0 < val < 0.05:
+                    max_rrf = 1.0 / 61.0  # ~0.01639 (rank 1 in both dense & BM25)
+                    ratio = min(1.0, val / max_rrf)
+                    # Scale ratio into [50% -> 96%]
+                    scaled = 50.0 + (ratio * 46.0)
+                    return round(scaled, 1)
+                # Standard cosine similarity or normalized probability in [0.05, 1.0]
+                elif 0.05 <= val <= 1.0:
+                    return round(val * 100.0, 1)
+                # Raw BM25 score (> 1.0)
+                elif val > 1.0:
+                    scaled = min(96.0, 50.0 + (val / 25.0) * 45.0)
+                    return round(scaled, 1)
+            except Exception:
+                pass
+    return None
 
 
 def _deduplicate_docs(docs: List[Document]) -> List[Document]:
@@ -99,6 +142,29 @@ def _deduplicate_docs(docs: List[Document]) -> List[Document]:
             seen.add(key)
             unique.append(doc)
     return unique
+
+
+_MANUAL_PATTERNS = [
+    ("Central Mail and Files Unit Procedures Manual.pdf", [
+        "بريد", "البريد", "ملفات", "الملفات", "bpm", "mail"
+    ]),
+    ("Central Alarm Tasks And Procedures Manual.pdf", [
+        "إنذار", "الإنذار", "انذار", "الانذار", "alarm", "كاميرات", "cctv", "بطاقة دخول", "بطاقات دخول"
+    ]),
+    ("Assets and wearhouse operation Tasks and Procedures Manual.pdf", [
+        "موجودات", "الموجودات", "مستودع", "مستودعات", "المستودع", "المستودعات", "أصول", "الأصول", "اصول", "الاصول", "قرطاسية", "القرطاسية", "assets", "warehouse"
+    ]),
+]
+
+
+def _detect_mentioned_manuals(text: str) -> List[str]:
+    """Detect if multiple distinct bank manuals/units are referenced in the query."""
+    text_lower = text.lower()
+    matched = []
+    for filename, keywords in _MANUAL_PATTERNS:
+        if any(kw in text_lower for kw in keywords):
+            matched.append(filename)
+    return matched
 
 
 def _simple_answer(
@@ -162,6 +228,7 @@ def advanced_rag_answer(
     semantic_weight: float = DEFAULT_SEMANTIC_WEIGHT,
     bm25_weight: float = DEFAULT_BM25_WEIGHT,
     temperature: float = DEFAULT_TEMPERATURE,
+    pipeline_mode: str = "auto",
 ) -> AdvancedRAGResult:
     """Run the full Advanced RAG pipeline and return a rich result."""
 
@@ -169,7 +236,22 @@ def advanced_rag_answer(
     pipeline_t0 = time.time()
 
     # ── Step 1: Route ──────────────────────────────────────────────────
-    route = route_question(question, model_name=model_name, tracker=tracker)
+    mode_clean = (pipeline_mode or "auto").lower().strip()
+    if mode_clean in ("advanced", "advanced_rag"):
+        route = RouteDecision(
+            route="advanced_rag",
+            techniques=["rewriting", "multi_query", "reranking"],
+            reason="Pipeline mode set to Force Advanced RAG (Rewriting + Multi-Query + Cross-Encoder Reranking)",
+        )
+    elif mode_clean in ("basic", "basic_rag"):
+        route = RouteDecision(
+            route="basic_rag",
+            techniques=[],
+            reason="Pipeline mode set to Force Basic RAG (Direct Retrieval)",
+        )
+    else:
+        route = route_question(question, model_name=model_name, tracker=tracker)
+
     logger.info("Route: %s | Techniques: %s | Reason: %s",
                 route.route, route.techniques, route.reason)
 
@@ -195,16 +277,32 @@ def advanced_rag_answer(
                      "self_query", "reranking", "compression", "crag_evaluator"]:
             tracker.record_skipped(step)
 
-        effective_top_k = min(top_k, 5)
-        docs = retrieve(
-            question,
-            mode=retrieval_mode,
-            top_k=effective_top_k,
-            search_type=search_type,
-            source_filter=source_filter,
-            semantic_weight=semantic_weight,
-            bm25_weight=bm25_weight,
-        )
+        effective_top_k = max(1, top_k)
+        mentioned_manuals = _detect_mentioned_manuals(question)
+        if len(mentioned_manuals) > 1 and not source_filter:
+            docs = []
+            per_manual_k = max(2, effective_top_k // len(mentioned_manuals))
+            for manual_file in mentioned_manuals:
+                docs.extend(retrieve(
+                    question,
+                    mode=retrieval_mode,
+                    top_k=per_manual_k,
+                    search_type=search_type,
+                    source_filter=manual_file,
+                    semantic_weight=semantic_weight,
+                    bm25_weight=bm25_weight,
+                ))
+            docs = _deduplicate_docs(docs)[:effective_top_k]
+        else:
+            docs = retrieve(
+                question,
+                mode=retrieval_mode,
+                top_k=effective_top_k,
+                search_type=search_type,
+                source_filter=source_filter,
+                semantic_weight=semantic_weight,
+                bm25_weight=bm25_weight,
+            )
         answer = _generate_answer(
             question, docs, model_name, temperature, tracker)
         return AdvancedRAGResult(
@@ -213,11 +311,12 @@ def advanced_rag_answer(
             route=route,
             cost_summary=tracker.summary(),
             total_latency=time.time() - pipeline_t0,
+            confidence_score=_compute_confidence_score(docs),
         )
 
     # ── Step 4: Advanced RAG route ─────────────────────────────────────
     techniques = set(route.techniques)
-    effective_top_k = min(top_k, 5)
+    effective_top_k = max(1, top_k)
     all_docs: List[Document] = []
 
     # -- Query transformations --
@@ -299,6 +398,23 @@ def advanced_rag_answer(
             semantic_weight=semantic_weight, bm25_weight=bm25_weight,
         )
 
+    # Cross-manual multi-source retrieval: if the question mentions multiple manuals
+    # and no manual filter was explicitly set by the user, ensure each mentioned manual is queried
+    mentioned_manuals = _detect_mentioned_manuals(question)
+    if len(mentioned_manuals) > 1 and not source_filter:
+        per_manual_k = max(2, effective_top_k // len(mentioned_manuals))
+        for manual_file in mentioned_manuals:
+            manual_docs = retrieve(
+                active_query,
+                mode=retrieval_mode,
+                top_k=per_manual_k,
+                search_type=search_type,
+                source_filter=manual_file,
+                semantic_weight=semantic_weight,
+                bm25_weight=bm25_weight,
+            )
+            all_docs.extend(manual_docs)
+
     # Deduplicate
     all_docs = _deduplicate_docs(all_docs)
 
@@ -370,4 +486,5 @@ def advanced_rag_answer(
         total_latency=time.time() - pipeline_t0,
         rewritten_query=rewritten_query_str,
         sub_questions=sub_questions_list,
+        confidence_score=_compute_confidence_score(all_docs),
     )

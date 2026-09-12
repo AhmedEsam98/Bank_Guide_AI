@@ -317,6 +317,8 @@ def build_report(items: List[QueryItem], candidate_kwargs: dict, supported_kwarg
 def _parse_args():
     parser = argparse.ArgumentParser(
         description="Test retrieval quality against a set of queries (Cosine similarity, no LLM call).")
+    parser.add_argument("--query", "-q", default=None,
+                        help="Single query to test directly from the command line")
     parser.add_argument("--queries-file", default="test_rag.md",
                         help="Path to a .md (ground-truth table) or .txt file (default: test_rag.md)")
     parser.add_argument("--top-k", type=int, default=DEFAULT_TOP_K)
@@ -341,25 +343,29 @@ def main():
         print("Vectorstore is not ready. Run ingestion first.")
         sys.exit(1)
 
-    queries_path = Path(args.queries_file)
-    if not queries_path.exists():
-        if (Path(__file__).resolve().parent / args.queries_file).exists():
-            queries_path = Path(__file__).resolve().parent / args.queries_file
-        elif (project_root / "tests" / args.queries_file).exists():
-            queries_path = project_root / "tests" / args.queries_file
-        elif (project_root / args.queries_file).exists():
-            queries_path = project_root / args.queries_file
+    if args.query:
+        items = [QueryItem(question=args.query.strip())]
+        print(f"Testing single query: '{args.query}'\n")
+    else:
+        queries_path = Path(args.queries_file)
+        if not queries_path.exists():
+            if (Path(__file__).resolve().parent / args.queries_file).exists():
+                queries_path = Path(__file__).resolve().parent / args.queries_file
+            elif (project_root / "tests" / args.queries_file).exists():
+                queries_path = project_root / "tests" / args.queries_file
+            elif (project_root / args.queries_file).exists():
+                queries_path = project_root / args.queries_file
 
-    if not queries_path.exists():
-        print(f"File not found: {queries_path}")
-        sys.exit(1)
+        if not queries_path.exists():
+            print(f"File not found: {queries_path}")
+            sys.exit(1)
 
-    items = load_queries(queries_path)
-    if not items:
-        print(
-            f"No queries could be parsed from {queries_path.name}. Check the file format.")
-        sys.exit(1)
-    print(f"Loaded {len(items)} queries from {queries_path.name}.\n")
+        items = load_queries(queries_path)
+        if not items:
+            print(
+                f"No queries could be parsed from {queries_path.name}. Check the file format.")
+            sys.exit(1)
+        print(f"Loaded {len(items)} queries from {queries_path.name}.\n")
 
     candidate_kwargs = {
         "top_k": args.top_k,

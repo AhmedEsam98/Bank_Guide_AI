@@ -70,7 +70,12 @@ class HybridEnsembleRetriever(BaseRetriever):
 
         # Rank all combined chunks by highest fusion score
         sorted_keys = sorted(doc_scores.keys(), key=lambda k: doc_scores[k], reverse=True)
-        top_docs = [doc_map[k] for k in sorted_keys[:self.top_k]]
+        top_docs = []
+        for rank, k in enumerate(sorted_keys[:self.top_k], 1):
+            doc = doc_map[k]
+            doc.metadata["score"] = round(doc_scores[k], 4)
+            doc.metadata["rank"] = rank
+            top_docs.append(doc)
         return top_docs
 
 

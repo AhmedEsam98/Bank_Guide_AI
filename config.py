@@ -11,6 +11,9 @@ file and is never hard-coded here.
 from __future__ import annotations
 
 import os
+os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
+
 from pathlib import Path
 import torch
 from dotenv import load_dotenv
@@ -78,12 +81,11 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 # LLM models (Groq only)
 # ---------------------------------------------------------------------------
 AVAILABLE_GROQ_MODELS = [
-    "openai/gpt-oss-20b",   # fastest, cheapest, highest daily quota
-    "openai/gpt-oss-120b",  # better quality, lower quota
-    # strong multilingual (good for Arabic), lower quota
-    "qwen/qwen3.6-27b",
+    "openai/gpt-oss-120b",  # strong quality and high quota
+    "qwen/qwen3.6-27b",     # strong multilingual (Arabic)
+    "openai/gpt-oss-20b",   # fastest, lightweight
 ]
-DEFAULT_GROQ_MODEL = "openai/gpt-oss-20b"
+DEFAULT_GROQ_MODEL = "openai/gpt-oss-120b"
 DEFAULT_TEMPERATURE = 0.0
 
 

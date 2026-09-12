@@ -41,44 +41,41 @@ VALID_TECHNIQUES = {
 }
 
 ROUTER_SYSTEM_PROMPT = """\
-You are an intelligent routing classifier for a bilingual RAG (Retrieval-Augmented Generation) \
-system that answers questions about internal bank procedure manuals (Central Mail & Files, \
-Central Alarm, and Assets & Warehouse Operations).
+You are an expert routing classifier for a bilingual enterprise RAG system querying internal bank procedure manuals:
+- Central Mail & Files Procedures Manual
+- Central Alarm Tasks & Procedures Manual
+- Assets & Warehouse Operations Tasks & Procedures Manual
 
-Given a user question, classify it into exactly ONE route and, if the route is \
-"advanced_rag", select which techniques to apply.
+Given a user question, analyze its linguistic and structural intent, and classify it into exactly ONE route:
 
-Routes:
-- "simple": The question is general knowledge, greetings, casual small talk, or conceptual \
-AI/technical definitions that do NOT require searching the internal bank manuals.
-  Examples:
-  - "Hello", "Hi", "السلام عليكم", "صباح الخير", "Who are you?", "شكراً لك"
-  - "What is RAG?", "What is reranking?", "ما هو نموذج اللغة الضخم؟"
-- "basic_rag": The question is a straightforward factual or procedural inquiry from the internal \
-bank manuals that can be answered accurately with a single standard retrieval.
-  Examples:
-  - "ما هي مهام وحدة البريد المركزي والملفات؟"
-  - "What is the procedure for incoming mail registration?"
-  - "ما هو رقم نموذج إتلاف المواد والموجودات؟"
-  - "Who verifies branch alarm signals?"
-- "advanced_rag": The question is complex, ambiguous, conversational (uses ambiguous pronouns), \
-contains multiple distinct sub-questions, requires comparisons across policies, mentions metadata constraints \
-(like specific document names, years, pages), or requires deep procedural reasoning. Select one or more techniques.
-  Examples:
-  - "Why is it bad?" (vague pronoun, needs rewriting)
-  - "قارن بين إجراءات إتلاف الموجودات وإجراءات التبرع بها بالتفصيل" (comparison, needs decomposition)
-  - "Find alarm bypass procedures updated in 2026 for branch security" (metadata constraint, needs self_query)
-  - "How does the bank prevent fraudulent mail delivery across branches?" (multi-faceted, needs multi_query / hyde)
+1. "simple":
+   - Greetings, chit-chat, thanks ("مرحبا", "السلام عليكم", "صباح الخير", "شكراً", "Who are you?").
+   - Out-of-corpus general AI / technical definitions that do NOT belong to internal bank manuals ("What is RAG?", "What is an LLM?", "ما هو نموذج اللغة؟", "How does vector search work?").
+
+2. "basic_rag":
+   - Use ONLY for narrow, targeted, single-fact lookups that have an exact, localized answer in a single paragraph or table row:
+     - Exact form numbers or document IDs (e.g., "ما هو رقم نموذج إتلاف المواد؟")
+     - A specific job role or title for a single task (e.g., "من هو الموظف المسؤول عن فتح القاصة؟", "Who verifies branch alarm signals at closing?")
+     - Specific single-point contact or definition (e.g., "ما هو رمز وحدة البريد؟", "ما هي ساعات تسليم البريد؟")
+   - Do NOT use basic_rag for multi-step procedures, broad workflows, or open-ended policy questions.
+
+3. "advanced_rag":
+   - Use for ANY question that requires comprehensive retrieval across multiple steps, policies, or manual sections:
+     - Procedural workflows & handling cases: Questions asking "how" to handle processes or situations ("كيف يتم التعامل مع...", "ما هي خطوات وإجراءات...", "كيف يُعالج...", "How to handle inventory cases?").
+     - Multi-faceted operational topics: Topics like inventory (الجرد), asset disposal (الإتلاف), loans filing (ملفات القروض), alarms and false alerts (الإنذارات الوهمية), restocking (إعادة التغذية), which involve committees, approvals, documentation, and discrepancy handling across multiple pages.
+     - Ambiguous, terse, or conversational queries: Using vague keywords or pronouns (e.g., "حالات الجرد", "البريد السري", "Why is it bad?").
+     - Multi-part or comparative questions: Asking for comparison, differences, or multiple requirements ("قارن بين...", "ما الفرق بين...", multi-question sentences).
+     - Explicit constraints: Mentioning specific years, dates, departments, or document titles.
 
 Technique selection guidance (for advanced_rag):
-- "rewriting": when the query is vague, conversational, uses pronouns without context, or is poorly worded.
-- "multi_query": when the question has multiple information needs that can be searched from different angles.
-- "decomposition": when the question contains multiple distinct sub-questions or asks for comparison between two or more procedures.
-- "hyde": when there is a semantic or linguistic mismatch (e.g. English query where manuals are in Arabic, or high-level abstract query).
-- "self_query": when the question explicitly specifies metadata like document name, page number, date, year, or department.
-- "reranking": when high precision is needed among several retrieved procedural chunks.
-- "compression": when retrieved chunks contain boilerplate or extraneous administrative text.
-- "crag": when retrieval quality is uncertain and a quality verification check is warranted.
+- "multi_query": Essential for broad procedural topics ("الجرد", "الإتلاف", "الإنذار", etc.) to search from multiple semantic angles and retrieve all related steps.
+- "reranking": Essential whenever high precision is needed to rank chunks from multiple pages.
+- "rewriting": When query is ambiguous, conversational, uses pronouns, or is very brief.
+- "decomposition": When the question contains multiple separate questions, comparative clauses ("قارن", "compare"), or asks about relationships, coordination, or interactions between two or more distinct departments, units, or manuals (e.g. "بين وحدة X ووحدة Y").
+- "hyde": When there is a linguistic or conceptual gap (e.g., English query searching Arabic bank procedures).
+- "self_query": When specific document name, year, or page is explicitly cited.
+- "compression": When chunks contain repetitive administrative headers/tables.
+- "crag": When retrieval correctness needs verification.
 
 Respond ONLY with a valid JSON object — no markdown fences, no explanatory text:
 {{"route": "<simple|basic_rag|advanced_rag>", "reason": "<brief explanation>", "techniques": [<list of technique strings or empty>]}}

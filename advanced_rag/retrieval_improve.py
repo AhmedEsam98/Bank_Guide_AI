@@ -45,16 +45,18 @@ def _get_reranker():
     if _reranker_model is None:
         try:
             from sentence_transformers import CrossEncoder
+            import torch
+            device = "cuda" if torch.cuda.is_available() else "cpu"
             _reranker_model = CrossEncoder(
                 RERANKER_MODEL,
                 max_length=512,
-                device="cuda",
+                device=device,
             )
             logger.info(
-                "Loaded cross-encoder reranker (%s) on CUDA.", RERANKER_MODEL)
+                "Loaded cross-encoder reranker (%s) on %s.", RERANKER_MODEL, device)
         except Exception as exc:
             logger.warning(
-                "Failed to load cross-encoder (%s). Reranking disabled.", exc)
+                "Failed to load cross-encoder (%s). Reranking disabled: %s", RERANKER_MODEL, exc)
     return _reranker_model
 
 
@@ -73,11 +75,41 @@ def rerank_documents(
 
     t0 = time.time()
     pairs = [(query, doc.page_content) for doc in docs]
-    scores = reranker.predict(pairs)
+    try:
+        scores = reranker.predict(pairs)
+    except BaseException as exc:
+        logger.warning("Reranker prediction failed (%s). Falling back to unranked docs.", exc)
+        return docs[:top_k]
     latency = time.time() - t0
 
     scored = sorted(zip(scores, docs), key=lambda x: x[0], reverse=True)
-    result = [doc for _, doc in scored[:top_k]]
+
+    # Source-aware diversity: if the candidate pool has multiple sources and top_k >= 2,
+    # guarantee that the top-scoring chunk from each represented source is retained.
+    sources_in_pool = {doc.metadata.get("source") for _, doc in scored if doc.metadata.get("source")}
+    if len(sources_in_pool) > 1 and top_k >= len(sources_in_pool):
+        seen_sources = set()
+        diverse_picks = []
+        remaining = []
+        for score, doc in scored:
+            src = doc.metadata.get("source")
+            if src and src not in seen_sources:
+                seen_sources.add(src)
+                diverse_picks.append((score, doc))
+            else:
+                remaining.append((score, doc))
+        # Combine guaranteed diverse picks with the remaining highest-scoring chunks up to top_k
+        combined = diverse_picks + remaining
+        selected = sorted(combined[:top_k], key=lambda x: x[0], reverse=True)
+    else:
+        selected = scored[:top_k]
+
+    result = []
+    for rank, (score, doc) in enumerate(selected, 1):
+        doc.metadata["rerank_score"] = round(float(score), 4)
+        doc.metadata["score"] = round(float(score), 4)
+        doc.metadata["rank"] = rank
+        result.append(doc)
 
     logger.info(
         "Reranked %d → %d docs in %.2fs (top score=%.4f, bottom=%.4f)",

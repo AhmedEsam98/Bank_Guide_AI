@@ -18,6 +18,7 @@ Also provides `advanced_rag_answer`, a heavier pipeline that adds:
 from __future__ import annotations
 from retrieval.retriever import retrieve
 from config import (
+    AVAILABLE_GROQ_MODELS,
     DEFAULT_BM25_WEIGHT,
     DEFAULT_GROQ_MODEL,
     DEFAULT_RETRIEVAL_MODE,
@@ -50,11 +51,11 @@ Rules:
 - The source documents are in Arabic. If the user asks in Arabic, answer in Arabic. \
 If the user asks in English, answer in English (translating/summarizing the relevant \
 Arabic content faithfully).
-- If the answer is not contained in the context, say clearly that the manuals do not \
-cover it -- do not invent procedures, names, or numbers.
+- If the question asks about a relationship, comparison, or integration between multiple units or systems (e.g. BPM, Central Mail, and Assets/Warehouse Operations): synthesize what the provided context chunks state for each unit. Clearly explain the specific role and mechanisms used in each unit (e.g., electronic mail exchange automation via BPM in Central Mail vs. fixed asset transfers, inventories, and tracking in the Assets Unit), and accurately describe how they operate rather than issuing a flat refusal.
+- If specific information is missing from the context chunks, state clearly what the manuals specify and what is omitted -- do not invent unmentioned procedures, names, or numbers.
 - Ground every fact in the provided context and cite the source document name and page number \
 inline where relevant (e.g., [اسم الدليل، صفحة X] or [Document Name, Page X]). Do not add a separate "المراجع" or "Sources" section at the end of your answer.
-- Keep answers structured (numbered steps) when the original content is a procedure.
+- Keep answers structured (numbered steps or bullet points) when the original content is a procedure.
 
 Context:
 {context}
@@ -150,17 +151,40 @@ def _format_context(docs: List[Document], max_total_chars: int = 3000) -> str:
     return "\n\n---\n\n".join(blocks) if blocks else "(no relevant context found)"
 
 
-def get_llm(model_name: str = DEFAULT_GROQ_MODEL, temperature: float = DEFAULT_TEMPERATURE):
+def get_llm(
+    model_name: str = DEFAULT_GROQ_MODEL,
+    temperature: float = DEFAULT_TEMPERATURE,
+    max_retries: int = 5,
+    request_timeout: float = 60.0,
+):
     api_key = os.getenv("GROQ_API_KEY") or GROQ_API_KEY
     if not api_key:
         raise RuntimeError(
             "GROQ_API_KEY is not set. Add it to your .env file."
         )
-    return ChatGroq(
+    primary_model = model_name or DEFAULT_GROQ_MODEL
+    fallback_models = [m for m in AVAILABLE_GROQ_MODELS if m != primary_model]
+
+    primary_llm = ChatGroq(
         groq_api_key=api_key,
-        model=model_name or DEFAULT_GROQ_MODEL,
+        model=primary_model,
         temperature=temperature,
+        max_retries=max_retries,
+        request_timeout=request_timeout,
     )
+    if fallback_models:
+        fallbacks = [
+            ChatGroq(
+                groq_api_key=api_key,
+                model=fm,
+                temperature=temperature,
+                max_retries=max_retries,
+                request_timeout=request_timeout,
+            )
+            for fm in fallback_models
+        ]
+        return primary_llm.with_fallbacks(fallbacks)
+    return primary_llm
 
 
 def answer_question(

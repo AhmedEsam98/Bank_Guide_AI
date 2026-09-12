@@ -21,8 +21,17 @@ Main area:
 
 from __future__ import annotations
 
+import html
 import os
+import sys
 import time
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 import streamlit as st
 
@@ -43,9 +52,17 @@ from config import (
     DOCLING_DO_OCR,
     RETRIEVAL_MODES,
 )
+import logging
 from ingestion.ingest import run_ingestion
 from retrieval.vectorstore import vectorstore_is_ready
 from advanced_rag.pipeline import advanced_rag_answer, AdvancedRAGResult
+from evaluation.evaluator import (
+    evaluate_context_relevance,
+    evaluate_faithfulness,
+    evaluate_answer_relevance,
+)
+
+logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # Page configuration
@@ -116,6 +133,8 @@ with st.sidebar:
 
     st.divider()
     st.subheader("2. Retrieval")
+    pipeline_mode = "auto"  # 100% query-driven intelligent routing
+
     retrieval_mode = st.selectbox(
         "Retrieval Mode",
         RETRIEVAL_MODES,
@@ -150,17 +169,26 @@ with st.sidebar:
 
     source_filter = None  # Search across all source documents by default
 
+    st.divider()
+    st.subheader("3. Real-Time Evaluation")
+    enable_eval = st.checkbox(
+        "🤖 Real-Time LLM-as-a-Judge",
+        value=False,
+        help="Evaluates every response on Context Relevance, Faithfulness, and Answer Relevance (1-5 scale) using the LLM Judge.",
+    )
+
 # ---------------------------------------------------------------------------
 # Main area - chat
 # ---------------------------------------------------------------------------
 st.title("📄 Bank Procedure Manuals — RAG Assistant")
 st.caption(
     "OCR-aware ingestion • configurable chunking • Semantic / Keyword / Hybrid retrieval • "
-    "Intelligent Dynamic Routing (Simple / Basic RAG / Advanced RAG) • Groq generation"
+    "Intelligent Dynamic Routing (Simple / Basic RAG / Advanced RAG) • Real-Time Scoring & Evaluation"
 )
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
+
 
 def render_sources_expander(docs: list, mode_label: str = "", key_prefix: str = "src"):
     if not docs:
@@ -176,6 +204,54 @@ def render_sources_expander(docs: list, mode_label: str = "", key_prefix: str = 
             sorted_pages = ", ".join(sorted(pages, key=lambda x: int(x) if x.isdigit() else 999))
             st.markdown(f"- 📄 **Document:** `{s_name}` — 📑 **Page:** `{sorted_pages}`")
 
+        st.markdown("---")
+        st.markdown("##### 🔍 Retrieved Chunks & Retrieval Scores:")
+        for idx, doc in enumerate(docs, 1):
+            s_name = doc.metadata.get("source", "Unknown")
+            p_num = str(doc.metadata.get("page", "?"))
+            score_val = doc.metadata.get("rerank_score") or doc.metadata.get("score")
+            score_label = f" • 🎯 Score: <code>{score_val}</code>" if score_val is not None else ""
+            rank = doc.metadata.get("rank", idx)
+            preview = html.escape(doc.page_content.strip())
+            if len(preview) > 600:
+                preview = preview[:600] + "..."
+
+            chunk_html = (
+                f"<details style='margin-bottom: 8px; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; background: #ffffff;'>"
+                f"<summary style='cursor: pointer; font-weight: 600; color: #1e293b;'>"
+                f"Chunk #{rank}: {html.escape(s_name)} (Page {p_num}){score_label}"
+                f"</summary>"
+                f"<pre style='margin-top: 8px; font-family: Consolas, monospace; font-size: 0.85em; background: #f8fafc; padding: 10px; border-radius: 6px; white-space: pre-wrap; word-break: break-word; color: #334155;'>"
+                f"{preview}"
+                f"</pre>"
+                f"</details>"
+            )
+            st.markdown(chunk_html, unsafe_allow_html=True)
+
+
+def render_eval_section(eval_scores: dict):
+    if not eval_scores:
+        return
+    st.markdown("##### ⚖️ LLM-as-a-Judge Evaluation Scores:")
+    c1, c2, c3, c4 = st.columns(4)
+    ctx_s = eval_scores.get("context_rel", {}).get("score", "-")
+    faith_s = eval_scores.get("faithfulness", {}).get("score", "-")
+    ans_s = eval_scores.get("answer_rel", {}).get("score", "-")
+    overall_s = eval_scores.get("overall", "-")
+
+    c1.metric("Context Relevance", f"{ctx_s}/5" if ctx_s != "-" else "-")
+    c2.metric("Faithfulness", f"{faith_s}/5" if faith_s != "-" else "-")
+    c3.metric("Answer Relevance", f"{ans_s}/5" if ans_s != "-" else "-")
+    c4.metric("Overall Quality", f"{overall_s:.1f}/5.0" if isinstance(overall_s, (int, float)) else "-")
+
+    with st.expander("📝 View Judge Justifications"):
+        if "context_rel" in eval_scores and eval_scores["context_rel"].get("justification"):
+            st.markdown(f"**Context Relevance:** {eval_scores['context_rel']['justification']}")
+        if "faithfulness" in eval_scores and eval_scores["faithfulness"].get("justification"):
+            st.markdown(f"**Faithfulness:** {eval_scores['faithfulness']['justification']}")
+        if "answer_rel" in eval_scores and eval_scores["answer_rel"].get("justification"):
+            st.markdown(f"**Answer Relevance:** {eval_scores['answer_rel']['justification']}")
+
 
 # --- Replay previous turns ---
 for turn_idx, item in enumerate(st.session_state.chat_history):
@@ -190,6 +266,8 @@ for turn_idx, item in enumerate(st.session_state.chat_history):
         rewritten_q = item.get("rewritten_query")
         latency = item.get("latency")
         cost = item.get("cost")
+        conf_score = item.get("confidence_score")
+        eval_data = item.get("eval_scores")
     else:
         role = item[0]
         content = item[1]
@@ -201,28 +279,35 @@ for turn_idx, item in enumerate(st.session_state.chat_history):
         rewritten_q = None
         latency = None
         cost = None
+        conf_score = None
+        eval_data = None
 
     with st.chat_message(role):
         st.markdown(content)
 
         if role == "assistant" and route:
+            badges_html = []
             if route == "simple":
-                st.markdown(
-                    '<span style="background-color: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟢 Route: Simple (Direct Response • No Document Search)</span>',
-                    unsafe_allow_html=True,
+                badges_html.append(
+                    '<span style="background-color: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟢 Route: Simple (Direct Response • No Document Search)</span>'
                 )
             elif route == "basic_rag":
                 mode_str = f" • {mode_used}" if mode_used else ""
-                st.markdown(
-                    f'<span style="background-color: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🔵 Route: Basic RAG (Standard Retrieval{mode_str})</span>',
-                    unsafe_allow_html=True,
+                badges_html.append(
+                    f'<span style="background-color: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🔵 Route: Basic RAG (Standard Retrieval{mode_str})</span>'
                 )
             elif route == "advanced_rag":
                 tech_str = ", ".join(techniques) if techniques else "transforms"
-                st.markdown(
-                    f'<span style="background-color: #f3e8ff; color: #6b21a8; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟣 Route: Advanced RAG ({tech_str})</span>',
-                    unsafe_allow_html=True,
+                badges_html.append(
+                    f'<span style="background-color: #f3e8ff; color: #6b21a8; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟣 Route: Advanced RAG ({tech_str})</span>'
                 )
+
+            if conf_score is not None:
+                badges_html.append(
+                    f'<span style="background-color: #fef3c7; color: #92400e; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🎯 Relevance Score: {conf_score:.0f}%</span>'
+                )
+
+            st.markdown(" ".join(badges_html), unsafe_allow_html=True)
 
             meta_line = []
             if reason:
@@ -245,6 +330,9 @@ for turn_idx, item in enumerate(st.session_state.chat_history):
                 key_prefix=f"prev_{turn_idx}",
             )
 
+        if eval_data:
+            render_eval_section(eval_data)
+
 # --- The question bar itself ---
 question = st.chat_input(
     "Ask a question about the manuals (Arabic or English)...")
@@ -262,6 +350,8 @@ if question:
         rewritten_q = None
         latency = None
         cost = None
+        conf_score = None
+        eval_data = None
 
         if not os.getenv("GROQ_API_KEY"):
             answer = "⚠️ GROQ_API_KEY is not set. Add it to your .env file and restart the app."
@@ -278,6 +368,7 @@ if question:
                         semantic_weight=semantic_weight,
                         bm25_weight=bm25_weight,
                         temperature=temperature,
+                        pipeline_mode=pipeline_mode,
                     )
                     answer = result.answer
                     docs = result.docs
@@ -287,30 +378,60 @@ if question:
                     rewritten_q = getattr(result, "rewritten_query", None)
                     latency = getattr(result, "total_latency", None)
                     cost = result.cost_summary.get("total_cost_usd", 0.0) if hasattr(result, "cost_summary") else 0.0
+                    conf_score = getattr(result, "confidence_score", None)
 
                 except Exception as e:  # noqa: BLE001
-                    answer = f"❌ Error while generating the answer: {e}"
+                    err_str = str(e)
+                    if "429" in err_str or "rate_limit" in err_str.lower():
+                        answer = (
+                            "⚠️ **Groq API Rate Limit (Free Tier quota reached).**\n\n"
+                            "Please wait 10–15 seconds before asking another question to let the Groq quota reset."
+                        )
+                    else:
+                        answer = f"❌ Error while generating the answer: {e}"
                     docs = []
+
+            # Optional Real-Time LLM Judge evaluation
+            if enable_eval and answer and not answer.startswith("❌"):
+                with st.spinner("⚖️ Scoring response quality with LLM Judge..."):
+                    try:
+                        ctx_res = evaluate_context_relevance(question, docs, model_name=model_name) if docs else None
+                        faith_res = evaluate_faithfulness(answer, docs, model_name=model_name) if docs else None
+                        ans_res = evaluate_answer_relevance(question, answer, model_name=model_name)
+                        scores = [s.score for s in (ctx_res, faith_res, ans_res) if s is not None]
+                        eval_data = {
+                            "context_rel": {"score": ctx_res.score, "justification": ctx_res.justification} if ctx_res else {},
+                            "faithfulness": {"score": faith_res.score, "justification": faith_res.justification} if faith_res else {},
+                            "answer_rel": {"score": ans_res.score, "justification": ans_res.justification} if ans_res else {},
+                            "overall": sum(scores) / len(scores) if scores else 0.0,
+                        }
+                    except Exception as eval_err:
+                        logger.warning("Real-time evaluation error: %s", eval_err)
 
         st.markdown(answer)
 
         if route:
+            badges_html = []
             if route == "simple":
-                st.markdown(
-                    '<span style="background-color: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟢 Route: Simple (Direct Response • No Document Search)</span>',
-                    unsafe_allow_html=True,
+                badges_html.append(
+                    '<span style="background-color: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟢 Route: Simple (Direct Response • No Document Search)</span>'
                 )
             elif route == "basic_rag":
-                st.markdown(
-                    f'<span style="background-color: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🔵 Route: Basic RAG (Standard Retrieval • {retrieval_mode})</span>',
-                    unsafe_allow_html=True,
+                badges_html.append(
+                    f'<span style="background-color: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🔵 Route: Basic RAG (Standard Retrieval • {retrieval_mode})</span>'
                 )
             elif route == "advanced_rag":
                 tech_str = ", ".join(techniques) if techniques else "transforms"
-                st.markdown(
-                    f'<span style="background-color: #f3e8ff; color: #6b21a8; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟣 Route: Advanced RAG ({tech_str})</span>',
-                    unsafe_allow_html=True,
+                badges_html.append(
+                    f'<span style="background-color: #f3e8ff; color: #6b21a8; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🟣 Route: Advanced RAG ({tech_str})</span>'
                 )
+
+            if conf_score is not None:
+                badges_html.append(
+                    f'<span style="background-color: #fef3c7; color: #92400e; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600;">🎯 Relevance Score: {conf_score:.0f}%</span>'
+                )
+
+            st.markdown(" ".join(badges_html), unsafe_allow_html=True)
 
             meta_line = []
             if reason:
@@ -333,6 +454,9 @@ if question:
                 key_prefix=f"curr_{len(st.session_state.chat_history)}",
             )
 
+        if eval_data:
+            render_eval_section(eval_data)
+
         st.session_state.chat_history.append({
             "role": "assistant",
             "content": answer,
@@ -344,5 +468,7 @@ if question:
             "rewritten_query": rewritten_q,
             "latency": latency,
             "cost": cost,
+            "confidence_score": conf_score,
+            "eval_scores": eval_data,
         })
 

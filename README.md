@@ -10,6 +10,7 @@
 [![BM25](https://img.shields.io/badge/BM25-Hybrid%20Search-blue?style=for-the-badge)](https://github.com/dorianbrown/rank_bm25)
 [![CUDA](https://img.shields.io/badge/NVIDIA-CUDA%20Accelerated-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-zone)
 [![Docx](https://img.shields.io/badge/Word%20Documentation-Available-2B579A?style=for-the-badge&logo=microsoftword&logoColor=white)](Bank_Guide_AI_Documentation.docx)
+[![14 Questions Word Report](https://img.shields.io/badge/14%20Questions%20Word%20Report-Available-1A365D?style=for-the-badge&logo=microsoftword&logoColor=white)](reports/Bank_Guide_AI_14_Questions_Benchmark_Report.docx)
 
 **An enterprise-grade, GPU-accelerated Advanced Retrieval-Augmented Generation (RAG) system with Dynamic Routing, 5 Query Transformations, Hybrid Search (Dense + BM25 via RRF), Cross-Encoder Reranking, CRAG, and LLM-as-a-Judge Evaluation, specifically engineered for bilingual (Arabic & English) banking Standard Operating Procedures (SOPs).**
 
@@ -78,9 +79,20 @@ flowchart TD
 
 ## ✨ Key Features & Technical Highlights
 
-- **🧠 Dynamic Query Router (`routing/router.py`)**:
-  - Classifies questions into `simple`, `basic_rag`, or `advanced_rag`.
-  - Saves 60%–93% in latency and eliminates unnecessary vector search costs on conceptual questions (e.g., *What is RAG?*).
+- **🧠 100% Query-Driven Intelligent Dynamic Router (`routing/router.py`)**:
+  - Automatically analyzes question intent, linguistic structure, and procedural complexity to select between `simple`, `basic_rag`, or `advanced_rag`.
+  - **Broad Procedural Workflows**: Inquiries asking "how to handle" situations or multi-step banking procedures (*كيف يتم التعامل مع حالات الجرد؟*, *إجراءات إتلاف الموجودات*) automatically trigger `advanced_rag` with Multi-Query expansion and GPU Cross-Encoder reranking.
+  - **Single-Fact Lookups**: Pinpoint form numbers, document codes, and specific roles (*ما هو رقم نموذج إتلاف المواد؟*, *من المسؤول عن فتح القاصة؟*) route directly to fast `basic_rag`.
+  - **General AI & Chit-Chat**: Conceptual definitions and greetings (*What is RAG?*, *السلام عليكم*) route to `simple` direct LLM generation, saving 60%–93% in latency with zero retrieval overhead.
+- **🎯 Calibrated Retrieval Relevance Scoring (0–100%) (`advanced_rag/pipeline.py`)**:
+  - Scientifically maps Reciprocal Rank Fusion (RRF) index values ($w / (60 + \text{rank})$) to an intuitive, well-calibrated **50%–96%** confidence percentage.
+  - Cross-Encoder logits are converted via sigmoid functions to provide realistic relevance percentages on every retrieved chunk and answer badge.
+- **🖥️ Streamlit Interactive Enterprise Assistant (`app.py`)**:
+  - Clean, clutter-free sidebar with instant controls for retrieval mode (Hybrid, Semantic, BM25), Top-K chunk slider (1–15), and dense/sparse balance.
+  - Native collapsible HTML `<details><summary>` chunk inspection cards displaying page numbers, document sources, and individual chunk retrieval scores.
+  - Live execution metadata badges: Route classification, Relevance Score %, End-to-end Latency, Estimated Cost in USD, and Rewritten Query.
+  - On-demand **Real-Time LLM-as-a-Judge** scoring (Context Relevance, Faithfulness, and Answer Relevance on a 1–5 scale with judge justifications).
+  - Resilient Groq API rate-limit handling with exponential backoff (`max_retries=5`) and graceful UI alerts.
 - **⚙️ 5 Advanced Query Transformations (`advanced_rag/query_transform.py`)**:
   - **Query Rewriting**: Resolves conversational pronouns and injects relevant Arabic terms for English queries.
   - **Multi-Query Expansion**: Generates 3 orthogonal search perspectives to cover multi-faceted banking policies.
@@ -119,6 +131,12 @@ Bank_Guide_AI/
 ├── app.py                              # Streamlit web application & interactive UI
 ├── requirements.txt                    # Python dependencies
 ├── .env.example                        # Environment configuration template
+├── Bank_Guide_AI_Documentation.docx    # Publication-ready Word documentation manual (.docx)
+├── generate_project_documentation.py   # Automated script to build Word documentation
+├── generate_word_report.py             # Generates the 14-question benchmark Word report (.docx)
+│
+├── reports/
+│   └── Bank_Guide_AI_14_Questions_Benchmark_Report.docx  # 14-Questions benchmark report (.docx)
 │
 ├── data/
 │   ├── pdfs/                           # Source banking PDF manuals (78 pages)
@@ -251,6 +269,29 @@ python tests/test_retrieval.py
 ```
 Outputs hit-rate statistics and latency breakdowns to `tests/retrieval_report.md`.
 
+### Run Single-Query Retrieval from CLI
+Test any custom question or targeted procedural sub-query directly from the terminal without modifying files:
+```bash
+python tests/test_retrieval.py --query "ما هو دور نظام الـ BPM في تنظيم العلاقة بين وحدة البريد المركزي ووحدة الموجودات؟" --top-k 5
+```
+
+### Generate 14-Question Benchmark Word Report (.docx)
+To generate the styled, executive Microsoft Word report containing all 14 questions, ground-truth answers, retrieved chunks, hit/miss metrics, and analytical commentary:
+```bash
+python generate_word_report.py
+```
+Outputs are generated with a 100% English executive structure, tables, and metrics, while the queries and ground-truth answers are rendered in authentic Arabic with right-to-left (RTL) formatting at:
+- `reports/Bank_Guide_AI_14_Questions_Query_and_Answer_Report.docx`
+- `reports/Bank_Guide_AI_14_Questions_Benchmark_Report.docx`
+
+### Generate System Technical Documentation Manual (.docx)
+To compile the corporate Microsoft Word technical documentation manual covering end-to-end architecture, routing, hybrid retrieval, and benchmarking:
+```bash
+python generate_documentation_docx.py
+```
+Output is saved to `Bank_Guide_AI_Documentation.docx` (also accessible in Markdown at [DOCUMENTATION.md](DOCUMENTATION.md)).
+
+
 ### Run Chunking Strategy Comparison
 Compare all 5 chunking strategies side-by-side:
 ```bash
@@ -270,6 +311,13 @@ Test classification between `simple`, `basic_rag`, and `advanced_rag`:
 ```bash
 python tests/verify_routing.py
 ```
+
+### Re-Generate Full Project Word Documentation (.docx)
+To regenerate the full technical documentation manual:
+```bash
+python generate_project_documentation.py
+```
+Output is saved to `Bank_Guide_AI_Documentation.docx`.
 
 ### Run Headless Ingestion via CLI
 ```bash
@@ -298,6 +346,7 @@ python -m ingestion.ingest --strategy markdown_heading --chunk-size 800 --chunk-
 - **Reranker**: `BAAI/bge-reranker-v2-m3` (Cross-Encoder running locally on GPU)
 - **Document OCR & Parsing**: Docling with EasyOCR (CRAFT + CRNN) and IBM TableFormer (Accurate Mode)
 - **LLM Engine**: Groq Cloud Platform (`openai/gpt-oss-20b`, `qwen/qwen3.6-27b`, `openai/gpt-oss-120b`)
+- **Documentation Generator**: `python-docx` for automated Word report synthesis
 - **Testing & Benchmarking**: Pytest, Docling verification, Retrieval Hit-Rate Benchmark, Strategy Comparison
 - **Frontend UI**: Streamlit
 
@@ -305,6 +354,8 @@ python -m ingestion.ingest --strategy markdown_heading --chunk-size 800 --chunk-
 
 ## 📄 License & Evaluation Deliverables
 
+- **Technical Manual (.docx)**: [Bank_Guide_AI_Documentation.docx](Bank_Guide_AI_Documentation.docx)
+- **14-Questions Benchmark Word Report (.docx)**: [reports/Bank_Guide_AI_14_Questions_Benchmark_Report.docx](reports/Bank_Guide_AI_14_Questions_Benchmark_Report.docx)
 - **Benchmark Dataset**: [tests/test_rag.md](tests/test_rag.md)
 - **Retrieval Report**: [tests/retrieval_report.md](tests/retrieval_report.md)
 - **Chunking Report**: [tests/chunking_report.md](tests/chunking_report.md)

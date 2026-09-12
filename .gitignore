@@ -13,6 +13,7 @@ ENV/
 
 # Chroma vector database and cached data
 data/chroma/
+data/chroma_backup/
 data/ocr_cache/
 vectorstore/chroma_db/
 vectorstore/ocr_cache/
